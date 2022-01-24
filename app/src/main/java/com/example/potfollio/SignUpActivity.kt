@@ -16,7 +16,7 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var edtPass: EditText
     lateinit var btnSign: Button
     lateinit var sqlDB: SQLiteDatabase
-    lateinit var myHelper:myDBHelper
+    lateinit var dbManager: DBManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         edtPass = findViewById(R.id.edtPass)
         btnSign = findViewById(R.id.btnSign)
 
-        myHelper = myDBHelper(this)
+        dbManager = DBManager(this,"groupTBL",null,1)
 
         btnSign.setOnClickListener {
             if(edtName.text.toString().isBlank()||edtId.text.toString().isBlank()|| edtPass.text.toString().isBlank()){
@@ -37,7 +37,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             else{
                 // 회원가입시에 DB에 내용 저장
-                sqlDB = myHelper.writableDatabase
+                sqlDB = dbManager.writableDatabase
                 sqlDB.execSQL("INSERT INTO groupTBL VALUES ( '"
                         + edtName.text.toString()+ "' , '"
                         + edtId.text.toString() + "' , '"
@@ -51,16 +51,30 @@ class SignUpActivity : AppCompatActivity() {
                 var intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }
+            // 추가할 부분 = 회원가입 시에 사용자들이 서로 동일한 닉네임을 사용할 수 없도록 함. 따라서 사용하고자하는 닉네임이 이미 존재하는 경우에는 막아야함
         }
     }
 
-    inner class myDBHelper(context: Context) : SQLiteOpenHelper(context, "groupDB", null, 1) {
-        override fun onCreate(db: SQLiteDatabase?) {
+    class DBManager(context: Context,
+                    name: String?,
+                    factory: SQLiteDatabase.CursorFactory?,
+                    version: Int
+    ) : SQLiteOpenHelper(context,name,factory,version){
+        override fun onCreate(db: SQLiteDatabase?){
             db!!.execSQL("CREATE TABLE groupTBL ( gName CHAR(20) PRIMARY KEY, gID CHAR(30) NOT NULL, gPass CHAR(30) NOT NULL);")
         }
-        override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("DROP TABLE IF EXISTS groupTBL")
-            onCreate(db)
+
+        override fun onUpgrade(db: SQLiteDatabase?,oldversion: Int, newVersion: Int){
+
         }
     }
+//    inner class myDBHelper(context: Context) : SQLiteOpenHelper(context, "groupDB", null, 1) {
+//        override fun onCreate(db: SQLiteDatabase?) {
+//            db!!.execSQL("CREATE TABLE groupTBL ( gName CHAR(20) PRIMARY KEY, gID CHAR(30) NOT NULL, gPass CHAR(30) NOT NULL);")
+//        }
+//        override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+//            db!!.execSQL("DROP TABLE IF EXISTS groupTBL")
+//            onCreate(db)
+//        }
+//    }
 }
