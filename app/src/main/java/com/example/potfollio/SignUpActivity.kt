@@ -30,21 +30,28 @@ class SignUpActivity : AppCompatActivity() {
         myHelper = myDBHelper(this)
 
         btnSign.setOnClickListener {
-            sqlDB = myHelper.writableDatabase
-            sqlDB.execSQL("INSERT INTO groupTBL VALUES ( '"
-                    + edtName+ "' , '"
-                    + edtId  + "' , '"
-                    + edtPass+"');")
-            sqlDB.close()
+            if(edtName.text.toString().isBlank()||edtId.text.toString().isBlank()|| edtPass.text.toString().isBlank()){
+                // 닉네임, 아이디, 비번은 필수 입력 사항
+                // (수정 완료) 수정필요: 이름,id,pw 모두 입력해야 넘어가는 걸로..
+                Toast.makeText(applicationContext,"닉네임, 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                // 회원가입시에 DB에 내용 저장
+                sqlDB = myHelper.writableDatabase
+                sqlDB.execSQL("INSERT INTO groupTBL VALUES ( '"
+                        + edtName.text.toString()+ "' , '"
+                        + edtId.text.toString() + "' , '"
+                        + edtPass.text.toString()+"');")
+                sqlDB.close()
 
-            Toast.makeText(applicationContext,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show()
+                // 회원가입시에 토스트 메시지 전달
+                Toast.makeText(applicationContext,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show()
 
-            // 수정필요: 이름,id,pw 모두 입력해야 넘어가는 걸로..
-            // 로그인화면으로 전환
-            var intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+                // 로그인화면으로 전환
+                var intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
-
     }
 
     inner class myDBHelper(context: Context) : SQLiteOpenHelper(context, "groupDB", null, 1) {
