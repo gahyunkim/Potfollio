@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="🙌🏼팟폴리오에 오신 것을 환영합니다."
         android:textColor="#918B8B"
@@ -23,7 +23,7 @@
         android:elevation="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:text="팟폴리오에서\n사용할 회원님의 정보를\n등록해주세요."
         android:textColor="#000000"
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:text="이름"
             android:textColor="#000000"
@@ -52,13 +52,13 @@
             android:id="@+id/edtName"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:hint="이름을 입력해주세요." />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:text="아이디"
             android:textColor="#000000"
@@ -69,13 +69,13 @@
             android:id="@+id/edtId"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:hint="아이디를 입력해주세요." />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:text="비밀번호"
             android:textColor="#000000"
@@ -86,14 +86,14 @@
             android:id="@+id/edtPass"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:hint="비밀번호를 입력해주세요." />
 
         <Button
             android:id="@+id/btnSign"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/button"
             android:text="회원가입하기"

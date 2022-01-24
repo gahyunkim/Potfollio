@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="아이디"
         android:textColor="#000000"
@@ -19,7 +19,7 @@
         android:id="@+id/edtlogId"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:hint="아이디를 입력해주세요." />
 
     <TextView
@@ -36,14 +36,14 @@
         android:id="@+id/edtlogPass"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:hint="비밀번호를 입력해주세요." />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:text="자동 로그인하기"
         android:textSize="15dp"/>
 
@@ -51,7 +51,7 @@
         android:id="@+id/btnlog"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button"
         android:text="로그인하기"
@@ -62,7 +62,7 @@
         android:id="@+id/btnJoin"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:background="@drawable/button"
         android:text="회원가입하기"
         android:textSize="15dp"
