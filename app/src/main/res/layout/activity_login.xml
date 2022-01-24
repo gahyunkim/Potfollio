@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="아이디"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtlogId"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:hint="아이디를 입력해주세요." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="비밀번호"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtlogPass"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:hint="비밀번호를 입력해주세요." />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="자동 로그인하기"
+        android:textSize="15dp"/>
+
+    <Button
+        android:id="@+id/btnlog"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button"
+        android:text="로그인하기"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnJoin"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/button"
+        android:text="회원가입하기"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+
+
+</LinearLayout>

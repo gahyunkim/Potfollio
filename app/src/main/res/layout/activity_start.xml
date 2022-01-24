@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="팟폴리오- Pot folio"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="앱에 대한 설명 블라블라😮\n이 앱은 포트폴리오를 만들 수 있는 앱\n이 앱과 함께 발전하고 싶다면?\n지금 바로 시작하세요👏"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:text="시작하기"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

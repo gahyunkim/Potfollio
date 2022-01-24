@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="🙌🏼팟폴리오에 오신 것을 환영합니다."
+        android:textColor="#918B8B"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:elevation="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="팟폴리오에서\n사용할 회원님의 정보를\n등록해주세요."
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4AD5CDCA"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="이름"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="이름을 입력해주세요." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:text="아이디"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtId"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="아이디를 입력해주세요." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:text="비밀번호"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtPass"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="비밀번호를 입력해주세요." />
+
+        <Button
+            android:id="@+id/btnSign"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button"
+            android:text="회원가입하기"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>
