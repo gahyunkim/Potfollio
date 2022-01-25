@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
                     Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-                    var intent = Intent(this, HomeActivity::class.java)
+                    var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
             }
