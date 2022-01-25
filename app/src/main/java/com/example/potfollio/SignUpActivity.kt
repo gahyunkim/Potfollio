@@ -2,6 +2,7 @@ package com.example.potfollio
 
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +53,17 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             // 추가할 부분 = 회원가입 시에 사용자들이 서로 동일한 닉네임을 사용할 수 없도록 함. 따라서 사용하고자하는 닉네임이 이미 존재하는 경우에는 막아야함
+//            sqlDB = dbManager.readableDatabase
+//
+//            var cursor: Cursor
+//            cursor = sqlDB.rawQuery("SELECT gName FROM groupTBL", null)
+//
+//            while(cursor.moveToNext()){
+//                var strName = cursor.getString(0)
+//                if (strName == edtName.text.toString()) {
+//                    Toast.makeText(applicationContext, "사용중인 닉네임입니다.", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         }
     }
 

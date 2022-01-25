@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
             cursor = sqlDB.rawQuery("SELECT gID, gPass FROM groupTBL", null)
             if (sqlDB != null) {
                 while (cursor.moveToNext()) {
+                    cursor.moveToNext()
                     var strId = cursor.getString(0)
                     var strPass = cursor.getString(1)
                     if (strId == edtLogId.text.toString() && strPass == edtLogPass.text.toString()) {
