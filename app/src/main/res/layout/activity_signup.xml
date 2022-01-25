@@ -50,6 +50,7 @@
 
         <EditText
             android:id="@+id/edtName"
+            android:inputType="textNoSuggestions"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -67,6 +68,7 @@
 
         <EditText
             android:id="@+id/edtId"
+            android:inputType="textNoSuggestions"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -84,10 +86,29 @@
 
         <EditText
             android:id="@+id/edtPass"
+            android:inputType="textNoSuggestions"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:hint="비밀번호를 입력해주세요." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:text="비밀번호 재입력"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtRePass"
+            android:inputType="textNoSuggestions"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:hint="비밀번호를 한 번 더 입력해주세요." />
 
         <Button
             android:id="@+id/btnSign"
