@@ -32,33 +32,32 @@ class LoginActivity : AppCompatActivity() {
 
             var cursor: Cursor
             cursor = sqlDB.rawQuery("SELECT gID, gPass FROM groupTBL", null)
-            if (sqlDB != null) {
-                while (cursor.moveToNext()) {
-                    var strId = cursor.getString(0)
-                    var strPass = cursor.getString(1)
-                    if (strId == edtLogId.text.toString() && strPass == edtLogPass.text.toString()) {
-                        var intent = Intent(this, HomeActivity::class.java)
-                        startActivity(intent)
 
-                        Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
-                    }
-                    else {
-                        if (edtLogId.text.toString().isBlank() || edtLogPass.text.toString().isBlank()) {
-                            // 아이디와 비번은 필수 입력 사항
-                            Toast.makeText(applicationContext, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                        }
-                        else{
-                            Toast.makeText(applicationContext, "다시 로그인해주세요.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+            while (cursor.moveToNext()) {
+                var strId = cursor.getString(0)
+                var strPass = cursor.getString(1)
+                if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
+                    Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
+
+                    var intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 }
-                cursor.close()
             }
-            btnJoin.setOnClickListener {
-                // 회원가입 화면으로 이동
-                var intent = Intent(this, SignUpActivity::class.java)
-                startActivity(intent)
+
+            if (edtLogId.text.toString().isBlank() && edtLogPass.text.toString().isBlank()) {
+                // 아이디와 비번은 필수 입력 사항
+                Toast.makeText(applicationContext, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
+            else{
+                Toast.makeText(applicationContext, "다시 로그인해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            cursor.close()
+            sqlDB.close()
+        }
+        btnJoin.setOnClickListener {
+            // 회원가입 화면으로 이동
+            var intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 }
