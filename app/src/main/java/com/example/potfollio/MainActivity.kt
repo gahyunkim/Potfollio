@@ -1,5 +1,6 @@
 package com.example.potfollio
 
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
+    lateinit var sqlDB: SQLiteDatabase
+    lateinit var sdbManager: SearchActivity.SearchDBManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,6 +35,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.tab_main -> { // 메인화면(홈화면)
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).commitAllowingStateLoss()
+                return true
+            }
+            R.id.tab_search ->{
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , SearchFragment()).commitAllowingStateLoss()
+                sdbManager = SearchActivity.SearchDBManager(this, "searchList", null, 2)
+                sqlDB = sdbManager.writableDatabase
                 return true
             }
         }

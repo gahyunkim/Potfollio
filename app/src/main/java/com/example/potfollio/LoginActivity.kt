@@ -5,6 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var btnLog: Button
     lateinit var btnJoin: Button
     lateinit var edtLogId: EditText
+    lateinit var autoLog: CheckBox
     lateinit var edtLogPass: EditText
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
@@ -25,6 +27,9 @@ class LoginActivity : AppCompatActivity() {
         btnJoin = findViewById(R.id.btnJoin)
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
+        autoLog = findViewById(R.id.autoLog)
+
+        loadData()
 
         btnLog.setOnClickListener {
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
@@ -54,10 +59,41 @@ class LoginActivity : AppCompatActivity() {
             cursor.close()
             sqlDB.close()
         }
+
+        // 자동 로그인 구현
+        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
+                //var intent = Intetnt(this,)
+                intent.putExtra("id",edtLogId.text.toString())
+                intent.putExtra("pass",edtLogPass.text.toString())
+            }
+        }
+
         btnJoin.setOnClickListener {
             // 회원가입 화면으로 이동
             var intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+        }
+
+    }
+
+    private fun saveData(id: String, pass: String){
+        var pref = this.getPreferences(0)
+        var editor = pref.edit()
+
+        editor.putString("KEY_ID", edtLogId.text.toString()).apply()
+        editor.putString("KEY_PASS", edtLogPass.text.toString()).apply()
+    }
+
+    private fun loadData(){
+        var pref = this.getPreferences(0)
+        var id = pref.getString("KEY_ID","")
+        var pass = pref.getString("KEY_PASS","")
+
+        if(id != "" && pass != "" ){
+            edtLogId.setText(id.toString())
+            edtLogPass.setText(pass.toString())
         }
     }
 }

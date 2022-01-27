@@ -40,31 +40,24 @@ class SignUpActivity : AppCompatActivity() {
 
             if (cursor.count == 0) {
                 // 데이터베이스에 아무런 행도 없는 경우 = 아직 값이 들어오지 않은 경우
-                if (edtName.text.toString().isBlank() || edtId.text.toString()
-                        .isBlank() || edtPass.text.toString().isBlank() || edtRePass.text.toString()
-                        .isBlank()
-                ) {
+                if (edtName.text.toString().isBlank() || edtId.text.toString().isBlank() || edtPass.text.toString().isBlank() || edtRePass.text.toString().isBlank()) {
                     // 닉네임, 아이디, 비번은 필수 입력 사항
                     // (수정 완료) 수정필요: 이름,id,pw 모두 입력해야 넘어가는 걸로..
-                    Toast.makeText(
-                        applicationContext,
-                        "닉네임, 아이디와 비밀번호를 입력해주세요.",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                } else if (edtName.text.toString().length < 2) {
-                    Toast.makeText(applicationContext, "닉네임을 2자리 이상 입력하세요", Toast.LENGTH_SHORT)
-                        .show()
-                } else if (edtId.text.toString().length < 6) {
-                    Toast.makeText(applicationContext, "아이디를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT)
-                        .show()
-                } else if (edtPass.text.toString().length < 6) {
-                    Toast.makeText(applicationContext, "비밀번호를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT)
-                        .show()
-                } else if (edtRePass.text.toString() != edtPass.text.toString()) {
-                    Toast.makeText(applicationContext, "비밀번호가 다릅니다. 다시 입력하세요", Toast.LENGTH_SHORT)
-                        .show()
-                } else {
+                    Toast.makeText(applicationContext, "닉네임, 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtName.text.toString().length < 2) {
+                    Toast.makeText(applicationContext, "닉네임을 2자리 이상 입력하세요", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtId.text.toString().length < 6) {
+                    Toast.makeText(applicationContext, "아이디를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtPass.text.toString().length < 6) {
+                    Toast.makeText(applicationContext, "비밀번호를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtRePass.text.toString() != edtPass.text.toString()) {
+                    Toast.makeText(applicationContext, "비밀번호가 다릅니다. 다시 입력하세요", Toast.LENGTH_SHORT).show()
+                }
+                else {
                     sqlDB.execSQL(
                         "INSERT INTO groupTBL VALUES ( '"
                                 + edtName.text.toString() + "' , '"
