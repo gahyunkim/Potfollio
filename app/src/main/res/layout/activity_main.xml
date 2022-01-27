@@ -1,162 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sothree.slidinguppanel.SlidingUpPanelLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:gravity="bottom"
-    app:umanoDragView="@id/slide_layout">
+    tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/back_layout"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#42A5F5">
-
-        <TextView
-            android:id="@+id/tv_text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Background Layout"
-            android:textColor="?android:attr/textColorPrimaryInverse"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/slide_layout"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#FF000000"
+        app:itemTextColor="#FF000000">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-        <Button
-            android:id="@+id/btn_touch"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text="터치잠금"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_toggle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_toggle" />
-
-        <Button
-            android:id="@+id/btn_toggle"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="열기"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_enable"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="비활성화"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_toggle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_toggle" />
-
-        <TextView
-            android:id="@+id/tv_slideText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
-            android:text="slideOffset"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_slideOffset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_slideText1" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.sothree.slidinguppanel.SlidingUpPanelLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
         android:orientation="vertical"
-        >
+        tools:context=".MainActivity">
 
-        <LinearLayout
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/main_frame"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+            android:layout_height="605dp"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:gravity="bottom"
+            app:umanoDragView="@id/slide_layout"
+            app:umanoPanelHeight="200dp"
+            app:umanoShadowHeight="5dp">
 
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="620dp">
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/back_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:layout_height="match_parent"
+                android:background="#6DB7F3">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Background Layout"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.050000012" />
 
-            <Button
-                android:id="@+id/btnHome"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="26dp"
-                android:text="홈" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/btnSearch"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="26dp"
-                android:text="검색" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/slide_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round"
+                android:backgroundTint="@null">
 
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="26dp"
-                android:text="추가" />
+                <TextView
+                    android:id="@+id/tv_slideText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="128dp"
+                    android:text="위로 당겨주세요"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnMark"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="30dp"
-                android:text="마크" />
+                <Button
+                    android:id="@+id/btn_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="All Folio"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnMy"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="30dp"
-                android:text="마이" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_slideOffset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="여기에 게시글들 보임"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_slideText1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#FF000000"
+        app:itemTextColor="#FF000000">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="22dp" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="22dp" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="22dp" />
+
+        <Button
+            android:id="@+id/btnMark"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="22dp" />
+
+        <Button
+            android:id="@+id/btnMy"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="22dp" />
+
     </LinearLayout>
-    -->
+
+</LinearLayout>
+-->
