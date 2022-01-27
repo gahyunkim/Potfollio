@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        // val view = binding.root
         setContentView(R.layout.activity_main)
 
         // 하단 네비게이션바
@@ -32,6 +31,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.tab_main -> { // 메인화면(홈화면)
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).commitAllowingStateLoss()
+                return true
+            }
+            R.id.tab_add -> { // 게시글 추가
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , AddFragment()).commitAllowingStateLoss()
                 return true
             }
         }
