@@ -18,7 +18,7 @@
         android:backgroundTint="#00FFFFFF"
         android:gravity="bottom"
         app:umanoDragView="@id/slide_layout"
-        app:umanoPanelHeight="200dp"
+        app:umanoPanelHeight="150dp"
         app:umanoShadowHeight="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,17 +28,85 @@
             android:background="#6DB7F3">
 
             <TextView
-                android:id="@+id/tv_text1"
+                android:id="@+id/hello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Background Layout"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Hello"
                 android:textColor="?android:attr/textColorPrimaryInverse"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.050000012" />
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/potfolio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Pot,Folio"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hello"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/welcom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:lineSpacingExtra="6dp"
+                android:text="Pot,Folio에 오신 여러분들 환영합니다.
+                \nPot,Foilo에서는 제한없이 자신을 표현할 수 있습니다.
+                \n지금부터 여러분을 Pot,Folio에 담아보세요."
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/potfolio"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/HotFolio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Hot Folio"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcom"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btnhot"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#00FFFFFF"
+                android:text="more"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/HotFolio"
+                app:layout_constraintTop_toBottomOf="@+id/welcom"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -83,54 +151,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
-<!--
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_menu"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#FF000000"
-        app:itemTextColor="#FF000000">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
--->
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnHome"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="22dp" />
-
-        <Button
-            android:id="@+id/btnSearch"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="22dp" />
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="22dp" />
-
-        <Button
-            android:id="@+id/btnMark"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="22dp" />
-
-        <Button
-            android:id="@+id/btnMy"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="22dp" />
-
-    </LinearLayout>
--->
 </LinearLayout>
