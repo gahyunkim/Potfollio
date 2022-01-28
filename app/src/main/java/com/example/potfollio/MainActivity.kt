@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
 
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
