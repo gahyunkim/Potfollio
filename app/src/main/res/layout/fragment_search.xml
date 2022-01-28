@@ -18,15 +18,19 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"/>
 
-    <SearchView
-        android:id="@+id/search_bar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="wrap_content">
+        <SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"

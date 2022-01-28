@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
 
-
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).commitAllowingStateLoss()
                 return true
             }
-            R.id.tab_search ->{
+            R.id.tab_search ->{ // 검색창 추가
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , SearchFragment()).commitAllowingStateLoss()
                 sdbManager = SearchActivity.SearchDBManager(this, "searchList", null, 2)
                 sqlDB = sdbManager.writableDatabase
@@ -46,6 +44,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.tab_add -> { // 게시글 추가
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , AddFragment()).commitAllowingStateLoss()
+                return true
+            }
+            R.id.tab_my -> { // 게시글 추가
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
                 return true
             }
         }
