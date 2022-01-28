@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginBottom="605dp"
+        android:text="Pot,Folio"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="231dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="605dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/ic_outline_settings_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginBottom="605dp"
+        android:text="My Folio"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="459dp"
+        android:background="#BCD3D1D1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_card_change"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="명함 수정"
+            android:textSize="10sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/card_frame"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="459dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="HYERI"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/card_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Game Director" />
+
+            <TextView
+                android:id="@+id/card_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다." />
+
+            <TextView
+                android:id="@+id/card_sns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="pp734.k"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/card_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:inputType="phone"
+                android:text="010.6345.6284"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/card_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:inputType="textEmailAddress"
+                android:text="lkeyun3301@gmial.com"
+                android:textAlignment="textEnd" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/profile_camera"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#3F51B5"
+        android:src="@drawable/ic_baseline_camera_alt_24"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="78dp"
+        android:src="@drawable/ic_baseline_folder_open_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="78dp"
+        android:src="@drawable/ic_baseline_folder_open_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

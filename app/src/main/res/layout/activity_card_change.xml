@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCD9D9"
+    tools:context=".CardChangeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/card_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="취소" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="4"
+                android:textAlignment="center"
+                android:text="명함 편집"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/card_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="저장" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이름"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="최대 10자로 입력해주세요."
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="별명(직업)"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="최대 10자로 입력해주세요."
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소개"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="최대 30자로 입력해주세요."
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SNS"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_sns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="당신의 SNS 계정을 공유해보세요."
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전화번호"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="당신의 전화번호를 공유해보세요."
+                android:inputType="phone"
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이메일"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="당신의 이메일을 공유해보세요"
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="링크"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/change_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="당신의 링크를 공유해보세요."
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

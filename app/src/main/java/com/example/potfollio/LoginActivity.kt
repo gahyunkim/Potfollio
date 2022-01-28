@@ -4,11 +4,9 @@ import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 
 class LoginActivity : AppCompatActivity() {
     lateinit var btnLog: Button
@@ -16,8 +14,13 @@ class LoginActivity : AppCompatActivity() {
     lateinit var edtLogId: EditText
     lateinit var autoLog: CheckBox
     lateinit var edtLogPass: EditText
+    lateinit var card_name : TextView
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
+
+//    private val fragmentManager = supportFragmentManager
+//    private lateinit var transaction: FragmentTransaction
+//    private var name = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,25 +31,39 @@ class LoginActivity : AppCompatActivity() {
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
         autoLog = findViewById(R.id.autoLog)
+        //card_name = findViewById(R.id.card_name)
 
         loadData()
+
+//        transaction = fragmentManager.beginTransaction()
+//        transaction.add(R.id.card_frame,MyPageFragment())
+//        transaction.commit()
 
         btnLog.setOnClickListener {
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
             sqlDB = dbManager.readableDatabase
 
+//            transaction = fragmentManager.beginTransaction()
+
             var cursor: Cursor
-            cursor = sqlDB.rawQuery("SELECT gID, gPass FROM groupTBL", null)
+            cursor = sqlDB.rawQuery("SELECT gID, gPass,gName FROM groupTBL", null)
 
             while (cursor.moveToNext()) {
                 var strId = cursor.getString(0)
                 var strPass = cursor.getString(1)
+                var strName = cursor.getString(2)
+//                transaction = fragmentManager.beginTransaction()
+
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
                     Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    //card_name!!.setText(strName.toString())
+//                    transaction = fragmentManager.beginTransaction()
+//                    name = strName
                 }
+//                transaction.commit()
             }
 
             if (edtLogId.text.toString().isBlank() && edtLogPass.text.toString().isBlank()) {
@@ -56,6 +73,7 @@ class LoginActivity : AppCompatActivity() {
             else{
                 Toast.makeText(applicationContext, "다시 로그인해주세요.", Toast.LENGTH_SHORT).show()
             }
+
             cursor.close()
             sqlDB.close()
         }
@@ -96,4 +114,8 @@ class LoginActivity : AppCompatActivity() {
             edtLogPass.setText(pass.toString())
         }
     }
+
+//    fun getname(): String {
+//        return name
+//    }
 }
