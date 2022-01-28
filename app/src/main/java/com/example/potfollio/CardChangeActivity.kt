@@ -35,6 +35,7 @@ class CardChangeActivity : AppCompatActivity() {
         //binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_card_change)
 
+        card_back = findViewById(R.id.card_back)
         card_save = findViewById(R.id.card_save)
         change_name = findViewById(R.id.change_name)
         change_nickname = findViewById(R.id.change_nickname)
@@ -47,6 +48,14 @@ class CardChangeActivity : AppCompatActivity() {
 
         //val fragment: MyPageFragment = supportFragmentManager.findFragmentById(R.id.my_page) as MyPageFragment
         //supportFragmentManager.beginTransaction().add(R.id.linearLayout, MyPageFragment()).commit()
+
+        card_back.setOnClickListener{
+            // 마이페이지로 이동
+            //  메인엑티비티로 전환 -> key값 구분을 통해 마이페이지로 바로 넘어간다.
+            var intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
+            startActivity(intent)
+        }
 
         card_save.setOnClickListener {
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
@@ -82,6 +91,7 @@ class CardChangeActivity : AppCompatActivity() {
 //                val intent = Intent(applicationContext, MyPageFragment::class.java)
 //                startActivity(intent)
             }
+
         }
     }
 }
