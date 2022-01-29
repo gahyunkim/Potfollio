@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         btnJoin = findViewById(R.id.btnJoin)
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
-        autoLog = findViewById(R.id.autoLog)
+//        autoLog = findViewById(R.id.autoLog)
         //card_name = findViewById(R.id.card_name)
 
         loadData()
