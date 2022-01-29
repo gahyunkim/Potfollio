@@ -32,7 +32,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-
                 android:text="Hello"
                 android:textColor="?android:attr/textColorPrimaryInverse"
                 android:textSize="20sp"
@@ -52,7 +51,7 @@
                 android:fontFamily="@string/app_name"
                 android:text="Pot,Folio"
                 android:textColor="?android:attr/textColorPrimaryInverse"
-                android:textSize="35sp"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -70,8 +69,9 @@
                 android:text="Pot,Folio에 오신 여러분들 환영합니다.
                 \nPot,Foilo에서는 제한없이 자신을 표현할 수 있습니다.
                 \n지금부터 여러분을 Pot,Folio에 담아보세요."
+                android:fontFamily="@font/notosans_regular"
                 android:textColor="?android:attr/textColorPrimaryInverse"
-                android:textSize="12sp"
+                android:textSize="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
