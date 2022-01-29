@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
     lateinit var sqlDB: SQLiteDatabase
     lateinit var sdbManager: SearchActivity.SearchDBManager
-    lateinit var adddbManager: AddFragment.DBManager
+    //lateinit var adddbManager: AddFragment.DBManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

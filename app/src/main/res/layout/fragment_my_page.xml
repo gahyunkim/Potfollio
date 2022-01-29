@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SearchActivity">
+    tools:context=".SearchActivity"
+    android:id="@+id/myfrag">
 
     <TextView
         android:id="@+id/textView"
@@ -102,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="HYERI"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -111,8 +111,7 @@
                 android:id="@+id/card_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="Game Director" />
+                android:layout_marginStart="20dp" />
 
             <TextView
                 android:id="@+id/card_info"

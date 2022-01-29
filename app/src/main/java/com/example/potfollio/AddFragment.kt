@@ -84,7 +84,7 @@ class AddFragment : Fragment(), View.OnClickListener {
                             + currentImageUrl.toString() + "');"
                 )
                 sqlDB.close()
-                // 이미지 저장 완료 문구
+//                // 이미지 저장 완료 문구
                 Toast.makeText(activity, "이미지 저장 완료.", Toast.LENGTH_SHORT).show()
 
                 try{

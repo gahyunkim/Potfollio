@@ -1,7 +1,5 @@
 package com.example.potfollio
 
-import android.Manifest
-import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
@@ -26,13 +24,16 @@ class LoginActivity : AppCompatActivity() {
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
 
-//    private val REQUEST_READ_EXTERNAL_STORAGE = 1000
-
 //    private val fragmentManager = supportFragmentManager
 //    private lateinit var transaction: FragmentTransaction
 //    private var name = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val myfragment = MyPageFragment()
+        val bundle = Bundle()
+        myfragment.arguments = bundle
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -43,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
 //        autoLog = findViewById(R.id.autoLog)
         //card_name = findViewById(R.id.card_name)
 
+        // 로그인 후에 다시 들어왔을 때 로그인 내용 저장되어있도록 하는 부분
         loadData()
 
 //        transaction = fragmentManager.beginTransaction()
@@ -50,8 +52,10 @@ class LoginActivity : AppCompatActivity() {
 //        transaction.commit()
 
         btnLog.setOnClickListener {
+
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
             sqlDB = dbManager.readableDatabase
+
 
 //            transaction = fragmentManager.beginTransaction()
 
@@ -65,7 +69,12 @@ class LoginActivity : AppCompatActivity() {
 //                transaction = fragmentManager.beginTransaction()
 
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
-                    Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, strName+"님"+" 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+
+                    val myfragment = MyPageFragment()
+                    val bundle = Bundle()
+                    bundle.putString("name",strName)
+                    myfragment.arguments = bundle
 
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
@@ -87,17 +96,17 @@ class LoginActivity : AppCompatActivity() {
             cursor.close()
             sqlDB.close()
         }
-/*
+
         // 자동 로그인 구현
-        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
-                //var intent = Intetnt(this,)
-                intent.putExtra("id",edtLogId.text.toString())
-                intent.putExtra("pass",edtLogPass.text.toString())
-            }
-        }
-*/
+//        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if(isChecked){
+//                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
+//                //var intent = Intetnt(this,)
+//                intent.putExtra("id",edtLogId.text.toString())
+//                intent.putExtra("pass",edtLogPass.text.toString())
+//            }
+//        }
+
         btnJoin.setOnClickListener {
             // 회원가입 화면으로 이동
             var intent = Intent(this, SignUpActivity::class.java)
