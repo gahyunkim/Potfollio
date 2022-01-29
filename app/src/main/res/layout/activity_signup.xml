@@ -13,7 +13,7 @@
         android:id="@+id/imageView8"
         android:layout_width="92dp"
         android:layout_height="105dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_gravity="center"
 
         app:srcCompat="@drawable/logo_red" />
@@ -32,57 +32,64 @@
     <EditText
             android:id="@+id/edtName"
             android:inputType="textNoSuggestions"
+            android:paddingLeft="20dp"
             android:layout_width="245dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:textSize="15dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
             android:fontFamily="@font/notosans_medium"
             android:hint="이름을 입력해주세요." />
 
         <EditText
             android:id="@+id/edtId"
             android:inputType="textNoSuggestions"
+            android:paddingLeft="20dp"
             android:layout_width="245dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="15dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
             android:fontFamily="@font/notosans_medium"
             android:hint="아이디를 입력해주세요." />
 
         <EditText
             android:id="@+id/edtPass"
             android:inputType="textNoSuggestions"
+            android:paddingLeft="20dp"
             android:layout_width="245dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="15dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
             android:fontFamily="@font/notosans_medium"
             android:hint="비밀번호를 입력해주세요." />
 
         <EditText
             android:id="@+id/edtRePass"
             android:inputType="textNoSuggestions"
+            android:paddingLeft="20dp"
             android:layout_width="245dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="15dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
             android:fontFamily="@font/notosans_medium"
             android:hint="비밀번호를 한 번 더 입력해주세요." />
 
         <Button
             android:id="@+id/btnSign"
             android:layout_width="245dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:background="@drawable/roundbutton_navy"
-            android:backgroundTint="#45494A"
             android:fontFamily="@font/notosans_bold"
-            android:text="회원가입하기"
+            android:text="회원가입"
             android:textSize="15dp"
             android:textColor="@color/white" />
 

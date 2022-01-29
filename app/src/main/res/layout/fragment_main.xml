@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF"
-    android:backgroundTint="#00FFFFFF"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -33,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
+
                 android:text="Hello"
                 android:textColor="?android:attr/textColorPrimaryInverse"
                 android:textSize="20sp"
@@ -41,6 +41,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@string/app_name"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -48,6 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:fontFamily="@string/app_name"
                 android:text="Pot,Folio"
                 android:textColor="?android:attr/textColorPrimaryInverse"
                 android:textSize="35sp"
@@ -83,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@string/app_name"
                 android:text="Hot Folio"
                 android:textColor="?android:attr/textColorPrimaryInverse"
                 android:textSize="35sp"

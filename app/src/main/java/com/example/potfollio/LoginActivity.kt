@@ -78,15 +78,15 @@ class LoginActivity : AppCompatActivity() {
             sqlDB.close()
         }
 
-        // 자동 로그인 구현
-        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
-                //var intent = Intetnt(this,)
-                intent.putExtra("id",edtLogId.text.toString())
-                intent.putExtra("pass",edtLogPass.text.toString())
-            }
-        }
+//        // 자동 로그인 구현
+//        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if(isChecked){
+//                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
+//                //var intent = Intetnt(this,)
+//                intent.putExtra("id",edtLogId.text.toString())
+//                intent.putExtra("pass",edtLogPass.text.toString())
+//            }
+//        }
 
         btnJoin.setOnClickListener {
             // 회원가입 화면으로 이동
