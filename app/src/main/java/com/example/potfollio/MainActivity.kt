@@ -3,6 +3,7 @@ package com.example.potfollio
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.potfollio.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
 
+        // CardChangeActivity.kt 에서 나왔을 때 바로 마이페이지가 보이도록 한다.
+        if (intent.hasExtra("MyPage")) { // "MyPage"라는 이름이 key값에 저장되어 있다면 마이페이지로 이동
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -36,7 +41,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).commitAllowingStateLoss()
                 return true
             }
-            R.id.tab_search ->{ // 검색창 추가
+            R.id.tab_search ->{ // 검색창
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , SearchFragment()).commitAllowingStateLoss()
                 sdbManager = SearchActivity.SearchDBManager(this, "searchList", null, 2)
                 sqlDB = sdbManager.writableDatabase
@@ -46,7 +51,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , AddFragment()).commitAllowingStateLoss()
                 return true
             }
-            R.id.tab_my -> { // 게시글 추가
+            R.id.tab_my -> { // 마이페이지
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
                 return true
             }

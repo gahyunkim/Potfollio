@@ -12,6 +12,9 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import java.lang.Exception
 
+
+// 지워도 되는 액티비티..!
+
 class AddActivity : AppCompatActivity(){
     lateinit var btnSelect : Button
     lateinit var imgView1 : ImageView
