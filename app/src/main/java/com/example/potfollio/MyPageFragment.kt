@@ -25,18 +25,13 @@ class MyPageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-
         return inflater.inflate(R.layout.fragment_my_page, container, false)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        var bundle = this.arguments
+        var bundle = arguments
 
         val nameData = arguments?.getString("name")
         val card_name = view?.findViewById<TextView>(R.id.card_name)
@@ -64,6 +59,7 @@ class MyPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val btn_card_change : Button = view.findViewById(R.id.btn_card_change)
+        val card_name = view.findViewById<TextView>(R.id.card_name)
 
 //        val data = arguments?.getString("nickname")
 //        val card_nickname = view.findViewById<TextView>(R.id.card_nickname)
@@ -80,5 +76,6 @@ class MyPageFragment : Fragment() {
             startActivity(intent)
             Toast.makeText(getActivity(), "명함을 수정해보세요!", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

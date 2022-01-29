@@ -24,10 +24,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
 
-//    private val fragmentManager = supportFragmentManager
-//    private lateinit var transaction: FragmentTransaction
-//    private var name = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val myfragment = MyPageFragment()
@@ -41,23 +37,18 @@ class LoginActivity : AppCompatActivity() {
         btnJoin = findViewById(R.id.btnJoin)
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
-//        autoLog = findViewById(R.id.autoLog)
-        //card_name = findViewById(R.id.card_name)
 
         // 로그인 후에 다시 들어왔을 때 로그인 내용 저장되어있도록 하는 부분
         loadData()
 
-//        transaction = fragmentManager.beginTransaction()
-//        transaction.add(R.id.card_frame,MyPageFragment())
-//        transaction.commit()
-
         btnLog.setOnClickListener {
+            val myfragment = MyPageFragment()
+            val bundle = Bundle()
+            bundle.putString("name","이름이 뭐니")
+            myfragment.arguments = bundle
 
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
             sqlDB = dbManager.readableDatabase
-
-
-//            transaction = fragmentManager.beginTransaction()
 
             var cursor: Cursor
             cursor = sqlDB.rawQuery("SELECT gID, gPass,gName FROM groupTBL", null)
@@ -66,23 +57,18 @@ class LoginActivity : AppCompatActivity() {
                 var strId = cursor.getString(0)
                 var strPass = cursor.getString(1)
                 var strName = cursor.getString(2)
-//                transaction = fragmentManager.beginTransaction()
 
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
                     Toast.makeText(applicationContext, strName+"님"+" 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-                    val myfragment = MyPageFragment()
-                    val bundle = Bundle()
-                    bundle.putString("name",strName)
-                    myfragment.arguments = bundle
+//                    val myfragment = MyPageFragment()
+//                    val bundle = Bundle()
+//                    bundle.putString("name",strName)
+//                    myfragment.arguments = bundle
 
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-                    //card_name!!.setText(strName.toString())
-//                    transaction = fragmentManager.beginTransaction()
-//                    name = strName
                 }
-//                transaction.commit()
             }
 
             if (edtLogId.text.toString().isBlank() && edtLogPass.text.toString().isBlank()) {
@@ -176,7 +162,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-//    fun getname(): String {
-//        return name
-//    }
 }
