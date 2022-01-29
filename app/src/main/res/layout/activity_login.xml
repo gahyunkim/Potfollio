@@ -62,7 +62,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:hint="비밀번호를 입력해주세요." />
+        android:hint="FW" />
 
     <Button
         android:id="@+id/btnLog"
