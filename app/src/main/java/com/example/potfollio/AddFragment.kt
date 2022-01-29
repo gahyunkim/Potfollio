@@ -42,7 +42,7 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dbManager = AddFragment.DBManager(activity!!, "groupTBL", null, 1)
+        dbManager = AddFragment.DBManager(activity!!, "imageTBL", null, 1)
         sqlDB = dbManager.writableDatabase
     }
 
@@ -127,7 +127,7 @@ class AddFragment : Fragment(), View.OnClickListener {
         version: Int
     ) : SQLiteOpenHelper(context, name, factory, version) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE imageTBL ( image URI );")
+            db!!.execSQL("CREATE TABLE imageTBL ( image STRING );")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {

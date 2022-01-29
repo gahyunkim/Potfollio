@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.tab_add -> { // 게시글 추가
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , AddFragment()).commitAllowingStateLoss()
-                adddbManager = AddFragment.DBManager(this, "imageTBL", null, 2)
-                sqlDB = sdbManager.writableDatabase
+//                adddbManager = AddFragment.DBManager(this, "imageTBL", null, 2)
+//                sqlDB = sdbManager.writableDatabase
                 return true
             }
             R.id.tab_my -> { // 마이페이지
