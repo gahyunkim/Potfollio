@@ -65,12 +65,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,10 +100,7 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,10 +132,7 @@
         </LinearLayout>
 
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
+
 
 
         <LinearLayout
@@ -170,10 +163,7 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
+
 
 
         <LinearLayout
@@ -204,10 +194,6 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
 
 
         <LinearLayout
@@ -239,10 +225,6 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
 
 
         <LinearLayout
@@ -274,17 +256,12 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_gravity="bottom|end"
-           >
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -310,10 +287,6 @@
 
         </LinearLayout>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#00ff00" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

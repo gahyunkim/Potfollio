@@ -22,19 +22,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        // 로그인 액티비티로부터 intent로 값을 받아옴
-        //var data: String = intent.getStringExtra("name")!!
-
-//        transaction = fragmentManager.beginTransaction()
-//        transaction.add(R.id.linearLayout, MyPageFragment())
-//        transaction.commit()
-
-//        val myfragment = MyPageFragment()
-//        val bundle = Bundle()
-//        bundle.putString("name",data)
-//        Log.e("tag", data+"보내졌습니다.")
-//        myfragment.arguments = bundle
-
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
@@ -48,13 +35,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         // CardChangeActivity.kt 에서 나왔을 때 바로 마이페이지가 보이도록 한다.
         if (intent.hasExtra("MyPage")) { // "MyPage"라는 이름이 key값에 저장되어 있다면 마이페이지로 이동
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
+            //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
+
+            transaction = fragmentManager.beginTransaction()
+                transaction.add(R.id.linearLayout, MyPageFragment())
+                transaction.commit()
+
+                val bundle = Bundle()
+                bundle.putString("name", intent.getStringExtra("name"))
+                //bundle.putString("nickname",nickname)
+                transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
         }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//        var data: String = intent.getStringExtra("name")!!
 
-        var data: String = intent.getStringExtra("name")!!
         // 하단 네비게이션바 메뉴 클릭시 이벤트
         when(item.itemId) {
 
@@ -75,13 +71,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.tab_my -> { // 마이페이지
-//                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
+                //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
+
                 transaction = fragmentManager.beginTransaction()
                 transaction.add(R.id.linearLayout, MyPageFragment())
                 transaction.commit()
 
                 val bundle = Bundle()
-                bundle.putString("name", data)
+                bundle.putString("name", intent.getStringExtra("name"))
+                bundle.putString("nickname",intent.getStringExtra("nickname"))
                 transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
 
                 return true
