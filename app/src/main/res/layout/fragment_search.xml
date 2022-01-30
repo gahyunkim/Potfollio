@@ -11,6 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/app_name"
         android:text="Pot,Folio"
         android:textColor="#000000"
         android:textSize="25dp"
@@ -35,30 +36,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="최근 검색어"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        tools:listitem="@layout/item_listview"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="추천 검색어"
+        android:fontFamily="@font/notosans_bold"
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -103,6 +82,7 @@
             android:layout_width="190dp"
             android:layout_height="270dp"
             android:background="#8B4C4C4C"
+            android:elevation="10dp"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -110,7 +90,7 @@
             app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.097">
+            app:layout_constraintVertical_bias="0.312">
 
             <TextView
                 android:id="@+id/textView2"
@@ -153,13 +133,14 @@
             android:layout_height="270dp"
             android:background="#8B4C4C4C"
             android:clickable="true"
+            android:elevation="10dp"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.959"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.097">
+            app:layout_constraintVertical_bias="0.312">
 
             <TextView
                 android:id="@+id/textView5"

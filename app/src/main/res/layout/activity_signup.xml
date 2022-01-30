@@ -5,121 +5,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/grey2"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:text="🙌🏼팟폴리오에 오신 것을 환영합니다."
-        android:textColor="#918B8B"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="92dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+
+        app:srcCompat="@drawable/logo_red" />
 
     <TextView
-        android:elevation="10dp"
+        android:id="@+id/AppName_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:text="팟폴리오에서\n사용할 회원님의 정보를\n등록해주세요."
-        android:textColor="#000000"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/app_name"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:text="Pot, Folio" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#4AD5CDCA"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:text="이름"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <EditText
+    <EditText
             android:id="@+id/edtName"
             android:inputType="textNoSuggestions"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:paddingLeft="20dp"
+            android:layout_width="245dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
+            android:fontFamily="@font/notosans_medium"
             android:hint="이름을 입력해주세요." />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:text="아이디"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtId"
             android:inputType="textNoSuggestions"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:paddingLeft="20dp"
+            android:layout_width="245dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
+            android:fontFamily="@font/notosans_medium"
             android:hint="아이디를 입력해주세요." />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:text="비밀번호"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtPass"
             android:inputType="textNoSuggestions"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:paddingLeft="20dp"
+            android:layout_width="245dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
+            android:fontFamily="@font/notosans_medium"
             android:hint="비밀번호를 입력해주세요." />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:text="비밀번호 재입력"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtRePass"
             android:inputType="textNoSuggestions"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:paddingLeft="20dp"
+            android:layout_width="245dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundbutton_white"
+            android:textSize="12dp"
+            android:fontFamily="@font/notosans_medium"
             android:hint="비밀번호를 한 번 더 입력해주세요." />
 
         <Button
             android:id="@+id/btnSign"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_width="245dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:background="@drawable/button"
-            android:text="회원가입하기"
+            android:background="@drawable/roundbutton_navy"
+            android:fontFamily="@font/notosans_bold"
+            android:text="회원가입"
             android:textSize="15dp"
-            android:textStyle="bold" />
+            android:textColor="@color/white" />
 
-    </LinearLayout>
 </LinearLayout>
