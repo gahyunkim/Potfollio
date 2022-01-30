@@ -32,8 +32,9 @@ class MyPageFragment : Fragment() {
         val card_name = view?.findViewById<TextView>(R.id.card_name)
 
         var text = arguments?.getString("name","이름")
-        card_name?.text = text.toString()
-        Log.e("data", "제발 보여줘 내 이름 " + text.toString())
+        var uptext = text?.toUpperCase()
+        card_name?.text = uptext.toString()
+//        Log.e("data", "제발 보여줘 내 이름 " + text.toString())
         super.onActivityCreated(savedInstanceState)
     }
 
