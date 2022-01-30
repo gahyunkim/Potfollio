@@ -2,9 +2,11 @@ package com.example.potfollio
 
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.example.potfollio.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -12,9 +14,26 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
     lateinit var sqlDB: SQLiteDatabase
     lateinit var sdbManager: SearchActivity.SearchDBManager
+
+    private val fragmentManager = supportFragmentManager
+    private lateinit var transaction: FragmentTransaction
+
     //lateinit var adddbManager: AddFragment.DBManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // 로그인 액티비티로부터 intent로 값을 받아옴
+        //var data: String = intent.getStringExtra("name")!!
+
+//        transaction = fragmentManager.beginTransaction()
+//        transaction.add(R.id.linearLayout, MyPageFragment())
+//        transaction.commit()
+
+//        val myfragment = MyPageFragment()
+//        val bundle = Bundle()
+//        bundle.putString("name",data)
+//        Log.e("tag", data+"보내졌습니다.")
+//        myfragment.arguments = bundle
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,6 +54,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
+        var data: String = intent.getStringExtra("name")!!
         // 하단 네비게이션바 메뉴 클릭시 이벤트
         when(item.itemId) {
 
@@ -55,11 +75,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.tab_my -> { // 마이페이지
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
+//                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
+                transaction = fragmentManager.beginTransaction()
+                transaction.add(R.id.linearLayout, MyPageFragment())
+                transaction.commit()
+
+                val bundle = Bundle()
+                bundle.putString("name", data)
+                transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
+
                 return true
             }
         }
-
         return false
     }
 

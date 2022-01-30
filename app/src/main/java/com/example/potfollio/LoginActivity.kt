@@ -26,9 +26,9 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val myfragment = MyPageFragment()
-        val bundle = Bundle()
-        myfragment.arguments = bundle
+//        val myfragment = MyPageFragment()
+//        val bundle = Bundle()
+//        myfragment.arguments = bundle
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -42,10 +42,6 @@ class LoginActivity : AppCompatActivity() {
         loadData()
 
         btnLog.setOnClickListener {
-            val myfragment = MyPageFragment()
-            val bundle = Bundle()
-            bundle.putString("name","이름이 뭐니")
-            myfragment.arguments = bundle
 
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
             sqlDB = dbManager.readableDatabase
@@ -61,12 +57,9 @@ class LoginActivity : AppCompatActivity() {
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
                     Toast.makeText(applicationContext, strName+"님"+" 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-//                    val myfragment = MyPageFragment()
-//                    val bundle = Bundle()
-//                    bundle.putString("name",strName)
-//                    myfragment.arguments = bundle
-
                     var intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("name",strName)
+//                    Log.d("Log",strName+"보내졌습니다")
                     startActivity(intent)
                 }
             }
@@ -98,6 +91,7 @@ class LoginActivity : AppCompatActivity() {
             var intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
 
 /*          // (갤러리 접근)
             // 권한이 부여되었는지 확인
@@ -161,5 +155,4 @@ class LoginActivity : AppCompatActivity() {
             edtLogPass.setText(pass.toString())
         }
     }
-
 }
