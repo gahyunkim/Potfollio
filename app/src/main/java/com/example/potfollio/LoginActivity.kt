@@ -1,13 +1,19 @@
 package com.example.potfollio
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentTransaction
 
+@Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
     lateinit var btnLog: Button
     lateinit var btnJoin: Button
@@ -18,11 +24,12 @@ class LoginActivity : AppCompatActivity() {
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
 
-//    private val fragmentManager = supportFragmentManager
-//    private lateinit var transaction: FragmentTransaction
-//    private var name = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val myfragment = MyPageFragment()
+        val bundle = Bundle()
+        myfragment.arguments = bundle
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -30,20 +37,18 @@ class LoginActivity : AppCompatActivity() {
         btnJoin = findViewById(R.id.btnJoin)
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
-//        autoLog = findViewById(R.id.autoLog)
-        //card_name = findViewById(R.id.card_name)
 
+        // 로그인 후에 다시 들어왔을 때 로그인 내용 저장되어있도록 하는 부분
         loadData()
 
-//        transaction = fragmentManager.beginTransaction()
-//        transaction.add(R.id.card_frame,MyPageFragment())
-//        transaction.commit()
-
         btnLog.setOnClickListener {
+            val myfragment = MyPageFragment()
+            val bundle = Bundle()
+            bundle.putString("name","이름이 뭐니")
+            myfragment.arguments = bundle
+
             dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
             sqlDB = dbManager.readableDatabase
-
-//            transaction = fragmentManager.beginTransaction()
 
             var cursor: Cursor
             cursor = sqlDB.rawQuery("SELECT gID, gPass,gName FROM groupTBL", null)
@@ -52,18 +57,18 @@ class LoginActivity : AppCompatActivity() {
                 var strId = cursor.getString(0)
                 var strPass = cursor.getString(1)
                 var strName = cursor.getString(2)
-//                transaction = fragmentManager.beginTransaction()
 
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
-                    Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, strName+"님"+" 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+
+//                    val myfragment = MyPageFragment()
+//                    val bundle = Bundle()
+//                    bundle.putString("name",strName)
+//                    myfragment.arguments = bundle
 
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-                    //card_name!!.setText(strName.toString())
-//                    transaction = fragmentManager.beginTransaction()
-//                    name = strName
                 }
-//                transaction.commit()
             }
 
             if (edtLogId.text.toString().isBlank() && edtLogPass.text.toString().isBlank()) {
@@ -78,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             sqlDB.close()
         }
 
-//        // 자동 로그인 구현
+        // 자동 로그인 구현
 //        autoLog.setOnCheckedChangeListener { buttonView, isChecked ->
 //            if(isChecked){
 //                saveData(edtLogId.text.toString(), edtLogPass.text.toString())
@@ -94,6 +99,48 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+/*          // (갤러리 접근)
+            // 권한이 부여되었는지 확인
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            //권한이 허용되지 않음
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)){
+                // 이전에 이미 권한이 거부되었을 때 설명
+                var dlg = AlertDialog.Builder(this)
+                dlg.setTitle("권한이 필요한 이유")
+                dlg.setMessage("사진 정보를 얻기 위해서는 외부 저장소 권한이 필수로 필요합니다")
+                dlg.setPositiveButton("확인") {dialog, which -> ActivityCompat.requestPermissions(this@LoginActivity,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_EXTERNAL_STORAGE)}
+                dlg.setNegativeButton("취소", null)
+                dlg.show()
+            } else {
+                // 처음 권한 요청
+                ActivityCompat.requestPermissions(this@LoginActivity,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_EXTERNAL_STORAGE)
+            }
+        } else{
+            //권한이 이미 허용됨
+            getAllPhotos()
+        }
+    }
+
+    private fun getAllPhotos(){
+        // 모든 사진 정보 가져오기
+        val cursor = contentResolver.query(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            null, null, null,
+            MediaStore.Images.ImageColumns.DATE_TAKEN+ " DESC")
+
+        if(cursor != null){
+            while(cursor.moveToNext()) {
+
+                //  사진 경로 Uri 가져오기
+                val uri = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+                Log.d("LoginActivity",uri)
+            }
+            cursor.close()
+        } */
     }
 
     private fun saveData(id: String, pass: String){
@@ -115,7 +162,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-//    fun getname(): String {
-//        return name
-//    }
 }

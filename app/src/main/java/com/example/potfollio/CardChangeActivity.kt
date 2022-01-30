@@ -11,12 +11,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.potfollio.databinding.ActivityMainBinding
 
 
 class CardChangeActivity : AppCompatActivity() {
-    //private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
-
     lateinit var card_back : Button
     lateinit var card_save : Button
     lateinit var change_name : EditText
@@ -30,10 +29,15 @@ class CardChangeActivity : AppCompatActivity() {
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
 
+//    lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_card_change)
+
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        val view = binding.root
+//        setContentView(view)
 
         card_back = findViewById(R.id.card_back)
         card_save = findViewById(R.id.card_save)
@@ -44,14 +48,10 @@ class CardChangeActivity : AppCompatActivity() {
         change_phone = findViewById(R.id.change_phone)
         change_mail = findViewById(R.id.change_mail)
         change_link = findViewById(R.id.change_link)
-        //card_name = findViewById(R.id.card_name)
-
-        //val fragment: MyPageFragment = supportFragmentManager.findFragmentById(R.id.my_page) as MyPageFragment
-        //supportFragmentManager.beginTransaction().add(R.id.linearLayout, MyPageFragment()).commit()
 
         card_back.setOnClickListener{
             // 마이페이지로 이동
-            //  메인엑티비티로 전환 -> key값 구분을 통해 마이페이지로 바로 넘어간다.
+            // 메인엑티비티로 전환 -> key값 구분을 통해 마이페이지로 바로 넘어간다.
             var intent = Intent(this, MainActivity::class.java)
             intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
             startActivity(intent)
@@ -79,9 +79,17 @@ class CardChangeActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "소개를 최대 30자로 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else{
-                //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
-//                return true
+                if(change_nickname.text.isNotBlank()){
+                    val myfragment : MyPageFragment = MyPageFragment()
+                    val bundle = Bundle(1)
+                    myfragment.arguments = bundle
 
+                    bundle.putString("nickname",change_nickname.text.toString())
+                }
+
+                var intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
+                startActivity(intent)
 //                sqlDB = dbManager.writableDatabase
 //                sqlDB.execSQL("UPDATE groupTBL SET gName =" + change_name.text+" WHERE gName =" +   )
 //                // 비어있는 에디트 텍스트가 존재하는 경우에는 어떤 곳이 존재하는 지 확인하고 값을 넣어야 함
@@ -91,7 +99,6 @@ class CardChangeActivity : AppCompatActivity() {
 //                val intent = Intent(applicationContext, MyPageFragment::class.java)
 //                startActivity(intent)
             }
-
         }
     }
 }
