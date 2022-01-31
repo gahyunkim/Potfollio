@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 //        var data: String = intent.getStringExtra("name")!!
 
+        var data: String = intent.getStringExtra("name")!!
         // 하단 네비게이션바 메뉴 클릭시 이벤트
         when(item.itemId) {
 
@@ -72,8 +73,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.tab_my -> { // 마이페이지
-                //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
-
+//                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
                 transaction = fragmentManager.beginTransaction()
                 transaction.add(R.id.linearLayout, MyPageFragment())
                 transaction.commit()
