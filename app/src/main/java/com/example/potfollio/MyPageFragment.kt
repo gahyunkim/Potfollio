@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 //@Suppress("DEPRECATION")
 
@@ -22,11 +24,6 @@ class MyPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        val card_name = view?.findViewById<TextView>(R.id.card_name)
-//
-//        var text = arguments?.getString("name")
-//        var uptext= text?.toUpperCase()
-//        card_name?.text = uptext.toString()
 
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
@@ -63,9 +60,14 @@ class MyPageFragment : Fragment() {
 
     override fun onResume() {
         //var nickname = arguments?.getString("nickname","Game Director")
+//        val card_name = view?.findViewById<TextView>(R.id.card_name)
+//
+//        var text = arguments?.getString("name")
+//        var uptext= text?.toUpperCase()
+//        card_name?.text = uptext.toString()
+//
 //        val card_nickname = view?.findViewById<TextView>(R.id.card_nickname)
-//        card_nickname?.text = arguments?.getString("nickname","Game Director")
-
+//        card_nickname?.text = arguments?.getString("nickname","Game d")
         super.onResume()
     }
 
@@ -73,15 +75,16 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btn_card_change : Button = view.findViewById(R.id.btn_card_change)
         val card_name = view.findViewById<TextView>(R.id.card_name)
+
         var text = arguments?.getString("name", "이름")
         var uptext= text?.toUpperCase()
         card_name.text = uptext.toString()
 
         btn_card_change.setOnClickListener{
             val intent = Intent(getActivity(), CardChangeActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(getActivity(), "명함을 수정해보세요!", Toast.LENGTH_SHORT).show();
+            intent.putExtra("cardName",arguments?.getString("name"))
+            startActivityForResult(intent,101)
+            Toast.makeText(getActivity(), "명함을 수정해보세요!", Toast.LENGTH_SHORT).show()
         }
     }
-
 }

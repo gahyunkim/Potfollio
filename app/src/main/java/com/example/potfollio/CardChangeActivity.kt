@@ -1,7 +1,12 @@
 package com.example.potfollio
 
+import android.content.Context
+import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,7 +25,7 @@ class CardChangeActivity : AppCompatActivity() {
     lateinit var change_link: EditText
 
     lateinit var sqlDB: SQLiteDatabase
-    lateinit var dbManager: SignUpActivity.DBManager
+    lateinit var dbManager: DBManager
 
     private val fragmentManager = supportFragmentManager
     private lateinit var transaction: FragmentTransaction
@@ -38,12 +43,36 @@ class CardChangeActivity : AppCompatActivity() {
         change_mail = findViewById(R.id.change_mail)
         change_link = findViewById(R.id.change_link)
 
-        val myFragment = MyPageFragment()
+        dbManager = DBManager(this, "CardTBL", null, 1)
+        sqlDB = dbManager.writableDatabase
 
-        val bundle: Bundle = Bundle() // 파라미터의 숫자는 전달하려는 값의 갯수
+        var cardName= intent.getStringExtra("cardName")
 
-        bundle.putString("key", "value")
-        myFragment.arguments =bundle
+        var cursor: Cursor
+        cursor = sqlDB.rawQuery(
+            "SELECT Name FROM CardTBL WHERE Name='" + intent.getStringExtra("cardName") + "'",
+            null
+        )
+
+        if(cursor.count==0){
+            sqlDB.execSQL(
+                    "INSERT INTO CardTBL VALUES ( '"
+                            + intent.getStringExtra("cardName").toString()+ "' , '"
+                            + "Game Director" + "' , '"
+                            + "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다." + "' , '"
+                            + "pp734.k" + "' , '"
+                            + "010.6345.6284" + "' , '"
+                            + "Ikeyun3301@gmail.com" + "' , '"
+                            + " " + "');"
+                )
+        }
+
+//        val myFragment = MyPageFragment()
+//
+//        val bundle: Bundle = Bundle() // 파라미터의 숫자는 전달하려는 값의 갯수
+//
+//        bundle.putString("key", "value")
+//        myFragment.arguments =bundle
 
         card_back.setOnClickListener{
             // 액티비티가 바로 종료되도록 함
@@ -51,26 +80,44 @@ class CardChangeActivity : AppCompatActivity() {
         }
 
         card_save.setOnClickListener {
-            if(change_nickname.text.toString().length > 10){
-                Toast.makeText(applicationContext, "별명을 최대 10자로 입력해주세요.", Toast.LENGTH_SHORT).show()
+            if(change_nickname.text.toString().length > 20){
+                Toast.makeText(applicationContext, "별명을 최대 20자로 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else if(change_info.text.toString().length > 30){
                 Toast.makeText(applicationContext, "소개를 최대 30자로 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else{
-//                if(change_nickname.text.toString().isNotBlank()){
-//
-//                }
-//                bundle.putString("nickname",change_nickname.text.toString())
-//                myFragment.arguments =bundle
-
-                // 액티비티가 바로 종료되도록 함
                 finish()
 
-//                var intent = Intent(this, MainActivity::class.java)
-//                intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
-//                startActivity(intent)
             }
         }
     }
-}
+
+    class DBManager(
+        context: Context,
+        name: String?,
+        factory: SQLiteDatabase.CursorFactory?,
+        version: Int
+    ) : SQLiteOpenHelper(context, name, factory, version) {
+        override fun onCreate(db: SQLiteDatabase?) {
+            db!!.execSQL("CREATE TABLE CardTBL ( Name CHAR(30) , NickName CHAR(30) , Info CHAR(30), Sns CHAR(30) , Phone CHAR(30) , Mail CHAR(40) , Link CHAR(40));")
+        }
+
+        override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
+//            fun update(
+//                Name: String, NickName: String, Info: String, Sns: String, Phone: String,
+//                Mail: String, Link: String
+//            ) {
+//                var db: SQLiteDatabase = writableDatabase
+//
+//                db.execSQL(
+//                    "UPDATE CardTBL SET Name = " + "'" + Name + "'" + ", Nickname = '" + NickName + "'" + ", PHONE = '" + phone + "'"
+//                            + ", EMAIL = '" + email + "'" + ", ADDRESS = '" + address + "'" + ", LEVEL = '" + level + "'" +
+//                            "WHERE NAME = '" + name + "';"
+//                )
+//
+//                db.close()
+            }
+
+        }
+    }

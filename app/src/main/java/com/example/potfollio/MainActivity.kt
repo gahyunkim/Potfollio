@@ -1,5 +1,6 @@
 package com.example.potfollio
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
                 val bundle = Bundle()
                 bundle.putString("name", intent.getStringExtra("name"))
-                bundle.putString("nickname",intent.getStringExtra("nickname"))
+//                bundle.putString("nickname",intent.getStringExtra("nickname"))
                 transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
 
                 return true

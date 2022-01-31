@@ -59,6 +59,14 @@ class LoginActivity : AppCompatActivity() {
                     var intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("name",strName)
                     startActivity(intent)
+
+//                    var intent2 = Intent(this,CardChangeActivity::class.java)
+//                    intent2.putExtra("cardName",strName)
+//                    startActivity(intent2)
+//
+//                    var intent2 = Intent(this, CardChangeActivity::class.java)
+//                    intent2.putExtra("name2",strName)
+//                    startActivity(intent2)
                 }
             }
 
@@ -89,7 +97,6 @@ class LoginActivity : AppCompatActivity() {
             var intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
-
 
 /*          // (갤러리 접근)
             // 권한이 부여되었는지 확인
