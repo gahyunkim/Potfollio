@@ -34,18 +34,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
 
         // CardChangeActivity.kt 에서 나왔을 때 바로 마이페이지가 보이도록 한다.
-        if (intent.hasExtra("MyPage")) { // "MyPage"라는 이름이 key값에 저장되어 있다면 마이페이지로 이동
-            //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
-
-            transaction = fragmentManager.beginTransaction()
-                transaction.add(R.id.linearLayout, MyPageFragment())
-                transaction.commit()
-
-                val bundle = Bundle()
-                bundle.putString("name", intent.getStringExtra("name"))
-                //bundle.putString("nickname",nickname)
-                transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
-        }
+//        if (intent.hasExtra("MyPage")) { // "MyPage"라는 이름이 key값에 저장되어 있다면 마이페이지로 이동
+//            //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
+//
+//            transaction = fragmentManager.beginTransaction()
+//                transaction.add(R.id.linearLayout, MyPageFragment())
+//                transaction.commit()
+//
+//                val bundle = Bundle()
+//                bundle.putString("name", intent.getStringExtra("name"))
+//                //bundle.putString("nickname",nickname)
+//                transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
+//        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
