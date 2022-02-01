@@ -219,7 +219,6 @@
                 android:layout_marginStart="29dp"
                 android:layout_marginEnd="20dp"
                 android:hint="당신의 전화번호를 공유해보세요."
-                android:inputType="phone"
                 android:background="@null"
                 android:textSize="15sp" />
 
@@ -250,7 +249,6 @@
                 android:layout_marginStart="27dp"
                 android:layout_marginEnd="20dp"
                 android:hint="당신의 이메일을 공유해보세요"
-                android:inputType="textEmailAddress"
                 android:background="@null"
                 android:textSize="15sp" />
 

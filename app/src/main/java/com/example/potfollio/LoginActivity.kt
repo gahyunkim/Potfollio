@@ -59,14 +59,6 @@ class LoginActivity : AppCompatActivity() {
                     var intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("name",strName)
                     startActivity(intent)
-
-//                    var intent2 = Intent(this,CardChangeActivity::class.java)
-//                    intent2.putExtra("cardName",strName)
-//                    startActivity(intent2)
-//
-//                    var intent2 = Intent(this, CardChangeActivity::class.java)
-//                    intent2.putExtra("name2",strName)
-//                    startActivity(intent2)
                 }
             }
 
@@ -160,8 +152,4 @@ class LoginActivity : AppCompatActivity() {
             edtLogPass.setText(pass.toString())
         }
     }
-
-//    fun getname(): String {
-//        return name
-//    }
 }

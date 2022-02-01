@@ -1,10 +1,12 @@
 package com.example.potfollio
 
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
@@ -33,26 +35,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
-
-        // CardChangeActivity.kt 에서 나왔을 때 바로 마이페이지가 보이도록 한다.
-//        if (intent.hasExtra("MyPage")) { // "MyPage"라는 이름이 key값에 저장되어 있다면 마이페이지로 이동
-//            //supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commit()
-//
-//            transaction = fragmentManager.beginTransaction()
-//                transaction.add(R.id.linearLayout, MyPageFragment())
-//                transaction.commit()
-//
-//                val bundle = Bundle()
-//                bundle.putString("name", intent.getStringExtra("name"))
-//                //bundle.putString("nickname",nickname)
-//                transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
-//        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 //        var data: String = intent.getStringExtra("name")!!
 
-        var data: String = intent.getStringExtra("name")!!
+//        var data: String = intent.getStringExtra("name")!!
         // 하단 네비게이션바 메뉴 클릭시 이벤트
         when(item.itemId) {
 
@@ -78,9 +66,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 transaction.add(R.id.linearLayout, MyPageFragment())
                 transaction.commit()
 
+                // CardChangeActivity 로부터 얻은 값을 bundle을 이용해 MyPageFragment로 보내기
                 val bundle = Bundle()
                 bundle.putString("name", intent.getStringExtra("name"))
-//                bundle.putString("nickname",intent.getStringExtra("nickname"))
+                bundle.putString("nickname", intent.getStringExtra("nickname"))
+                bundle.putString("info", intent.getStringExtra("info"))
+                bundle.putString("sns", intent.getStringExtra("sns"))
+                bundle.putString("phone", intent.getStringExtra("phone"))
+                bundle.putString("mail", intent.getStringExtra("mail"))
                 transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
 
                 return true
@@ -88,6 +81,5 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
         return false
     }
-
 }
 

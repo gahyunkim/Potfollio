@@ -58,6 +58,7 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "비밀번호가 다릅니다. 다시 입력하세요", Toast.LENGTH_SHORT).show()
                 }
                 else {
+                    // 위의 조건을 모두 충족하면 테이블에 데이터 저장
                     sqlDB.execSQL(
                         "INSERT INTO groupTBL VALUES ( '"
                                 + edtName.text.toString() + "' , '"
@@ -74,6 +75,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
             else {
+                // 데이터베이스에 값이 들어와져 있는 경우에 해당하는 부분
                 cursor = sqlDB.rawQuery(
                     "SELECT gName FROM groupTBL WHERE gName='" + edtName.text.toString() + "'",
                     null
