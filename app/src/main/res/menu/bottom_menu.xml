@@ -3,26 +3,25 @@
 
     <item android:id="@+id/tab_main"
         android:enabled="true"
-        android:icon="@drawable/ic_main"
-        android:title="메인"/>
+        android:icon="@drawable/selector_home"
+        android:title="메인"
+        />
+
 
     <item android:id="@+id/tab_search"
         android:enabled="true"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/selector_search"
         android:title="검색"/>
 
     <item android:id="@+id/tab_add"
         android:enabled="true"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/selector_add"
         android:title="추가"/>
 
-    <item android:id="@+id/tab_mark"
-        android:enabled="true"
-        android:icon="@drawable/ic_mark"
-        android:title="북마크"/>
 
     <item android:id="@+id/tab_my"
         android:enabled="true"
-        android:icon="@drawable/ic_my"
+        android:icon="@drawable/selector_mypage"
         android:title="마이페이지"/>
+
 </menu>

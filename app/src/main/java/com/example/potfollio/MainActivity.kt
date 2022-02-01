@@ -32,14 +32,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // 하단 네비게이션바
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        bottomNavigationView.itemIconTintList = null
 
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-//        var data: String = intent.getStringExtra("name")!!
 
+//        var data: String = intent.getStringExtra("name")!!
 //        var data: String = intent.getStringExtra("name")!!
         // 하단 네비게이션바 메뉴 클릭시 이벤트
         when(item.itemId) {

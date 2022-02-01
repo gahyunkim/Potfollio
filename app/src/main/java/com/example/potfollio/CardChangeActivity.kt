@@ -35,7 +35,6 @@ class CardChangeActivity : AppCompatActivity() {
         change_sns = findViewById(R.id.change_sns)
         change_phone = findViewById(R.id.change_phone)
         change_mail = findViewById(R.id.change_mail)
-        change_link = findViewById(R.id.change_link)
 
         dbManager = DBManager(this, "CardTBL", null, 1)
         sqlDB = dbManager.writableDatabase
