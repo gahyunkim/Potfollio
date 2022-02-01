@@ -87,7 +87,7 @@ tools:context=".AddFragment">
                 android:layout_marginLeft="20dp"
                 android:paddingLeft="10dp"
                 android:hint="당신의 포트폴리오의 제목을 입력해주세요"
-                android:background="@drawable/roundbutton_white"
+                android:background="@drawable/roundbutton_grey1"
                 android:inputType="textNoSuggestions"
                 android:textSize="16dp" />
 
@@ -168,7 +168,7 @@ tools:context=".AddFragment">
                 android:hint="당신의 포트폴리오에 대해 이야기 해주세요.\n디자인도 다시 수정"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:background="@drawable/round_white"
+                android:background="@drawable/round_grey1"
                 android:inputType="textNoSuggestions"
                 android:textSize="16dp" />
         </LinearLayout>
