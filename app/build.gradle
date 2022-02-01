@@ -53,4 +53,9 @@ dependencies {
 
     //SlidingUpPanel
     implementation 'com.github.hannesa2:AndroidSlidingUpPanel:4.2.1'
+
+    //Dependency for circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
