@@ -38,7 +38,7 @@ tools:context=".AddFragment">
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnup"
+                    android:id="@+id/btnUp"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginTop="20dp"
@@ -48,69 +48,6 @@ tools:context=".AddFragment">
                     android:textColor="@color/white"
                     android:textSize="13sp" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/notosans_kr_bold"
-                android:text="선정한 폴더"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtlogId2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:hint="폴더명(추후 수정)"
-                android:inputType="textNoSuggestions"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/notosans_kr_bold"
-                android:text="제목"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtlogId3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:hint="당신의 포트폴리오의 제목을 입력해주세요"
-                android:inputType="textNoSuggestions"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/notosans_kr_bold"
-                android:text="해시태그"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtLogPass2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:hint="(추후 추가)"
-                android:inputType="textNoSuggestions"
-                android:textSize="16dp" />
 
             <Button
                 android:id="@+id/btnSelect"
@@ -127,8 +64,32 @@ tools:context=".AddFragment">
             <ListView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
-                android:layout_height="208dp" />
-<!--
+                android:layout_height="208dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/notosans_kr_bold"
+                android:text="제목"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="당신의 포트폴리오의 제목을 입력해주세요"
+                android:inputType="textNoSuggestions"
+                android:textSize="16dp" />
+
+            <!--
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="102dp"
@@ -183,6 +144,7 @@ tools:context=".AddFragment">
                 </LinearLayout>
             </HorizontalScrollView>
 -->
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
@@ -196,7 +158,7 @@ tools:context=".AddFragment">
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtLogPass3"
+                android:id="@+id/edtContents"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginLeft="10dp"
