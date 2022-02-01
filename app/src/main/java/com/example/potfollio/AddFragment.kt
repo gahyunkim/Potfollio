@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
@@ -13,34 +14,47 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
+import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import com.example.potfollio.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION", "UNUSED_LAMBDA_EXPRESSION") //이거 추가하니까 갤러리 접근 가능
-// 갤러리 접근 주의하는 문구 띄우는거 수정하기!!!!!!!!!!!!!!
+// 갤러리 접근 주의하는 문구 띄우기
+// 갤러리 다시 접근하기
 
 class AddFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: ActivityMainBinding
     lateinit var btnSelect : Button
-    lateinit var imgView1 : ImageView
-    lateinit var sqlDB: SQLiteDatabase
-    lateinit var dbManager: AddFragment.DBManager
+    lateinit var image_sqlDB: SQLiteDatabase
+    lateinit var text_sqlDB: SQLiteDatabase
+    lateinit var image_dbManager: AddFragment.ImageDBManager
+    lateinit var text_dbManager: AddFragment.TextDBManager
     lateinit var listview : ListView
+    lateinit var edtTitle : EditText
+    lateinit var edtContents : EditText
+    lateinit var btnUp : Button
 
     private val OPEN_GALLERY = 200
 
-     val items = mutableListOf<ListViewItem>()
+    val items = mutableListOf<ListViewItem>()
+
+    // 리스트에 주소 저장해 놓고 '올리기' 누르면 데베에 올리기
+    // var urilist = ArrayList<Uri>()
+
+    companion object {
+        var index:Int = 1
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dbManager = AddFragment.DBManager(activity!!, "imageTBL", null, 1)
-        sqlDB = dbManager.writableDatabase
+        image_dbManager = AddFragment.ImageDBManager(activity!!, "ImageTBL", null, 1)
+        image_sqlDB = image_dbManager.writableDatabase
+        //image_sqlDB.execSQL("DROP TABLE imageTBL")
+        //image_sqlDB.close()
+        //image_dbManager.close()
 
-
+        text_dbManager =AddFragment.TextDBManager(activity!!, "textTBL", null, 1)
+        text_sqlDB = text_dbManager.writableDatabase
     }
 
     override fun onCreateView(
@@ -55,18 +69,46 @@ class AddFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         btnSelect = view.findViewById(R.id.btnSelect)
-            //imgView1 = view.findViewById(R.id.imgView1)
         listview = view.findViewById(R.id.listview)
-        btnSelect.setOnClickListener{ openGallery() }
+        edtTitle = view.findViewById(R.id.edtTitle)
+        edtContents = view.findViewById(R.id.edtContents)
+        btnUp = view.findViewById(R.id.btnUp)
+
+        btnSelect.setOnClickListener { openGallery() }
+
+        // 올리기 실행 시
+        btnUp.setOnClickListener {
+            text_sqlDB = text_dbManager.writableDatabase
+
+            if (edtTitle.text.toString().isBlank() || edtContents.text.toString()
+                    .isBlank() || listview.isEmpty()
+            ) {
+                // 제목,내용,이미지는 필수 입력 사항
+                Toast.makeText(getActivity(), "제목,이미지,내용을 모두 작성해 주세요!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                // 데베 저장
+                text_sqlDB.execSQL(
+                    "INSERT INTO textTBL VALUES ( '"
+                            + index + "' , '"
+                            + edtTitle.text.toString() + "' , '"
+                            + edtContents.text.toString() + "');"
+                )
+                //text_sqlDB.close()
+
+            }
+            index += 1  // 인덱스 증가
+
+            // 마이페이지프래그먼트로 바로 돌아가도록 할까...?
+            Toast.makeText(getActivity(), "올리기 완료 \n 마이페이지에서 확인하세요", Toast.LENGTH_SHORT).show()
+        }
     }
 
+    // 갤러리 접근
     private fun openGallery(){
-        // 갤러리 접근
         val intent: Intent = Intent(Intent.ACTION_PICK)
-        //intent.setType("image/*")
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        //intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, OPEN_GALLERY)
     }
 
@@ -76,54 +118,26 @@ class AddFragment : Fragment(), View.OnClickListener {
         if(resultCode == Activity.RESULT_OK) {
             if(requestCode == OPEN_GALLERY) {
 
-//                            if (data!!.clipData == null) {
-//                            }
-//                            else {
-//                                 var clipData: ClipData = data.clipData!!;
-//                                if (clipData.itemCount > 3) { //사진은 3장을 초과해서는 안된다.
-//                                   // Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT).show()
-//                                }
-//                                else if (clipData.itemCount == 1) { //사진을 1개 선택했을 때
-//                                    var img_path: Uri = clipData.getItemAt(0).uri; //이미지 URI
-//                                    var pictures: ListView = view!!.findViewById(R.id.listview)
-//                                    pictures.add(img_path);  //사진 리스트에 추가
-//                                }
-//                                else if (clipData.getItemCount() < 3 && clipData.getItemCount() > 1) { //사진을 1개 이상 선택했을 때
-//                                    for (int i = 0; i < clipData.getItemCount(); i++) {
-//                                        Uri img_path = clipData.getItemAt(i).getUri();
-//                                        adapter_pictures.addData(img_path);
-//                                    }
-//                                }
-//                            }
-
-//                var currentImageUrl : Uri? = data?.data
-
-
-                /* 데베 저장하는 부분 잠시 보류 !!! 지우면 안돼!!!
-                sqlDB.execSQL( //
-                    "INSERT INTO imageTBL VALUES ( '"
-                            + currentImageUrl.toString() + "');"
-                )
-                sqlDB.close()
-                */
-
-//                // 이미지 저장 완료 문구
-//                Toast.makeText(activity, "이미지 저장 완료.", Toast.LENGTH_SHORT).show()
-
                 var clipData: ClipData = data!!.clipData!!
 
                 for(j in 0..clipData.itemCount-1) {
 
-                    // 리스트에가다 주소 저장해 놓고 데베에 올리기..
+                    var currentImageUrl : Uri? = clipData.getItemAt(j).uri
 
-                     var currentImageUrl : Uri? = clipData.getItemAt(j).uri
+                    // 데베 저장
+                    image_sqlDB.execSQL(
+                        "INSERT INTO ImageTBL VALUES ( '"
+                                + currentImageUrl.toString() + "' , '"
+                                + index + "');"
+                    )
+                    //image_sqlDB.close()
 
-                    try { // 이미지뷰에 이미지 띄우기(비트맵 활용)
+                    // 리스트뷰에 이미지 띄우기(비트맵 활용)
+                    try {
                         val bitmap = MediaStore.Images.Media.getBitmap(
                             activity?.contentResolver,
                             currentImageUrl
                         )
-
                         items.add(ListViewItem(bitmap))
 
                         val adapter = ListViewAdapter(items)
@@ -133,27 +147,40 @@ class AddFragment : Fragment(), View.OnClickListener {
                         e.printStackTrace()
                     }
                 }
-                // 이미지 저장 완료 문구
-                Toast.makeText(activity, "이미지 선택 완료.", Toast.LENGTH_SHORT).show()
             }
         } else{
             Log.d("ActivityResult", "something wrong")
         }
     }
 
-    class DBManager(
+    class ImageDBManager(
         context: Context,
         name: String?,
         factory: SQLiteDatabase.CursorFactory?,
         version: Int
     ) : SQLiteOpenHelper(context, name, factory, version) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE imageTBL ( image STRING );")
+            db!!.execSQL("CREATE TABLE ImageTBL ( image TEXT NOT NULL, i_number INTEGER NOT NULL);")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
         }
     }
+
+    class TextDBManager(
+        context: Context,
+        name: String?,
+        factory: SQLiteDatabase.CursorFactory?,
+        version: Int
+    ) : SQLiteOpenHelper(context, name, factory, version) {
+        override fun onCreate(db: SQLiteDatabase?) {
+            db!!.execSQL("CREATE TABLE textTBL ( i_number INTEGER , title STRING , contents STRING);")
+        }
+
+        override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
+        }
+    }
+
     override fun onClick(p0: View?) {
     }
 }
