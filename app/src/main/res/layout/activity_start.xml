@@ -5,36 +5,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/point_orange"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="102dp"
+        android:layout_height="148dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/logo_blue" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="팟폴리오- Pot folio"
-        android:textSize="20dp"
-        android:layout_gravity="center"
-        android:textColor="#000000"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="00dp"
+        android:fontFamily="@font/app_name"
+        android:text="Pot, Folio"
+        android:textColor="#FFFFFF"
+        android:textSize="50dp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="앱에 대한 설명 블라블라😮\n이 앱은 포트폴리오를 만들 수 있는 앱\n이 앱과 함께 발전하고 싶다면?\n지금 바로 시작하세요👏"
-        android:textAlignment="center"
-        android:textSize="15dp"
         android:layout_gravity="center"
-        android:textColor="#000000" />
+        android:layout_marginTop="20dp"
+        android:text="나를 담다."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_width="153dp"
+        android:layout_height="43dp"
         android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/roundbutton_white"
+        android:backgroundTint="#E8E8E8"
+        android:fontFamily="@font/notosans_medium"
         android:text="시작하기"
+        android:textColor="#4E5464"
         android:textSize="15dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
 
 </LinearLayout>

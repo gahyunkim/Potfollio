@@ -20,15 +20,10 @@ class LoginActivity : AppCompatActivity() {
     lateinit var edtLogId: EditText
     lateinit var autoLog: CheckBox
     lateinit var edtLogPass: EditText
-    lateinit var card_name : TextView
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-//        val myfragment = MyPageFragment()
-//        val bundle = Bundle()
-//        myfragment.arguments = bundle
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -37,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         btnJoin = findViewById(R.id.btnJoin)
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
+
 
         // 로그인 후에 다시 들어왔을 때 로그인 내용 저장되어있도록 하는 부분
         loadData()
@@ -57,10 +53,20 @@ class LoginActivity : AppCompatActivity() {
                 if (strId == edtLogId.text.toString()&&strPass == edtLogPass.text.toString()) {
                     Toast.makeText(applicationContext, strName+"님"+" 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
+                    saveData(edtLogId.text.toString(),edtLogPass.text.toString())
+
+                    // 메인 액티비티로 strName 정보 전달
                     var intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("name",strName)
-//                    Log.d("Log",strName+"보내졌습니다")
                     startActivity(intent)
+
+//                    var intent2 = Intent(this,CardChangeActivity::class.java)
+//                    intent2.putExtra("cardName",strName)
+//                    startActivity(intent2)
+//
+//                    var intent2 = Intent(this, CardChangeActivity::class.java)
+//                    intent2.putExtra("name2",strName)
+//                    startActivity(intent2)
                 }
             }
 
@@ -91,7 +97,6 @@ class LoginActivity : AppCompatActivity() {
             var intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
-
 
 /*          // (갤러리 접근)
             // 권한이 부여되었는지 확인
@@ -155,4 +160,8 @@ class LoginActivity : AppCompatActivity() {
             edtLogPass.setText(pass.toString())
         }
     }
+
+//    fun getname(): String {
+//        return name
+//    }
 }

@@ -31,8 +31,8 @@ tools:context=".AddFragment">
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
-                    android:text="포트폴리오 상세 설명"
                     android:fontFamily="@font/notosnas_black"
+                    android:text="포트폴리오 상세 설명"
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -55,8 +55,8 @@ tools:context=".AddFragment">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:text="선정한 폴더"
                 android:fontFamily="@font/notosans_bold"
+                android:text="선정한 폴더"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -67,8 +67,8 @@ tools:context=".AddFragment">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:hint="폴더명(추후 수정)"
-                android:textSize="16dp"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -76,8 +76,8 @@ tools:context=".AddFragment">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:text="제목"
                 android:fontFamily="@font/notosans_bold"
+                android:text="제목"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -88,8 +88,8 @@ tools:context=".AddFragment">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:hint="당신의 포트폴리오의 제목을 입력해주세요"
-                android:textSize="16dp"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -109,8 +109,8 @@ tools:context=".AddFragment">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:hint="(추후 추가)"
-                android:textSize="16dp"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textSize="16dp" />
 
             <Button
                 android:id="@+id/btnSelect"
@@ -119,11 +119,16 @@ tools:context=".AddFragment">
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/roundbutton_navy"
+                android:fontFamily="@font/notosnas_black"
                 android:text="이미지 선택"
                 android:textColor="@color/white"
-                android:fontFamily="@font/notosnas_black"
                 android:textSize="13sp" />
 
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="208dp" />
+<!--
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="102dp"
@@ -177,15 +182,15 @@ tools:context=".AddFragment">
                         android:src="@drawable/ic_main" />
                 </LinearLayout>
             </HorizontalScrollView>
-
+-->
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:text="설명"
                 android:fontFamily="@font/notosans_bold"
+                android:text="설명"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -196,9 +201,9 @@ tools:context=".AddFragment">
                 android:layout_height="300dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="top"
-                android:textSize="16dp"
                 android:hint="당신의 포트폴리오에 대해 이야기 해주세요.\n디자인도 다시 수정"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textSize="16dp" />
         </LinearLayout>
     </ScrollView>
 

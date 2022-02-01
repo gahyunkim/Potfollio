@@ -1,24 +1,22 @@
 package com.example.potfollio
 
-import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.potfollio.databinding.ActivityMainBinding
-
 
 class CardChangeActivity : AppCompatActivity() {
     lateinit var card_back : Button
     lateinit var card_save : Button
-    lateinit var change_name : EditText
+    //lateinit var change_name : EditText
     lateinit var change_nickname : EditText
     lateinit var change_info: EditText
     lateinit var change_sns : EditText
@@ -27,21 +25,17 @@ class CardChangeActivity : AppCompatActivity() {
     lateinit var change_link: EditText
 
     lateinit var sqlDB: SQLiteDatabase
-    lateinit var dbManager: SignUpActivity.DBManager
+    lateinit var dbManager: DBManager
 
-//    lateinit var binding : ActivityMainBinding
+    private val fragmentManager = supportFragmentManager
+    private lateinit var transaction: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_change)
 
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        val view = binding.root
-//        setContentView(view)
-
         card_back = findViewById(R.id.card_back)
         card_save = findViewById(R.id.card_save)
-        change_name = findViewById(R.id.change_name)
         change_nickname = findViewById(R.id.change_nickname)
         change_info = findViewById(R.id.change_info)
         change_sns = findViewById(R.id.change_sns)
@@ -49,56 +43,81 @@ class CardChangeActivity : AppCompatActivity() {
         change_mail = findViewById(R.id.change_mail)
         change_link = findViewById(R.id.change_link)
 
+        dbManager = DBManager(this, "CardTBL", null, 1)
+        sqlDB = dbManager.writableDatabase
+
+        var cardName= intent.getStringExtra("cardName")
+
+        var cursor: Cursor
+        cursor = sqlDB.rawQuery(
+            "SELECT Name FROM CardTBL WHERE Name='" + intent.getStringExtra("cardName") + "'",
+            null
+        )
+
+        if(cursor.count==0){
+            sqlDB.execSQL(
+                    "INSERT INTO CardTBL VALUES ( '"
+                            + intent.getStringExtra("cardName").toString()+ "' , '"
+                            + "Game Director" + "' , '"
+                            + "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다." + "' , '"
+                            + "pp734.k" + "' , '"
+                            + "010.6345.6284" + "' , '"
+                            + "Ikeyun3301@gmail.com" + "' , '"
+                            + " " + "');"
+                )
+        }
+
+//        val myFragment = MyPageFragment()
+//
+//        val bundle: Bundle = Bundle() // 파라미터의 숫자는 전달하려는 값의 갯수
+//
+//        bundle.putString("key", "value")
+//        myFragment.arguments =bundle
+
         card_back.setOnClickListener{
-            // 마이페이지로 이동
-            // 메인엑티비티로 전환 -> key값 구분을 통해 마이페이지로 바로 넘어간다.
-            var intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
-            startActivity(intent)
+            // 액티비티가 바로 종료되도록 함
+            finish()
         }
 
         card_save.setOnClickListener {
-            dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
-            sqlDB = dbManager.writableDatabase
-            var cursor: Cursor
-            cursor = sqlDB.rawQuery(
-                "SELECT gName FROM groupTBL WHERE gName='" + change_name.text.toString() + "'",
-                null
-            )
-            if(cursor.count == 1){
-                Toast.makeText(applicationContext, "이미 사용 중인 닉네임입니다.", Toast.LENGTH_SHORT).show()
-            }
-            else if(change_name.text.toString().length > 10){
-                Toast.makeText(applicationContext, "이름을 최대 10자로 입력해주세요.", Toast.LENGTH_SHORT).show()
-                // 데이터에서 닉네임 받아와서 데이터베이스 수정해야함
-            }
-            else if(change_nickname.text.toString().length > 10){
-                Toast.makeText(applicationContext, "별명을 최대 10자로 입력해주세요.", Toast.LENGTH_SHORT).show()
+            if(change_nickname.text.toString().length > 20){
+                Toast.makeText(applicationContext, "별명을 최대 20자로 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else if(change_info.text.toString().length > 30){
                 Toast.makeText(applicationContext, "소개를 최대 30자로 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else{
-                if(change_nickname.text.isNotBlank()){
-                    val myfragment : MyPageFragment = MyPageFragment()
-                    val bundle = Bundle(1)
-                    myfragment.arguments = bundle
+                finish()
 
-                    bundle.putString("nickname",change_nickname.text.toString())
-                }
-
-                var intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("MyPage",true)  // "MyPage"라는 key값을 보낸다.
-                startActivity(intent)
-//                sqlDB = dbManager.writableDatabase
-//                sqlDB.execSQL("UPDATE groupTBL SET gName =" + change_name.text+" WHERE gName =" +   )
-//                // 비어있는 에디트 텍스트가 존재하는 경우에는 어떤 곳이 존재하는 지 확인하고 값을 넣어야 함
-//                if(change_name.text.toString().isNotBlank()){
-//                    //card_name?.text = change_name.text.toString()
-//                }
-//                val intent = Intent(applicationContext, MyPageFragment::class.java)
-//                startActivity(intent)
             }
         }
     }
-}
+
+    class DBManager(
+        context: Context,
+        name: String?,
+        factory: SQLiteDatabase.CursorFactory?,
+        version: Int
+    ) : SQLiteOpenHelper(context, name, factory, version) {
+        override fun onCreate(db: SQLiteDatabase?) {
+            db!!.execSQL("CREATE TABLE CardTBL ( Name CHAR(30) , NickName CHAR(30) , Info CHAR(30), Sns CHAR(30) , Phone CHAR(30) , Mail CHAR(40) , Link CHAR(40));")
+        }
+
+        override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
+//            fun update(
+//                Name: String, NickName: String, Info: String, Sns: String, Phone: String,
+//                Mail: String, Link: String
+//            ) {
+//                var db: SQLiteDatabase = writableDatabase
+//
+//                db.execSQL(
+//                    "UPDATE CardTBL SET Name = " + "'" + Name + "'" + ", Nickname = '" + NickName + "'" + ", PHONE = '" + phone + "'"
+//                            + ", EMAIL = '" + email + "'" + ", ADDRESS = '" + address + "'" + ", LEVEL = '" + level + "'" +
+//                            "WHERE NAME = '" + name + "';"
+//                )
+//
+//                db.close()
+            }
+
+        }
+    }
