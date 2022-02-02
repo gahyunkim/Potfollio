@@ -1,5 +1,6 @@
 package com.example.potfollio
 
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -10,16 +11,13 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.GridView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 
 class MyPageFragment : Fragment() {
-
+    lateinit var activity : MainActivity
     lateinit var image_sqlDB: SQLiteDatabase
     lateinit var image_dbManager: AddFragment.ImageDBManager
     lateinit var gridview : GridView
@@ -107,10 +105,21 @@ class MyPageFragment : Fragment() {
         super.onResume()
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity = getActivity() as MainActivity
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+//        activity = null!!
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val btn_card_change : Button = view.findViewById(R.id.btn_card_change)
         val card_name = view.findViewById<TextView>(R.id.card_name)
+        val settingButton: ImageButton = view.findViewById(R.id.settingButton)
 
         var text = arguments?.getString("name", "이름")
         var uptext= text?.toUpperCase()
@@ -125,5 +134,13 @@ class MyPageFragment : Fragment() {
             startActivityForResult(intent, 101)
             Toast.makeText(getActivity(), "명함을 수정해보세요!", Toast.LENGTH_SHORT).show()
         }
+
+        settingButton.setOnClickListener{
+//            val intent = Intent(getActivity(), SettingActivity::class.java)
+//            startActivity(intent)
+//            (activity as MainActivity?)?.setting()
+            activity.onFragmentChange()
+        }
+
     }
 }
