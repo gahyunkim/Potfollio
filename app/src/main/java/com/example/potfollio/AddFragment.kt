@@ -61,7 +61,7 @@ class AddFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ):View? {
-        val view: View = inflater!!.inflate(R.layout.fragment_add, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_add, container, false)
         return view
     }
 

@@ -19,7 +19,7 @@ class CardChangeActivity : AppCompatActivity() {
     lateinit var change_sns: EditText
     lateinit var change_phone: EditText
     lateinit var change_mail: EditText
-    lateinit var change_link: EditText
+//    lateinit var change_link: EditText
 
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: DBManager
@@ -57,8 +57,7 @@ class CardChangeActivity : AppCompatActivity() {
                         + "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다." + "' , '"
                         + "pp734.k" + "' , '"
                         + "010.6345.6284" + "' , '"
-                        + "Ikeyun3301@gmail.com" + "' , '"
-                        + " " + "');"
+                        + "Ikeyun3301@gmail.com" + "');"
             )
         }
 
@@ -72,7 +71,6 @@ class CardChangeActivity : AppCompatActivity() {
                     .isBlank() || change_sns.text.toString()
                     .isBlank() || change_phone.text.toString()
                     .isBlank() || change_mail.text.toString().isBlank()
-                || change_link.text.toString().isBlank()
             ) {
                 Toast.makeText(applicationContext, "입력할 내용이 없는 경우 None을 입력해주세요", Toast.LENGTH_SHORT)
                     .show()
@@ -88,7 +86,7 @@ class CardChangeActivity : AppCompatActivity() {
                 sqlDB = dbManager.writableDatabase
                 sqlDB.execSQL(
                     "UPDATE CardTBL SET NickName = " + "'" + change_nickname.text.toString() + "'" + ", Info = '" + change_info.text.toString() + "'" + ", Sns = '" + change_sns.text.toString() + "'"
-                            + ", Phone = '" + change_phone.text.toString() + "'" + ", Mail = '" + change_mail.text.toString() + "'" + ", Link = '" + change_link.text.toString() + "'" +
+                            + ", Phone = '" + change_phone.text.toString() + "'" + ", Mail = '" + change_mail.text.toString() + "'"  +
                             "WHERE NAME = '" + intent.getStringExtra("cardName") + "';"
                 )
 
@@ -133,7 +131,7 @@ class CardChangeActivity : AppCompatActivity() {
         version: Int
     ) : SQLiteOpenHelper(context, name, factory, version) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE CardTBL ( Name CHAR(30) , NickName CHAR(30) , Info CHAR(30), Sns CHAR(30) , Phone CHAR(30) , Mail CHAR(40) , Link CHAR(40));")
+            db!!.execSQL("CREATE TABLE CardTBL ( Name CHAR(30) , NickName CHAR(30) , Info CHAR(30), Sns CHAR(30) , Phone CHAR(30) , Mail CHAR(40));")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
