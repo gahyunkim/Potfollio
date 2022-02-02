@@ -12,7 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Potfollio"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".ExpainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

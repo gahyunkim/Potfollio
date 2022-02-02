@@ -43,7 +43,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/roundbutton_white"
         android:backgroundTint="#E8E8E8"
-        android:fontFamily="@font/notosans_bold"
+        android:fontFamily="@font/notosans_kr_bold"
         android:text="시작하기"
         android:textAlignment="center"
         android:textColor="#4E5464"
