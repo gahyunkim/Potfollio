@@ -111,6 +111,15 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         supportFragmentManager.beginTransaction().replace(R.id.linearLayout,SettingFragment()).addToBackStack(null).commit()
     }
 
+    fun PostFragmentChange(index: Int){
+        if(index==0){
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post1Fragment()).addToBackStack(null).commit()
+        }
+        else{
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post2Fragment()).addToBackStack(null).commit()
+        }
+    }
+
     // SettingFragment에서 띄우는 이용약관 메세지
     fun showDialog(){
         val builder = AlertDialog.Builder(this)
