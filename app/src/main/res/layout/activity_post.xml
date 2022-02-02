@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/post_back"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="이전"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="243dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="게시글"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/card_save"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            android:focusable="true"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/point_orange"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="265dp" >
+
+            </androidx.viewpager2.widget.ViewPager2>
+
+            <TextView
+                android:id="@+id/contents"
+                android:layout_width="match_parent"
+                android:layout_height="428dp"
+                android:text="게시글 내용이 보입니다." />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
