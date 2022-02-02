@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity" />
+        <activity android:name=".PasswordActivity"></activity>
+        <activity android:name=".SettingActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
