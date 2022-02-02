@@ -51,7 +51,7 @@
                 android:fontFamily="@font/app_name"
                 android:text="Pot,Folio"
                 android:textColor="@color/black"
-                android:textSize="25dp"
+                android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -110,6 +110,63 @@
                 app:layout_constraintStart_toEndOf="@+id/HotFolio"
                 app:layout_constraintTop_toBottomOf="@+id/welcom" />
 
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/main_hotfolio_img1"
+                android:layout_width="235dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/main_hotfolio_img2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnhot"
+                android:src="@drawable/sonny" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/main_hotfolio_img2"
+                android:layout_width="115dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcom"
+                android:src="@drawable/sonny"
+                app:riv_corner_radius="10dp"
+                android:elevation="10dp"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="110dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sonny"
+                app:layout_constraintEnd_toStartOf="@+id/roundedImageView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_hotfolio_img1"
+                app:riv_corner_radius="10dp" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="110dp"
+                android:layout_height="102dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sonny"
+                app:layout_constraintEnd_toStartOf="@+id/main_hotfolio_img2"
+                app:layout_constraintTop_toBottomOf="@+id/main_hotfolio_img1"
+                app:riv_corner_radius="10dp" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -137,7 +194,8 @@
                 android:text="All Folio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
 
             <TextView
                 android:id="@+id/tv_slideOffset"

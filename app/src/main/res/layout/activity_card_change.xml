@@ -76,6 +76,7 @@
                 android:layout_marginTop="10dp"
                 android:elevation="10dp"
                 android:src="@drawable/profile1"
+                android:layout_gravity="center"
                 app:civ_border_overlay="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
