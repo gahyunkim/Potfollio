@@ -33,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
         edtLogId = findViewById(R.id.edtlogId)
         edtLogPass = findViewById(R.id.edtLogPass)
 
-
         // 로그인 후에 다시 들어왔을 때 로그인 내용 저장되어있도록 하는 부분
         loadData()
 
