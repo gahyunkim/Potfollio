@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import com.example.potfollio.databinding.FragmentMainBinding
@@ -23,11 +24,14 @@ class SearchFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
 
         val view : View = inflater!!.inflate(R.layout.fragment_search,container,false)
 //        val search_bar : SearchView = inflater!!.inflate(R.layout.fragment_search,container,false) as SearchView
@@ -51,12 +55,21 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //            }
 //        })
         return view
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val frame1 : FrameLayout= view.findViewById(R.id.frame1)
         val frame2 : FrameLayout= view.findViewById(R.id.frame2)
+
+
+        val imageView : ImageView = view.findViewById(R.id.imageView)
+        imageView.setClipToOutline(true)
+
+        val imageView2 : ImageView = view.findViewById(R.id.imageView2)
+        imageView2.setClipToOutline(true)
 
         frame1.setOnClickListener{
             Toast.makeText(getActivity(), "frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
@@ -84,6 +97,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
             onCreate(db)
         }
     }
+
 
 //
 //    private fun setOnClickListener() {

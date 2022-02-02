@@ -6,23 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity"
-    android:background="@color/grey2"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/app_name"
         android:text="Pot,Folio"
         android:textColor="#000000"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:fontFamily="@font/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,12 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:iconifiedByDefault="false"
-            android:background="@drawable/roundbutton_white"
             android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
-            android:queryBackground="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
@@ -66,10 +57,12 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="113dp"
+            android:background="@drawable/imageround"
+            android:src="@drawable/sonny"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -77,27 +70,28 @@
             android:layout_height="270dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginBottom="113dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/imageround"
+            android:src="@drawable/search_image1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/frame2"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
             android:id="@+id/frame1"
             android:layout_width="190dp"
             android:layout_height="270dp"
-            android:background="#8B4C4C4C"
-            android:elevation="10dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/frameround"
             android:clickable="true"
+            android:elevation="10dp"
             android:focusable="true"
-            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.312">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView2"
@@ -138,16 +132,15 @@
             android:id="@+id/frame2"
             android:layout_width="188dp"
             android:layout_height="270dp"
-            android:background="#8B4C4C4C"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/frameround"
             android:clickable="true"
             android:elevation="10dp"
             android:focusable="true"
-            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.959"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.312">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView5"

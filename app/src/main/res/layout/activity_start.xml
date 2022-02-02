@@ -9,46 +9,46 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="102dp"
-        android:layout_height="148dp"
-        android:layout_marginLeft="150dp"
+        android:layout_width="140dp"
+        android:layout_height="178dp"
+        android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:src="@drawable/logo_blue" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_gravity="center"
         android:layout_marginTop="00dp"
         android:fontFamily="@font/app_name"
         android:text="Pot, Folio"
         android:textColor="#FFFFFF"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+        android:textSize="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="나를 담다."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="153dp"
-        android:layout_height="43dp"
+        android:layout_width="181dp"
+        android:layout_height="53dp"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
         android:background="@drawable/roundbutton_white"
         android:backgroundTint="#E8E8E8"
-        android:fontFamily="@font/notosans_medium"
+        android:fontFamily="@font/notosans_bold"
         android:text="시작하기"
+        android:textAlignment="center"
         android:textColor="#4E5464"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textSize="18dp"
+        />
 
 
 </LinearLayout>

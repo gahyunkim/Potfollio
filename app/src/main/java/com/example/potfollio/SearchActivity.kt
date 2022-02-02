@@ -25,6 +25,7 @@ abstract class SearchActivity : AppCompatActivity(){
         override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
             db!!.execSQL("DROP TABLE IF EXISTS searchList")
             onCreate(db)
+
         }
     }
 }
