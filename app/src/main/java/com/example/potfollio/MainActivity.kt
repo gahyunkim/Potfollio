@@ -64,13 +64,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
             R.id.tab_main -> { // 메인화면(홈화면)
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).addToBackStack(null).commitAllowingStateLoss()
-                transaction.addToBackStack(null)
+               // transaction.addToBackStack(null)
 
                 return true
             }
             R.id.tab_search ->{ // 검색창
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , SearchFragment()).addToBackStack(null).commitAllowingStateLoss()
-                transaction.addToBackStack(null)
+               // transaction.addToBackStack(null)
 
                 sdbManager = SearchActivity.SearchDBManager(this, "searchList", null, 2)
                 sqlDB = sdbManager.writableDatabase

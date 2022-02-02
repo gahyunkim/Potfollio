@@ -17,7 +17,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
-import com.example.potfollio.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION", "UNUSED_LAMBDA_EXPRESSION") //이거 추가하니까 갤러리 접근 가능
 // 갤러리 접근 주의하는 문구 띄우기
