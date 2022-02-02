@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="78dp"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:padding="10dp">
 
             <Button
@@ -67,36 +68,22 @@
             android:layout_height="144dp"
             android:orientation="vertical">
 
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:baselineAligned="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/profile_camera"
+                android:layout_width="129dp"
+                android:layout_height="115dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="20dp"
-                android:text="이름"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/change_name"
-                android:layout_width="288dp"
-                android:layout_height="wrap_content"
-                android:background="@null"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                android:src="@drawable/profile1"
                 android:layout_gravity="center"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:hint="최대 10자로 입력해주세요."
-                android:textSize="15sp" />
+                app:civ_border_overlay="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="5dp"
+                app:riv_corner_radius="100dp" />
 
         </LinearLayout>
 
@@ -104,14 +91,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="70dp">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="20dp"
                 android:text="직업"
                 android:textColor="@color/black"
@@ -137,13 +124,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="70dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="20dp"
                 android:text="소개"
                 android:textColor="@color/black"
@@ -168,13 +155,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="70dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="20dp"
                 android:text="SNS"
                 android:textColor="@color/black"
@@ -198,13 +185,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="70dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="0dp"
                 android:text="전화번호"
                 android:textColor="@color/black"
@@ -229,13 +216,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="70dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="20dp"
                 android:text="이메일"
                 android:textColor="@color/black"
@@ -251,37 +238,6 @@
                 android:layout_marginEnd="20dp"
                 android:hint="당신의 이메일을 공유해보세요"
                 android:inputType="textEmailAddress"
-                android:background="@null"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_gravity="bottom|end"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="20dp"
-                android:text="링크"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/change_link"
-                android:layout_width="289dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="50sp"
-                android:hint="당신의 링크를 공유해보세요."
                 android:background="@null"
                 android:textSize="15sp" />
 
