@@ -19,12 +19,21 @@ class SearchFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentMainBinding
     lateinit var sqlDB: SQLiteDatabase
     lateinit var sdbManager: SearchDBManager
+    lateinit var activity : MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity = getActivity() as MainActivity
+    }
 
+    override fun onDetach() {
+        super.onDetach()
+//        activity = null!!
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,9 +82,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
         frame1.setOnClickListener{
             Toast.makeText(getActivity(), "frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+            activity.PostFragmentChange(0)
+
         }
         frame2.setOnClickListener{
             Toast.makeText(getActivity(), "frame2가 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+            activity.PostFragmentChange(1)
         }
     }
 
