@@ -24,10 +24,11 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity"
-                  android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".CardChangeActivity" />
+        <activity android:name=".PasswordActivity"/>
 
         <!--
         <activity android:name=".CardChangeActivity"
