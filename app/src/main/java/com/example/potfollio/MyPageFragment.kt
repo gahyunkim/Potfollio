@@ -33,29 +33,6 @@ class MyPageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
 
-    override fun onStop() {
-        super.onStop()
-
-        var profile : ImageView? = view?.findViewById(R.id.profile)
-        pro_dbManager = ChangeFragment.ProDBManager(requireActivity(), "ProTBL", null, 1)
-        pro_sqlDB = pro_dbManager.writableDatabase
-
-        var pro_cursor: Cursor
-        pro_cursor = pro_sqlDB.rawQuery("SELECT profileImg FROM ProTBL", null)
-
-        pro_cursor.moveToLast()
-        var currentImageUri : Uri = pro_cursor.getString(0).toUri()
-        // 이미지 뷰에 이미지 띄우기
-        try {
-            val bitmap = MediaStore.Images.Media.getBitmap(
-                activity.contentResolver,
-                currentImageUri
-            )
-            profile?.setImageBitmap(bitmap)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         val card_name = view?.findViewById<TextView>(R.id.card_name)
 
@@ -113,18 +90,20 @@ class MyPageFragment : Fragment() {
         var pro_cursor: Cursor
         pro_cursor = pro_sqlDB.rawQuery("SELECT profileImg FROM ProTBL", null)
 
-        pro_cursor.moveToLast()
-        var currentImageUri : Uri = pro_cursor.getString(0).toUri()
+        if(pro_cursor.count!=0){
+            pro_cursor.moveToLast()
+            var currentImageUri : Uri = pro_cursor.getString(0).toUri()
 
-        // 그리드뷰에 이미지 띄우기(비트맵 활용)
-        try {
-            val bitmap = MediaStore.Images.Media.getBitmap(
-                activity?.contentResolver,
-                currentImageUri
-            )
-            profile?.setImageBitmap(bitmap)
-        } catch (e: Exception) {
-            e.printStackTrace()
+            // 그리드뷰에 이미지 띄우기(비트맵 활용)
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(
+                    activity?.contentResolver,
+                    currentImageUri
+                )
+                profile?.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         super.onActivityCreated(savedInstanceState)
@@ -143,18 +122,20 @@ class MyPageFragment : Fragment() {
         var pro_cursor: Cursor
         pro_cursor = pro_sqlDB.rawQuery("SELECT profileImg FROM ProTBL", null)
 
-        pro_cursor.moveToLast()
-        var currentImageUri : Uri = pro_cursor.getString(0).toUri()
+        if(pro_cursor.count!=0){
+            pro_cursor.moveToLast()
+            var currentImageUri : Uri = pro_cursor.getString(0).toUri()
 
-        // 그리드뷰에 이미지 띄우기(비트맵 활용)
-        try {
-            val bitmap = MediaStore.Images.Media.getBitmap(
-                activity?.contentResolver,
-                currentImageUri
-            )
-            profile?.setImageBitmap(bitmap)
-        } catch (e: Exception) {
-            e.printStackTrace()
+            // 그리드뷰에 이미지 띄우기(비트맵 활용)
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(
+                    activity?.contentResolver,
+                    currentImageUri
+                )
+                profile?.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         // 메인액티비티로 부터 전달받은 데이터
