@@ -9,11 +9,12 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="140dp"
-        android:layout_height="178dp"
+        android:id="@+id/logo_start"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
-        android:src="@drawable/logo_blue" />
+        android:src="@drawable/logo_blue"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +24,7 @@
         android:fontFamily="@font/app_name"
         android:text="Pot, Folio"
         android:textColor="#FFFFFF"
-        android:textSize="45dp" />
+        android:textSize="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,18 +38,17 @@
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="181dp"
-        android:layout_height="53dp"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
         android:layout_gravity="center"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/roundbutton_white"
         android:backgroundTint="#E8E8E8"
         android:fontFamily="@font/notosans_kr_bold"
         android:text="시작하기"
         android:textAlignment="center"
         android:textColor="#4E5464"
-        android:textSize="18dp"
-        />
+        android:textSize="18dp" />
 
 
 </LinearLayout>

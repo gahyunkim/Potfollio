@@ -4,7 +4,9 @@ import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class StartActivity : AppCompatActivity(){
     lateinit var btnStart : Button
@@ -17,6 +19,9 @@ class StartActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+//        //gif부분 (보류)
+//        val imageView : ImageView = findViewById(R.id.logo_start);
+//        Glide.with(this).load(R.raw.logo_animation_start).override(300,300).into(imageView)
 
         // 시작 시 게시글 DB 초기화
         image_dbManager = AddFragment.ImageDBManager(this, "ImageTBL", null, 1)

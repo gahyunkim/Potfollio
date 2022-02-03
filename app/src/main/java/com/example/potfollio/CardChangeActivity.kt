@@ -28,7 +28,6 @@ class CardChangeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_change)
 
-        card_back = findViewById(R.id.card_back)
         card_save = findViewById(R.id.card_save)
         change_nickname = findViewById(R.id.change_nickname)
         change_info = findViewById(R.id.change_info)

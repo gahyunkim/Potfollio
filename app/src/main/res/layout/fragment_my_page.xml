@@ -193,7 +193,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:riv_corner_radius="100dp"
-        app:civ_border_overlay="true"
         app:riv_border_width="5dp"
         app:riv_border_color="@color/white"
         android:elevation="10dp"
