@@ -28,7 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
         //gif부분
         val imageView : ImageView = findViewById(R.id.logo_signup);
-        Glide.with(this).load(R.raw.redlogo).override(50,50).into(imageView)
+        Glide.with(this).load(R.raw.redlogo).override(300,300).into(imageView)
 
 
         edtName = findViewById(R.id.edtName)
