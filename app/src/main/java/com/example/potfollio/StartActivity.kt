@@ -1,6 +1,8 @@
 package com.example.potfollio
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +16,7 @@ class StartActivity : AppCompatActivity(){
     lateinit var text_sqlDB: SQLiteDatabase
     lateinit var image_dbManager: AddFragment.ImageDBManager
     lateinit var text_dbManager: AddFragment.TextDBManager
-
+    lateinit var activity: LoginActivity
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class StartActivity : AppCompatActivity(){
         text_sqlDB.execSQL("DELETE FROM textTBL")
         text_sqlDB.close()
         text_dbManager.close()
+
 
         btnStart = findViewById(R.id.btnStart)
 

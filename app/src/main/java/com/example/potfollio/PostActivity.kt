@@ -11,12 +11,12 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        post_back = findViewById(R.id.post_back)
+//        post_back = findViewById(R.id.post_back)
 
-        post_back.setOnClickListener {
+ //       post_back.setOnClickListener {
             // 액티비티가 바로 종료되도록 함
-            finish()
-        }
+  //          finish()
+    //    }
 
 
     }
