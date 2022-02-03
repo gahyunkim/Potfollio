@@ -70,7 +70,7 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/profile_camera"
-                android:layout_width="129dp"
+                android:layout_width="115dp"
                 android:layout_height="115dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
@@ -85,6 +85,7 @@
                 app:riv_border_width="5dp"
                 app:riv_corner_radius="100dp"
                 android:clickable="true"
+                android:scaleType="centerCrop"
                 android:focusableInTouchMode="true"/>
 
         </LinearLayout>
