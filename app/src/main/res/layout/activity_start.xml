@@ -8,13 +8,6 @@
     android:background="@color/point_orange"
     android:orientation="vertical">
 
-
-
-
-
-
-
-
     <FrameLayout
         android:id="@+id/frame1"
         android:layout_width="165dp"
