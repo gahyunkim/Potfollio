@@ -8,12 +8,11 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/logo_login"
         android:layout_width="92dp"
         android:layout_height="105dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        app:srcCompat="@drawable/logo_red" />
+        android:layout_marginTop="100dp"/>
 
     <TextView
         android:id="@+id/AppName_login"

@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var edtName: EditText
@@ -23,6 +25,11 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
+        //gif부분
+        val imageView : ImageView = findViewById(R.id.logo_signup);
+        Glide.with(this).load(R.raw.redlogo).override(50,50).into(imageView)
+
 
         edtName = findViewById(R.id.edtName)
         edtId = findViewById(R.id.edtId)

@@ -19,9 +19,9 @@ class StartActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-//        //gif부분 (보류)
-//        val imageView : ImageView = findViewById(R.id.logo_start);
-//        Glide.with(this).load(R.raw.logo_animation_start).override(300,300).into(imageView)
+        //gif부분 (보류)
+        val imageView : ImageView = findViewById(R.id.logo_start);
+        Glide.with(this).load(R.raw.logo_animation_start).override(500,500).fitCenter().into(imageView)
 
         // 시작 시 게시글 DB 초기화
         image_dbManager = AddFragment.ImageDBManager(this, "ImageTBL", null, 1)
