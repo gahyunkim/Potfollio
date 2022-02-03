@@ -33,6 +33,29 @@ class MyPageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
 
+    //    override fun onStop() {
+//        super.onStop()
+//
+//        var profile : ImageView? = view?.findViewById(R.id.profile)
+//        pro_dbManager = ChangeFragment.ProDBManager(requireActivity(), "ProTBL", null, 1)
+//        pro_sqlDB = pro_dbManager.writableDatabase
+//
+//        var pro_cursor: Cursor
+//        pro_cursor = pro_sqlDB.rawQuery("SELECT profileImg FROM ProTBL", null)
+//
+//        pro_cursor.moveToLast()
+//        var currentImageUri : Uri = pro_cursor.getString(0).toUri()
+//        // 이미지 뷰에 이미지 띄우기
+//        try {
+//            val bitmap = MediaStore.Images.Media.getBitmap(
+//                activity.contentResolver,
+//                currentImageUri
+//            )
+//            profile?.setImageBitmap(bitmap)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         val card_name = view?.findViewById<TextView>(R.id.card_name)
 

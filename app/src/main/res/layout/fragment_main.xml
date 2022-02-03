@@ -197,6 +197,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
+
             <TextView
                 android:id="@+id/tv_slideOffset"
                 android:layout_width="wrap_content"

@@ -13,23 +13,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<<<< Temporary merge branch 1
-        android:theme="@style/Theme.Potfollio"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".ExpainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".PasswordActivity"></activity>
-        <activity android:name=".SettingActivity" />
-=========
         android:theme="@style/Theme.Potfollio">
 
->>>>>>>>> Temporary merge branch 2
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +28,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SearchActivity" />
 <!--        <activity android:name=".CardChangeActivity" />-->
-        <activity android:name=".PasswordActivity" />
+        <activity android:name=".PasswordActivity"/>
 
         <!--
         <activity android:name=".CardChangeActivity"
