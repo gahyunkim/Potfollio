@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
 
 @Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class LoginActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //gif부분
+        val imageView : ImageView = findViewById(R.id.logo_login);
+        Glide.with(this).load(R.raw.redlogo).override(300,300).into(imageView)
 
         btnLog = findViewById(R.id.btnLog)
         btnJoin = findViewById(R.id.btnJoin)

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity"
+    android:background="@color/grey2"
     android:orientation="vertical">
 
     <TextView
@@ -22,13 +23,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <SearchView
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:iconifiedByDefault="false"
             android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
+            android:queryBackground="@null"
+            android:background="@drawable/roundbutton_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
@@ -37,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/notosans_bold"
         android:text="추천 검색어"
         android:textColor="#000000"
@@ -49,33 +55,37 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageView"
             android:layout_width="190dp"
             android:layout_height="270dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="150dp"
             android:background="@drawable/imageround"
             android:src="@drawable/sonny"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:riv_corner_radius="20dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageView2"
             android:layout_width="190dp"
             android:layout_height="270dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="150dp"
+            app:riv_corner_radius="20dp"
             android:background="@drawable/imageround"
             android:src="@drawable/search_image1"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/frame2"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop" />
 
         <FrameLayout
             android:id="@+id/frame1"
@@ -84,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/frameround"
             android:clickable="true"
-            android:elevation="10dp"
+            android:elevation="5dp"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.031"
@@ -133,7 +143,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/frameround"
             android:clickable="true"
-            android:elevation="10dp"
+            android:elevation="5dp"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.968"
