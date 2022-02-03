@@ -7,24 +7,11 @@
     android:background="@color/grey2">
 
 
-    <ImageView
-        android:id="@+id/backspace_icon"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/settings"
-        app:layout_constraintEnd_toStartOf="@+id/app_name"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@drawable/backspace_icon" />
-
     <TextView
         android:id="@+id/app_name"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/app_name"
         android:text="Pot,Folio"
@@ -49,13 +36,14 @@
 
         <TextView
             android:id="@+id/Settings_text"
-            android:layout_width="158dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/notosans_kr_bold"
             android:text="Settings"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,19 +71,6 @@
                 android:text="이용약관"
                 android:textAlignment="textStart"
                 android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/backspace_icon2"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:background="#FFFFFF"
-                android:foregroundTint="@color/navy"
-                android:rotation="180"
-                android:rotationY="0"
-                android:tint="@color/navy"
-                app:srcCompat="@drawable/backspace_icon" />
 
         </LinearLayout>
 
@@ -130,17 +105,6 @@
                 android:text="비밀번호 변경"
                 android:textAlignment="textStart"
                 android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/backspace_icon3"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:rotation="180"
-                android:rotationY="0"
-                android:tint="@color/navy"
-                app:srcCompat="@drawable/backspace_icon" />
 
         </LinearLayout>
 
