@@ -24,42 +24,32 @@
             android:layout_marginTop="10dp"
             android:padding="10dp">
 
-            <Button
-                android:id="@+id/card_back"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="53dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="취소"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <TextView
                 android:layout_width="243dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:text="명함 편집"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/notosans_kr_black"/>
 
             <Button
                 android:id="@+id/card_save"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="53dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
+                android:background="@drawable/roundbutton_point_orange"
                 android:clickable="true"
                 android:focusable="true"
                 android:text="저장"
                 android:textAlignment="center"
-                android:textColor="@color/point_orange"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/notosans_kr_black"/>
 
         </LinearLayout>
 
