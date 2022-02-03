@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.potfollio.MainFragment.Companion.newInstance
 import com.example.potfollio.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
@@ -53,6 +54,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 //            fragmentTransaction.add(R.id.linearLayout, fragment)
 //            fragmentTransaction.commit()
 //        }
+        transaction = fragmentManager.beginTransaction()
+        transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -87,7 +90,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 transaction = fragmentManager.beginTransaction()
                 transaction.add(R.id.linearLayout, MyPageFragment())
                 transaction.addToBackStack(null)
+
                 transaction.commit()
+//                transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
 
                 // CardChangeActivity 로부터 얻은 값을 bundle을 이용해 MyPageFragment로 보내기
                 val bundle = Bundle()
@@ -115,8 +120,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         if(index==0){
             supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post1Fragment()).addToBackStack(null).commit()
         }
-        else{
+        else if(index ==1){
             supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post2Fragment()).addToBackStack(null).commit()
+        }
+        else if(index ==2){
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,ChangeFragment()).addToBackStack(null).commit()
+        }
+        else{
+            supportFragmentManager.beginTransaction().detach(MyPageFragment()).attach(MyPageFragment()).addToBackStack(null).commit()
+//            transaction = fragmentManager.beginTransaction()
+//            transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
         }
     }
 

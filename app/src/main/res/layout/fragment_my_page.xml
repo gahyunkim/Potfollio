@@ -184,7 +184,7 @@
 
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/profile_camera"
+        android:id="@+id/profile"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
