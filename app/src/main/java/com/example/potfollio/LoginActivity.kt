@@ -1,6 +1,7 @@
 package com.example.potfollio
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -151,4 +152,6 @@ class LoginActivity : AppCompatActivity() {
             edtLogPass.setText(pass.toString())
         }
     }
+
+
 }
