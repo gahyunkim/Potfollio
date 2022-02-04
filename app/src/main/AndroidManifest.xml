@@ -29,7 +29,7 @@
         <activity android:name=".SearchActivity" />
 <!--        <activity android:name=".CardChangeActivity" />-->
         <activity android:name=".PasswordActivity"/>
-
+        <activity android:name=".PostActivity" />
         <!--
         <activity android:name=".CardChangeActivity"
             android:parentActivityName=".MainActivity"></activity> -->

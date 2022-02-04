@@ -46,13 +46,10 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        image_dbManager = AddFragment.ImageDBManager(activity!!, "ImageTBL", null, 1)
+        image_dbManager = AddFragment.ImageDBManager(requireActivity(), "ImageTBL", null, 1)
         image_sqlDB = image_dbManager.writableDatabase
-        //image_sqlDB.execSQL("DROP TABLE imageTBL")
-        //image_sqlDB.close()
-        //image_dbManager.close()
 
-        text_dbManager =AddFragment.TextDBManager(activity!!, "textTBL", null, 1)
+        text_dbManager =AddFragment.TextDBManager(requireActivity(), "textTBL", null, 1)
         text_sqlDB = text_dbManager.writableDatabase
     }
 
@@ -76,9 +73,11 @@ class AddFragment : Fragment(), View.OnClickListener {
         btnSelect.setOnClickListener { openGallery() }
 
         // 올리기 실행 시
+        // 아니면 제목, 내용 쓰고 이미지 선택하도록 하기
         btnUp.setOnClickListener {
             text_sqlDB = text_dbManager.writableDatabase
 
+            // 조건 바꾸기
             if (edtTitle.text.toString().isBlank() || edtContents.text.toString()
                     .isBlank() || listview.isEmpty()
             ) {
@@ -95,11 +94,10 @@ class AddFragment : Fragment(), View.OnClickListener {
                 )
                 //text_sqlDB.close()
 
+                // 마이페이지프래그먼트로 바로 돌아가도록 할까...?
+                Toast.makeText(getActivity(), "올리기 완료 \n 마이페이지에서 확인하세요", Toast.LENGTH_SHORT).show()
             }
-            index += 1  // 인덱스 증가
-
-            // 마이페이지프래그먼트로 바로 돌아가도록 할까...?
-            Toast.makeText(getActivity(), "올리기 완료 \n 마이페이지에서 확인하세요", Toast.LENGTH_SHORT).show()
+            index += 1  // 인덱스 증가 (else문으로 들어가야함)
         }
     }
 
@@ -114,7 +112,7 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(resultCode == Activity.RESULT_OK) {
+        if(resultCode == Activity.RESULT_OK ) {
             if(requestCode == OPEN_GALLERY) {
 
                 var clipData: ClipData = data!!.clipData!!
@@ -147,8 +145,6 @@ class AddFragment : Fragment(), View.OnClickListener {
                     }
                 }
             }
-        } else{
-            Log.d("ActivityResult", "something wrong")
         }
     }
 
