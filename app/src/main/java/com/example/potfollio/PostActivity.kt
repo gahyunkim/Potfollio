@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_post.*
 @Suppress("DEPRECATION")
 
 class PostActivity : AppCompatActivity() {
-    lateinit var post_back: Button
+    // lateinit var post_back: Button
     lateinit var infor_sqlDB: SQLiteDatabase
     lateinit var image_sqlDB: SQLiteDatabase
     lateinit var text_sqlDB: SQLiteDatabase
@@ -30,6 +30,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var contents: TextView
 
     var postId : Int =0
+    lateinit var iname : String
 
     val items = ArrayList<RecyclerViewItem>()
 
@@ -44,6 +45,9 @@ class PostActivity : AppCompatActivity() {
         name = findViewById(R.id.name)
 
         postId = intent.getIntExtra("postId", 100)
+        iname = intent.getStringExtra("name").toString()
+
+        name.text = iname
 
         infor_dbManager = SignUpActivity.DBManager(this, "groupTBL", null, 1)
         infor_sqlDB = infor_dbManager.readableDatabase
@@ -53,9 +57,6 @@ class PostActivity : AppCompatActivity() {
 
         text_dbManager = AddFragment.TextDBManager(this, "textTBL", null, 1)
         text_sqlDB = text_dbManager.readableDatabase
-
-        var cursor_infor: Cursor
-        cursor_infor = infor_sqlDB.rawQuery("SELECT gID, gPass,gName FROM groupTBL", null)
 
         var cursor_image: Cursor
         cursor_image = image_sqlDB.rawQuery("SELECT image , i_number FROM ImageTBL", null)
@@ -108,13 +109,6 @@ class PostActivity : AppCompatActivity() {
                 contents.text = iContent
             }
         }
-
-        // 사용자 이름 가져오기 (계정 여러개일 경우 조건 추가하기)
-//        while (cursor_infor.moveToNext()) {
-//            var iName = cursor_infor.getString(2)
-//
-//            name.text = iName
-//        }
 
 //        post_back.setOnClickListener {
 //            // 액티비티가 바로 종료되도록 함

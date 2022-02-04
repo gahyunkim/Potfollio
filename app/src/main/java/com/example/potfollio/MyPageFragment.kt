@@ -80,7 +80,6 @@ class MyPageFragment : Fragment() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-
             }
         }
 
@@ -205,6 +204,7 @@ class MyPageFragment : Fragment() {
 
             val intent = Intent(getActivity(), PostActivity::class.java)
             // 클릭한 게시글 번호 보내기
+            intent.putExtra("name", text)
             intent.putExtra("postId", pos)
             startActivity(intent)
         }
