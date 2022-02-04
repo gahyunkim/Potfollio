@@ -62,7 +62,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="212dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/custom_recycler_item" >
+                tools:listitem="@layout/custom_recycler_item"
+                android:background="@drawable/post_round">
+
             </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
