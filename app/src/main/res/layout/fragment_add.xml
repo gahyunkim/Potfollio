@@ -159,12 +159,15 @@ tools:context=".AddFragment">
 
             <EditText
                 android:id="@+id/edtContents"
-                android:layout_width="match_parent"
+                android:layout_width="392dp"
                 android:layout_height="300dp"
                 android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
                 android:gravity="top"
                 android:hint="당신의 포트폴리오에 대해 이야기 해주세요.\n디자인도 다시 수정"
                 android:inputType="textNoSuggestions"
+                android:background="@drawable/round_grey2"
                 android:textSize="16dp" />
         </LinearLayout>
     </ScrollView>
