@@ -18,7 +18,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/notosans_kr_bold"
-            android:text="더 나은 Pot, Folio 사용을 위해 \n이용약관을 마련했습니다"
+            android:text="더 나은 \nPot, Folio 사용을 위해 \n이용약관을 마련했습니다"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -26,10 +26,10 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="267dp"
-            android:layout_height="208dp"
-            android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/logo_blue" />
+            android:layout_width="276dp"
+            android:layout_height="218dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/explain__ai3" />
 
         <TextView
             android:id="@+id/dialog_explainH1"
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/notosans_kr_bold"
             android:text="제1조(목적)"
