@@ -56,7 +56,6 @@ class ChangeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var profile_camera : ImageView = view.findViewById(R.id.profile_camera)
-        var card_back: Button = view.findViewById(R.id.card_back)
         var card_save :Button = view.findViewById(R.id.card_save)
         var change_nickname : EditText = view.findViewById(R.id.change_nickname)
         var change_info: EditText = view.findViewById(R.id.change_info)
