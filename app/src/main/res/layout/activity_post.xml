@@ -57,14 +57,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewpager"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:topLeftRadius="6dp"
-                android:background="@drawable/post_round">
-
-            </androidx.viewpager2.widget.ViewPager2>
+                android:layout_height="212dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/custom_recycler_item" >
+            </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout2"
@@ -95,7 +94,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/contents"
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -121,7 +120,7 @@
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardview_member"
-                    app:layout_constraintTop_toBottomOf="@+id/contents"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,7 +137,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/contents"
                         android:layout_width="374dp"
                         android:layout_height="0dp"
                         android:layout_marginStart="20dp"
@@ -153,13 +152,13 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.666"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView9"
+                        app:layout_constraintTop_toBottomOf="@+id/topic"
                         app:layout_constraintVertical_bias="0.231">
 
                     </TextView>
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/topic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
