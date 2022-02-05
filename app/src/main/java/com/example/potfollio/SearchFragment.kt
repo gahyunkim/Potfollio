@@ -82,12 +82,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
         frame1.setOnClickListener{
             Toast.makeText(getActivity(), "frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.PostFragmentChange(0)
+            activity.FragmentChange(0)
 
         }
         frame2.setOnClickListener{
             Toast.makeText(getActivity(), "frame2가 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.PostFragmentChange(1)
+            activity.FragmentChange(1)
         }
     }
 
@@ -109,7 +109,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
             onCreate(db)
         }
     }
-
 
 //
 //    private fun setOnClickListener() {

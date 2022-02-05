@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/grey2"
-    tools:context=".SearchActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/app_name"
@@ -226,6 +226,20 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:text="명함 수정"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/notosans_bold"
+            android:elevation="30dp"
+            android:background="@drawable/roundbutton_point_orange"/>
+
+        <Button
+            android:id="@+id/btn_card_big"
+            android:layout_width="75dp"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="명함 확인"
             android:textSize="10sp"
             android:textColor="@color/white"
             android:fontFamily="@font/notosans_bold"
