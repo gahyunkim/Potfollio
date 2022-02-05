@@ -16,8 +16,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.bumptech.glide.Glide
-import com.example.potfollio.MainFragment.Companion.newInstance
 import com.example.potfollio.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,15 +35,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-//        settingButton = findViewById(R.id.settingButton)
-
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
-
-        //gif부분
-        val imageView : ImageView = findViewById(R.id.home_img);
-        Glide.with(this).load(R.raw.home_animation).into(imageView)
 
         // 하단 네비게이션바
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -65,7 +57,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val imageView : ImageView = findViewById(R.id.home_img);
+      //  val imageView : ImageView = findViewById(R.id.home_img);
 
 //        var data: String = intent.getStringExtra("name")!!
 //        var data: String = intent.getStringExtra("name")!!
@@ -75,10 +67,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.tab_main -> { // 메인화면(홈화면)
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MainFragment()).addToBackStack(null).commitAllowingStateLoss()
                // transaction.addToBackStack(null)
-
-                //gif부분
-                Glide.with(this).load(R.raw.home_animation).into(imageView)
-
                 return true
             }
             R.id.tab_search ->{ // 검색창
@@ -86,9 +74,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
                 sdbManager = SearchFragment.SearchDBManager(this, "searchList", null, 2)
                 sqlDB = sdbManager.writableDatabase
-
-                //gif부분
-                Glide.with(this).load(R.drawable.none).into(imageView)
 
                 return true
             }
@@ -98,9 +83,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 //                bundle.putString("name", intent.getStringExtra("name"))
 //                adddbManager = AddFragment.DBManager(this, "imageTBL", null, 2)
 //                sqlDB = sdbManager.writableDatabase
-
-                //gif부분
-                Glide.with(this).load(R.drawable.none).into(imageView)
 
                 return true
             }
@@ -126,7 +108,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
 
                 //gif부분
-                Glide.with(this).load(R.drawable.none).into(imageView)
+                //Glide.with(this).load(R.drawable.none).into(imageView)
 
                 return true
             }

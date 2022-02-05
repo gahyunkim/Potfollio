@@ -65,12 +65,14 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //        })
         return view
 
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val frame1 : FrameLayout= view.findViewById(R.id.frame1)
         val frame2 : FrameLayout= view.findViewById(R.id.frame2)
+
 
         val imageView : ImageView = view.findViewById(R.id.imageView)
         imageView.setClipToOutline(true)
@@ -108,7 +110,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
         }
     }
 
-
 //
 //    private fun setOnClickListener() {
 //        val btnSequence = binding.conslay.children
@@ -130,5 +131,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //            }
 //        }
 //    }
+
 
 }

@@ -16,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 
 @Suppress("DEPRECATION", "UNUSED_LAMBDA_EXPRESSION")
@@ -71,17 +72,59 @@ class AddFragment : Fragment(), View.OnClickListener {
         btnSelect.setOnClickListener { openGallery() }
 
         // 올리기 실행 시
-        // 제목,내용 미 입력시 기본 문구 들어감
+        // 제목,내용 미입력 시 기본 문구 들어감
         btnUp.setOnClickListener {
             text_sqlDB = text_dbManager.writableDatabase
 
-            // 조건 바꾸기 edtTitle.text.toString().isBlank() || edtContents.text.toString().isBlank() ||
+            // 이미지X
             if ( listview.isEmpty()
             ) {
                 // 이미지는 필수 입력 사항
                 Toast.makeText(getActivity(), "이미지는 필수 입력 사항입니다!", Toast.LENGTH_SHORT).show()
             }
-            else {
+            // 제목O 내용X
+            else if(edtTitle.text.toString().isNotBlank() && edtContents.text.toString().isBlank() && listview.isNotEmpty()) {
+                text_sqlDB.execSQL(
+                    "INSERT INTO textTBL VALUES ( '"
+                            + index + "' , '"
+                            + edtTitle.text.toString() + "' , '"
+                            + "no content" + "');"
+                )
+                Toast.makeText(getActivity(), "이미지, 제목 업로드 완료 ", Toast.LENGTH_SHORT).show()
+                items.clear()
+                adapter.notifyDataSetChanged()
+                listview.adapter = adapter // 이미지 초기화
+                edtTitle.text = null // 제목 초기화
+            }
+            // 제목X 내용O
+            else if(edtTitle.text.toString().isBlank() && edtContents.text.toString().isNotBlank() && listview.isNotEmpty()) {
+                text_sqlDB.execSQL(
+                    "INSERT INTO textTBL VALUES ( '"
+                            + index + "' , '"
+                            + "no title" + "' , '"
+                            + edtContents.text.toString() + "');"
+                )
+                Toast.makeText(getActivity(), "이미지, 내용 업로드 완료 ", Toast.LENGTH_SHORT).show()
+                items.clear()
+                adapter.notifyDataSetChanged()
+                listview.adapter = adapter // 이미지 초기화
+                edtContents.text = null // 내용 초기화
+            }
+            // 제목X 내용X
+            else if(edtTitle.text.toString().isBlank() && edtContents.text.toString().isBlank() && listview.isNotEmpty()) {
+                text_sqlDB.execSQL(
+                    "INSERT INTO textTBL VALUES ( '"
+                            + index + "' , '"
+                            + "no title" + "' , '"
+                            + "no content" + "');"
+                )
+                Toast.makeText(getActivity(), "이미지 업로드 완료 ", Toast.LENGTH_SHORT).show()
+                items.clear()
+                adapter.notifyDataSetChanged()
+                listview.adapter = adapter
+            }
+            // 제목O 내용O
+            else{
                 // 데베 저장
                 text_sqlDB.execSQL(
                     "INSERT INTO textTBL VALUES ( '"
@@ -89,10 +132,6 @@ class AddFragment : Fragment(), View.OnClickListener {
                             + edtTitle.text.toString() + "' , '"
                             + edtContents.text.toString() + "');"
                 )
-                //text_sqlDB.close()
-
-                // 마이페이지프래그먼트로 바로 돌아가도록 할까...?
-                // activity.PostFragmentChange(3)
                 Toast.makeText(getActivity(), "업로드 완료 ", Toast.LENGTH_SHORT).show()
 
                 items.clear()
