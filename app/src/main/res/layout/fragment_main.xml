@@ -169,22 +169,13 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/slide_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/round"
             android:backgroundTint="@null">
 
-            <TextView
-                android:id="@+id/tv_slideText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="128dp"
-                android:text="위로 당겨주세요"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btn_toggle"
@@ -197,19 +188,39 @@
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/allfolio_img1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:scaleType="centerCrop"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        android:src="@drawable/sonny"
+                        app:riv_mutate_background="true"
+                        app:riv_oval="false"/>
 
-            <TextView
-                android:id="@+id/tv_slideOffset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="여기에 게시글들 보임"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_slideText1" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_margin="20dp"
+                        android:layout_weight="0.2"
+                        android:text="Title1"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
