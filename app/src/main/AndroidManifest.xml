@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Potfollio"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CardTransActivity"></activity>
+        <activity android:name=".S2PostActivity"></activity>
+        <activity android:name=".S1PostActivity" />
+        <activity android:name=".CardTransActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +26,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".SignUpActivity" />
-<!--        <activity android:name=".SearchActivity" /> &lt;!&ndash; <activity android:name=".CardChangeActivity" /> &ndash;&gt;-->
+        <activity android:name=".SignUpActivity" /> <!-- <activity android:name=".SearchActivity" /> &lt;!&ndash; <activity android:name=".CardChangeActivity" /> &ndash;&gt; -->
         <activity android:name=".PasswordActivity" />
         <activity android:name=".PostActivity" />
         <activity android:name=".SearchPostActivity" />

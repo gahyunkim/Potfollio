@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity"
+    tools:context=".MainActivity"
     android:background="@color/grey2"
     android:orientation="vertical">
 
@@ -65,7 +65,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="150dp"
             android:background="@drawable/imageround"
-            android:src="@drawable/sonny"
+            android:src="@drawable/img1"
             app:riv_corner_radius="20dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +82,7 @@
             android:layout_marginBottom="150dp"
             app:riv_corner_radius="20dp"
             android:background="@drawable/imageround"
-            android:src="@drawable/search_image1"
+            android:src="@drawable/pimg2"
             app:layout_constraintEnd_toEndOf="@+id/frame2"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"

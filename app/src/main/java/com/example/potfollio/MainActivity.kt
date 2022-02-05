@@ -120,11 +120,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     // addToBackStack을 이용해 백스택을 저장함(전으로 돌아갈 수 있도록)
     fun FragmentChange(index: Int) {
         if (index == 0) {
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post1Fragment())
-                .addToBackStack(null).commit()
+//            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post1Fragment())
+//                .addToBackStack(null).commit()
         } else if (index == 1) {
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post2Fragment())
-                .addToBackStack(null).commit()
+//            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post2Fragment())
+//                .addToBackStack(null).commit()
         } else if (index == 2) {
             supportFragmentManager.beginTransaction().replace(R.id.linearLayout, ChangeFragment())
                 .addToBackStack(null).commit()

@@ -1,19 +1,19 @@
 package com.example.potfollio
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.potfollio.databinding.FragmentMainBinding
 
 class SearchFragment : Fragment(), View.OnClickListener {
@@ -30,6 +30,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         activity = getActivity() as MainActivity
+
     }
 
     override fun onDetach() {
@@ -44,7 +45,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
 
 
-        val view : View = inflater!!.inflate(R.layout.fragment_search,container,false)
+        val view : View = inflater!!.inflate(R.layout.fragment_search, container, false)
 //        val search_bar : SearchView = inflater!!.inflate(R.layout.fragment_search,container,false) as SearchView
 //
 //        search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -83,13 +84,14 @@ class SearchFragment : Fragment(), View.OnClickListener {
         imageView2.setClipToOutline(true)
 
         frame1.setOnClickListener{
-            Toast.makeText(getActivity(), "frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.FragmentChange(0)
-
+            Toast.makeText(getActivity(), "추천 검색어를 구경하세요!", Toast.LENGTH_SHORT).show();
+            val intent = Intent(getActivity(), S1PostActivity::class.java)
+            startActivity(intent)
         }
         frame2.setOnClickListener{
-            Toast.makeText(getActivity(), "frame2가 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.FragmentChange(1)
+            Toast.makeText(getActivity(), "추천 검색어를 구경하세요!", Toast.LENGTH_SHORT).show();
+            val intent = Intent(getActivity(), S2PostActivity::class.java)
+            startActivity(intent)
         }
 
         search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -97,7 +99,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
                 // 검색 버튼 누를 때 호출
 
                 // 검색 버튼 클릭 시 관련 게시글들 나열된 곳으로 이동
-                val intent = Intent(getActivity(),SearchPostActivity::class.java)
+                val intent = Intent(getActivity(), SearchPostActivity::class.java)
                 startActivity(intent)
                 return true
             }

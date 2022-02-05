@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostActivity">
+    tools:context=".S1PostActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/app_name"
             android:text="Pot,Folio"
             android:textColor="#000000"
@@ -30,21 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageButton"
             app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="fitStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/app_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/post_icon" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -71,14 +56,25 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:layout_marginStart="10dp"
-                        android:src="@drawable/graphicdesign_1" />
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img1" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/_b98a07c2ee086f846f2f47f7d5e0b6b" />
+                        android:layout_marginStart="10dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img2" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:layout_marginStart="10dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img3" />
+
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -99,7 +95,7 @@
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/post_round_profile"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profile2"
+                    android:src="@drawable/prof1"
                     app:layout_constraintEnd_toStartOf="@+id/imageView2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -141,14 +137,16 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/app_name"
-                        android:text="My Folio"
+                        android:text="Graphic PotFolio"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
                         android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
 
                     <TextView
                         android:id="@+id/contents"
