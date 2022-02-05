@@ -1,11 +1,20 @@
 package com.example.potfollio
 
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+
 
 class CardTransActivity : AppCompatActivity() {
     lateinit var card_dbManager : ChangeFragment.DBManager
@@ -22,7 +31,7 @@ class CardTransActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card_trans)
 
         // 화면을 가로로 고정(landscape)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
 
         cname = findViewById(R.id.cname)
         cnickname = findViewById(R.id.cnickname)

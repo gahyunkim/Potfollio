@@ -1,5 +1,6 @@
 package com.example.potfollio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,5 +26,12 @@ class MainFragment : Fragment() {
         //gif
         val imageView : ImageView = view.findViewById(R.id.home_img)
         Glide.with(this).load(R.raw.home_animation).into(imageView)
+
+        var main_hotfolio_img1 : ImageView = view.findViewById(R.id.main_hotfolio_img1)
+
+        main_hotfolio_img1.setOnClickListener{
+            val intent = Intent(getActivity(),Code_ImgActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
