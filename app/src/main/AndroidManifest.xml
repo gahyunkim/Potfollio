@@ -24,6 +24,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
+
         <activity android:name=".SignUpActivity" />
 <!--        <activity android:name=".SearchActivity" /> &lt;!&ndash; <activity android:name=".CardChangeActivity" /> &ndash;&gt;-->
         <activity android:name=".PasswordActivity" />

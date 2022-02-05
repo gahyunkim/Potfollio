@@ -71,100 +71,60 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
+                android:layout_height="match_parent"
+                android:background="@color/grey1">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardview_member"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="100dp"
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/post_profile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/post_round_profile"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile2"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/profile2" />
-
-                </androidx.cardview.widget.CardView>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius="20dp" />
 
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/notosans_kr_bold"
-                    android:text="xxhyun"
+                    android:text="xxhyun_21"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="25sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardview_member"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-
-
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/notosans_kr_regular"
-                    android:text="2022.02.03"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardview_member"
-                    app:layout_constraintTop_toBottomOf="@+id/name"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toEndOf="@+id/post_profile"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="250dp"
                     android:layout_marginBottom="121dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date"
+                    app:layout_constraintTop_toBottomOf="@+id/post_profile"
                     app:layout_constraintVertical_bias="0.0">
 
-
-                    <TextView
-                        android:id="@+id/contents"
-                        android:layout_width="374dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:text="오늘은 회원 가입시에 사용자의 이름, 아이디, 비밀번호를 받아서
-                        데이터베이스에 저장하는 코딩을 했다. \n\n회원 가입 시에 이름이나 아이디가 데이터 베이스에 존재하는 경우에는 회원가입이 불가능하다. 그리고 이름은 2글자 이상, 아이디는 6글자 이상 적어야하는 조건이 있다. 여러 조건들을 만족한 후에 회원가입이 완료된다. 회원가입 후에는 로그인 창으로 이동하며 로그인을 할 때 아이디와 비번을 입력하지 않은 경우 로그인을 할 수 없다.\n\n오늘의 코드 일지 끝"
-                        android:textAlignment="textStart"
-                        android:textColor="#000000"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.666"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/topic"
-                        app:layout_constraintVertical_bias="0.231">
-
-                    </TextView>
 
                     <TextView
                         android:id="@+id/topic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="15dp"
                         android:fontFamily="@font/app_name"
                         android:text="Code With Me"
                         android:textAlignment="textStart"
@@ -174,6 +134,24 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <TextView
+                        android:id="@+id/contents"
+                        android:layout_width="402dp"
+                        android:layout_height="200dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="오늘은 회원 가입시에 사용자의 이름, 아이디, 비밀번호를 받아서                         데이터베이스에 저장하는 코딩을 했다. \n\n회원 가입 시에 이름이나 아이디가 데이터 베이스에 존재하는 경우에는 회원가입이 불가능하다. 그리고 이름은 2글자 이상, 아이디는 6글자 이상 적어야하는 조건이 있다. 여러 조건들을 만족한 후에 회원가입이 완료된다. 회원가입 후에는 로그인 창으로 이동하며 로그인을 할 때 아이디와 비번을 입력하지 않은 경우 로그인을 할 수 없다.\n\n오늘의 코드 일지 끝"
+                        android:textAlignment="textStart"
+                        android:textColor="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topic"
+                        app:layout_constraintVertical_bias="0.0">
+
+                    </TextView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
