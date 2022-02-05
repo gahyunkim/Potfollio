@@ -94,7 +94,7 @@ class MyPageFragment : Fragment() {
             pro_cursor.moveToLast()
             var currentImageUri : Uri = pro_cursor.getString(0).toUri()
 
-            // 그리드뷰에 이미지 띄우기(비트맵 활용)
+            //
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(
                     activity?.contentResolver,

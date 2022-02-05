@@ -41,7 +41,7 @@ class PostActivity : AppCompatActivity() {
         //post_back = findViewById(R.id.post_back)
         recyclerview = findViewById(R.id.recyclerview)
         topic = findViewById(R.id.topic)
-        contents = findViewById(R.id.name)
+        contents = findViewById(R.id.contents)
         name = findViewById(R.id.name)
 
         postId = intent.getIntExtra("postId", 100)

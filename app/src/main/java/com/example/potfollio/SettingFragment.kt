@@ -51,7 +51,7 @@ class SettingFragment : Fragment() {
 
         btnLogOut.setOnClickListener {
 //            var logactivity : LoginActivity
-            val intent = Intent(getActivity(), StartActivity::class.java)
+            val intent = Intent(getActivity(), LoginActivity::class.java)
 
 //            logactivity.deleteData()
             startActivity(intent)

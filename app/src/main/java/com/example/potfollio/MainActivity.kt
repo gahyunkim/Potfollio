@@ -95,6 +95,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.tab_add -> { // 게시글 추가
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , AddFragment()).addToBackStack(null).commitAllowingStateLoss()
+//                val bundle = Bundle()
+//                bundle.putString("name", intent.getStringExtra("name"))
 //                adddbManager = AddFragment.DBManager(this, "imageTBL", null, 2)
 //                sqlDB = sdbManager.writableDatabase
 
@@ -146,6 +148,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
         else if(index ==2){
             supportFragmentManager.beginTransaction().replace(R.id.linearLayout,ChangeFragment()).addToBackStack(null).commit()
+        }
+        else if(index ==3){
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,MyPageFragment()).addToBackStack(null).commit()
         }
         else{
             supportFragmentManager.beginTransaction().detach(MyPageFragment()).attach(MyPageFragment()).addToBackStack(null).commit()
