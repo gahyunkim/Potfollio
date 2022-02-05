@@ -47,7 +47,8 @@
                 android:layout_height="300dp"
                 android:background="@drawable/post_round"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/custom_recycler_item"></androidx.recyclerview.widget.RecyclerView>
+                tools:listitem="@layout/custom_recycler_item">
+            </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout2"
