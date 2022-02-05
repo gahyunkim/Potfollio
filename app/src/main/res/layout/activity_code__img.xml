@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/app_name"
             android:text="Pot,Folio"
             android:textColor="#000000"
@@ -30,21 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageButton"
             app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="fitStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/app_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/post_icon" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,15 +55,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
-                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
                         android:src="@drawable/coding" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
                         android:layout_marginStart="10dp"
-                        android:src="@drawable/_b98a07c2ee086f846f2f47f7d5e0b6b" />
+                        android:src="@drawable/coding2" />
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -117,7 +102,7 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/notosans_kr_bold"
-                    android:text="Jack"
+                    android:text="xxhyun"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
                     android:textSize="25sp"
@@ -144,7 +129,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="300dp"
                     android:layout_marginBottom="121dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -161,9 +146,8 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:text="포트폴리오(portfolio)는 본래 서류가방이나 서류집을 뜻하는 어휘이다. 문서를 모아 휴대할 수 있는 꾸러미를 지칭하던 말로,
-                        \n'port-'는 '가지고 다니다', 'folio'는 '잎사귀'에서 유래한 종이라는 뜻이다.
-                       \n이러한 어원에서 파생되어 '(특히 심사 등 목적으로) 작품이나 성과 등의 경력을 정리한 자료집'이라는 의미가 탄생했다."
+                        android:text="오늘은 회원 가입시에 사용자의 이름, 아이디, 비밀번호를 받아서
+                        데이터베이스에 저장하는 코딩을 했다. \n\n회원 가입 시에 이름이나 아이디가 데이터 베이스에 존재하는 경우에는 회원가입이 불가능하다. 그리고 이름은 2글자 이상, 아이디는 6글자 이상 적어야하는 조건이 있다. 여러 조건들을 만족한 후에 회원가입이 완료된다. 회원가입 후에는 로그인 창으로 이동하며 로그인을 할 때 아이디와 비번을 입력하지 않은 경우 로그인을 할 수 없다.\n\n오늘의 코드 일지 끝"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +166,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/app_name"
-                        android:text="This is topic"
+                        android:text="Code With Me"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
                         android:textSize="30sp"

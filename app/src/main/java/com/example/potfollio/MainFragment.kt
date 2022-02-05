@@ -36,5 +36,13 @@ class MainFragment : Fragment() {
             val intent = Intent(getActivity(),HotActivity::class.java)
             startActivity(intent)
         }
+
+        var main_hotfolio_img1 : ImageView = view.findViewById(R.id.main_hotfolio_img1)
+
+        main_hotfolio_img1.setOnClickListener{
+            val intent = Intent(getActivity(),Code_ImgActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

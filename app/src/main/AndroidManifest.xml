@@ -30,7 +30,7 @@
         <activity android:name=".PostActivity" />
         <activity android:name=".SearchPostActivity" />
         <activity android:name=".HotActivity" />
-
+        <activity android:name=".Code_ImgActivity" />
     </application>
 
 </manifest>
