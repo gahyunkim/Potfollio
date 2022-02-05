@@ -2,6 +2,7 @@ package com.example.potfollio
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
@@ -20,6 +21,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
     lateinit var sqlDB: SQLiteDatabase
     lateinit var sdbManager: SearchDBManager
     lateinit var activity : MainActivity
+    lateinit var search_bar: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +74,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         val frame1 : FrameLayout= view.findViewById(R.id.frame1)
         val frame2 : FrameLayout= view.findViewById(R.id.frame2)
-
+        search_bar = view.findViewById(R.id.search_bar)
 
         val imageView : ImageView = view.findViewById(R.id.imageView)
         imageView.setClipToOutline(true)
@@ -89,6 +91,23 @@ class SearchFragment : Fragment(), View.OnClickListener {
             Toast.makeText(getActivity(), "frame2가 클릭되었습니다.", Toast.LENGTH_SHORT).show();
             activity.FragmentChange(1)
         }
+
+        search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 검색 버튼 누를 때 호출
+
+                // 검색 버튼 클릭 시 관련 게시글들 나열된 곳으로 이동
+                val intent = Intent(getActivity(),SearchPostActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                // 검색창에서 글자가 변경이 일어날 때마다 호출
+                return true
+            }
+        })
     }
 
     override fun onClick(p0: View?) {

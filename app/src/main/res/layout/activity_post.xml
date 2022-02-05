@@ -58,10 +58,10 @@
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/post_profile"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/post_round_profile"
                     android:scaleType="centerCrop"
@@ -76,12 +76,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/notosans_kr_bold"
                     android:text="Jack"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.034"
                     app:layout_constraintStart_toEndOf="@+id/post_profile"
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="15dp"
                         android:fontFamily="@font/app_name"
                         android:text="My Folio"
                         android:textAlignment="textStart"
@@ -123,9 +123,9 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:text="포트폴리오(portfolio)는 본래 서류가방이나 서류집을 뜻하는 어휘이다. 문서를 모아 휴대할 수 있는 꾸러미를 지칭하던 말로,
-                        \n'port-'는 '가지고 다니다', 'folio'는 '잎사귀'에서 유래한 종이라는 뜻이다.
-                       \n이러한 어원에서 파생되어 '(특히 심사 등 목적으로) 작품이나 성과 등의 경력을 정리한 자료집'이라는 의미가 탄생했다."
+                        android:text="포트폴리오(portfolio)는 \n본래 서류가방이나 서류집을 뜻하는 어휘이다. \n문서를 모아 휴대할 수 있는 꾸러미를 지칭하던 말로,
+                        \n'port-'는 '가지고 다니다', \n'folio'는 '잎사귀'에서 유래한 종이라는 뜻이다.
+                       \n이러한 어원에서 파생되어 '(특히 심사 등 목적으로) \n작품이나 성과 등의 경력을 정리한 자료집'\n이라는 의미가 탄생했다."
                         android:textAlignment="textStart"
                         android:textColor="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"

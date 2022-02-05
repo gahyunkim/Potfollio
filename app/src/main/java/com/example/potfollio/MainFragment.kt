@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
 class MainFragment : Fragment() {
+
+    lateinit var btnhot: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +30,10 @@ class MainFragment : Fragment() {
         val imageView : ImageView = view.findViewById(R.id.home_img)
         Glide.with(this).load(R.raw.home_animation).into(imageView)
 
-        var main_hotfolio_img1 : ImageView = view.findViewById(R.id.main_hotfolio_img1)
-
-        main_hotfolio_img1.setOnClickListener{
-            val intent = Intent(getActivity(),Code_ImgActivity::class.java)
+        // 핫팟폴리오
+        btnhot = view.findViewById(R.id.btnhot)
+        btnhot.setOnClickListener{
+            val intent = Intent(getActivity(),HotActivity::class.java)
             startActivity(intent)
         }
     }
