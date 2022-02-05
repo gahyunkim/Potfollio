@@ -18,9 +18,7 @@ import android.widget.*
 import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 
-@Suppress("DEPRECATION", "UNUSED_LAMBDA_EXPRESSION") //이거 추가하니까 갤러리 접근 가능
-// 갤러리 접근 주의하는 문구 띄우기
-// 갤러리 다시 접근하기
+@Suppress("DEPRECATION", "UNUSED_LAMBDA_EXPRESSION")
 
 class AddFragment : Fragment(), View.OnClickListener {
     lateinit var btnSelect : Button
@@ -33,12 +31,12 @@ class AddFragment : Fragment(), View.OnClickListener {
     lateinit var edtContents : EditText
     lateinit var btnUp : Button
 
+    lateinit var activity : MainActivity
+
     private val OPEN_GALLERY = 200
 
     val items = mutableListOf<ListViewItem>()
-
-    // 리스트에 주소 저장해 놓고 '올리기' 누르면 데베에 올리기
-    // var urilist = ArrayList<Uri>()
+    val adapter = ListViewAdapter(items)
 
     companion object {
         var index:Int = 1
@@ -73,16 +71,15 @@ class AddFragment : Fragment(), View.OnClickListener {
         btnSelect.setOnClickListener { openGallery() }
 
         // 올리기 실행 시
-        // 아니면 제목, 내용 쓰고 이미지 선택하도록 하기
+        // 제목,내용 미 입력시 기본 문구 들어감
         btnUp.setOnClickListener {
             text_sqlDB = text_dbManager.writableDatabase
 
-            // 조건 바꾸기
-            if (edtTitle.text.toString().isBlank() || edtContents.text.toString()
-                    .isBlank() || listview.isEmpty()
+            // 조건 바꾸기 edtTitle.text.toString().isBlank() || edtContents.text.toString().isBlank() ||
+            if ( listview.isEmpty()
             ) {
-                // 제목,내용,이미지는 필수 입력 사항
-                Toast.makeText(getActivity(), "제목,이미지,내용을 모두 작성해 주세요!", Toast.LENGTH_SHORT).show()
+                // 이미지는 필수 입력 사항
+                Toast.makeText(getActivity(), "이미지는 필수 입력 사항입니다!", Toast.LENGTH_SHORT).show()
             }
             else {
                 // 데베 저장
@@ -95,10 +92,18 @@ class AddFragment : Fragment(), View.OnClickListener {
                 //text_sqlDB.close()
 
                 // 마이페이지프래그먼트로 바로 돌아가도록 할까...?
-                Toast.makeText(getActivity(), "올리기 완료 \n 마이페이지에서 확인하세요", Toast.LENGTH_SHORT).show()
+                // activity.PostFragmentChange(3)
+                Toast.makeText(getActivity(), "업로드 완료 ", Toast.LENGTH_SHORT).show()
+
+                items.clear()
+                adapter.notifyDataSetChanged()
+                listview.adapter = adapter
+                edtTitle.text = null
+                edtContents.text = null
             }
-            index += 1  // 인덱스 증가 (else문으로 들어가야함)
+            index += 1  // 인덱스 증가
         }
+
     }
 
     // 갤러리 접근
@@ -112,14 +117,20 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
 
+        // 리스트에 주소 저장해 놓고 '올리기' 누르면 데베에 올리기
+        //var urilist = ArrayList<String>()
+
         if(resultCode == Activity.RESULT_OK ) {
             if(requestCode == OPEN_GALLERY) {
 
                 var clipData: ClipData = data!!.clipData!!
 
-                for(j in 0..clipData.itemCount-1) {
+                for(j in 0 until clipData.itemCount) {
 
                     var currentImageUrl : Uri? = clipData.getItemAt(j).uri
+
+                    //리스트에 추가
+                    //urilist.add(currentImageUrl.toString())
 
                     // 데베 저장
                     image_sqlDB.execSQL(
@@ -137,7 +148,6 @@ class AddFragment : Fragment(), View.OnClickListener {
                         )
                         items.add(ListViewItem(bitmap))
 
-                        val adapter = ListViewAdapter(items)
                         listview.adapter = adapter
 
                     } catch (e: Exception) {
@@ -146,6 +156,11 @@ class AddFragment : Fragment(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity = getActivity() as MainActivity
     }
 
     class ImageDBManager(
