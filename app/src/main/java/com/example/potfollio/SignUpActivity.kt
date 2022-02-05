@@ -30,38 +30,44 @@ class SignUpActivity : AppCompatActivity() {
         val imageView : ImageView = findViewById(R.id.logo_signup);
         Glide.with(this).load(R.raw.redlogo).override(300,300).into(imageView)
 
-
         edtName = findViewById(R.id.edtName)
         edtId = findViewById(R.id.edtId)
         edtPass = findViewById(R.id.edtPass)
         edtRePass = findViewById(R.id.edtRePass)
         btnSign = findViewById(R.id.btnSign)
 
+        // 회원가입시에 데이터를 저장하기 위해 만든 데이터베이스 groupTBL 선언
         dbManager = DBManager(this, "groupTBL", null, 1)
         sqlDB = dbManager.writableDatabase
 
         btnSign.setOnClickListener {
+            // groupTBL 데이터베이스를 읽고쓰기 위해 writable로 선언
             sqlDB = dbManager.writableDatabase
+
+            // cursor로 원하는 gName과 gID 부분만 접근
             var cursor: Cursor
             cursor = sqlDB.rawQuery("SELECT gName,gID FROM groupTBL", null)
 
             if (cursor.count == 0) {
                 // 데이터베이스에 아무런 행도 없는 경우 = 아직 값이 들어오지 않은 경우
                 if (edtName.text.toString().isBlank() || edtId.text.toString().isBlank() || edtPass.text.toString().isBlank() || edtRePass.text.toString().isBlank()) {
-                    // 닉네임, 아이디, 비번은 필수 입력 사항
-                    // (수정 완료) 수정필요: 이름,id,pw 모두 입력해야 넘어가는 걸로..
-                    Toast.makeText(applicationContext, "닉네임, 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                    // 이름, 아이디, 비번은 필수 입력 사항
+                    Toast.makeText(applicationContext, "이름, 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
                 else if (edtName.text.toString().length < 2) {
-                    Toast.makeText(applicationContext, "닉네임을 2자리 이상 입력하세요", Toast.LENGTH_SHORT).show()
+                    // 이름을 2자리 이상 입력하도록 함
+                    Toast.makeText(applicationContext, "이름을 2자리 이상 입력하세요", Toast.LENGTH_SHORT).show()
                 }
                 else if (edtId.text.toString().length < 6) {
+                    // 아이디를 6자리 이상 입력하도록 함
                     Toast.makeText(applicationContext, "아이디를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
                 }
                 else if (edtPass.text.toString().length < 6) {
+                    // 비밀번호를 6자리 이상 입력하도록 함
                     Toast.makeText(applicationContext, "비밀번호를 6자리 이상 입력하세요.", Toast.LENGTH_SHORT).show()
                 }
                 else if (edtRePass.text.toString() != edtPass.text.toString()) {
+                    // 비밀번호 재입력 부분에서 입력해두었던 비밀번호와 다르면 다시 입력하도록 함
                     Toast.makeText(applicationContext, "비밀번호가 다릅니다. 다시 입력하세요", Toast.LENGTH_SHORT).show()
                 }
                 else {
@@ -89,16 +95,18 @@ class SignUpActivity : AppCompatActivity() {
                 )
                 if (edtName.text.toString().isBlank() || edtId.text.toString().isBlank() || edtPass.text.toString().isBlank() || edtRePass.text.toString().isBlank()) {
                     // 닉네임, 아이디, 비번은 필수 입력 사항
-                    // (수정 완료) 수정필요: 이름,id,pw 모두 입력해야 넘어가는 걸로..
                     Toast.makeText(applicationContext, "닉네임, 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
                 else if (cursor.count == 1) {
+                    // cursor의 행이 한개 존재하면 이미 사용중인 닉네임 임을 알림
                     Toast.makeText(applicationContext, "이미 사용 중인 닉네임입니다.", Toast.LENGTH_SHORT).show()
                 }
                 else if (edtName.text.toString().length < 2) {
+                    // 이름을 2자리 이상 입력하도록 함
                     Toast.makeText(applicationContext, "닉네임을 2자리 이상 입력하세요", Toast.LENGTH_SHORT).show()
                 }
                 else if (cursor.count != 1) {
+                    // 위의 회원가입 조건과 거의 동일함
                     cursor = sqlDB.rawQuery("SELECT gID FROM groupTBL WHERE gID='" + edtId.text.toString() + "'", null)
                     if (cursor.count == 1) {
                         Toast.makeText(applicationContext, "이미 사용 중인 아이디입니다.", Toast.LENGTH_SHORT).show()
@@ -113,6 +121,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "비밀번호가 다릅니다. 다시 입력하세요", Toast.LENGTH_SHORT).show()
                     }
                     else {
+                        // 위의 조건을 모두 충족할 경우에 데이터베이스에 데이터를 입력하도록 함
                         sqlDB.execSQL(
                             "INSERT INTO groupTBL VALUES ( '"
                                     + edtName.text.toString() + "' , '"
@@ -134,6 +143,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    // 회원가입시에 사용자들의 데이터를 저장하기 위한 데이터베이스
     class DBManager(
         context: Context,
         name: String?,

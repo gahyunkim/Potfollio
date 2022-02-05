@@ -65,14 +65,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //        })
         return view
 
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val frame1 : FrameLayout= view.findViewById(R.id.frame1)
         val frame2 : FrameLayout= view.findViewById(R.id.frame2)
-
 
         val imageView : ImageView = view.findViewById(R.id.imageView)
         imageView.setClipToOutline(true)
@@ -82,12 +80,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
         frame1.setOnClickListener{
             Toast.makeText(getActivity(), "frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.PostFragmentChange(0)
+            activity.FragmentChange(0)
 
         }
         frame2.setOnClickListener{
             Toast.makeText(getActivity(), "frame2가 클릭되었습니다.", Toast.LENGTH_SHORT).show();
-            activity.PostFragmentChange(1)
+            activity.FragmentChange(1)
         }
     }
 
@@ -132,6 +130,5 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //            }
 //        }
 //    }
-
 
 }

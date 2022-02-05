@@ -37,7 +37,6 @@ class StartActivity : AppCompatActivity(){
         text_sqlDB.close()
         text_dbManager.close()
 
-
         btnStart = findViewById(R.id.btnStart)
 
         btnStart.setOnClickListener{

@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
     lateinit var sqlDB: SQLiteDatabase
-    lateinit var sdbManager: SearchActivity.SearchDBManager
+    lateinit var sdbManager: SearchFragment.SearchDBManager
 
     private val fragmentManager = supportFragmentManager
 //    val fragmentTransaction = fragmentManager.beginTransaction()
@@ -60,8 +60,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 //            fragmentTransaction.add(R.id.linearLayout, fragment)
 //            fragmentTransaction.commit()
 //        }
-        transaction = fragmentManager.beginTransaction()
-        transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
+//        transaction = fragmentManager.beginTransaction()
+//        transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -83,9 +83,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.tab_search ->{ // 검색창
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , SearchFragment()).addToBackStack(null).commitAllowingStateLoss()
-               // transaction.addToBackStack(null)
 
-                sdbManager = SearchActivity.SearchDBManager(this, "searchList", null, 2)
+                sdbManager = SearchFragment.SearchDBManager(this, "searchList", null, 2)
                 sqlDB = sdbManager.writableDatabase
 
                 //gif부분
@@ -106,6 +105,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.tab_my -> { // 마이페이지
+//                val intent = Intent(this,CardTransActivity::class.java)
+//                startActivity(intent)
 //                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , MyPageFragment()).commitAllowingStateLoss()
                 transaction = fragmentManager.beginTransaction()
                 transaction.add(R.id.linearLayout, MyPageFragment())
@@ -114,14 +115,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 transaction.commit()
 //                transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
 
-                // CardChangeActivity 로부터 얻은 값을 bundle을 이용해 MyPageFragment로 보내기
+                // CardChangeActivity 로부터 얻은 값을 bundle을 이용해 MyPageFragment로 데이터 전달
                 val bundle = Bundle()
                 bundle.putString("name", intent.getStringExtra("name"))
-                bundle.putString("nickname", intent.getStringExtra("nickname"))
-                bundle.putString("info", intent.getStringExtra("info"))
-                bundle.putString("sns", intent.getStringExtra("sns"))
-                bundle.putString("phone", intent.getStringExtra("phone"))
-                bundle.putString("mail", intent.getStringExtra("mail"))
+//                bundle.putString("nickname", intent.getStringExtra("nickname"))
+//                bundle.putString("info", intent.getStringExtra("info"))
+//                bundle.putString("sns", intent.getStringExtra("sns"))
+//                bundle.putString("phone", intent.getStringExtra("phone"))
+//                bundle.putString("mail", intent.getStringExtra("mail"))
                 transaction.replace(R.id.linearLayout, MyPageFragment().apply { arguments = bundle })
 
                 //gif부분
@@ -133,44 +134,43 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return false
     }
 
-    // MyPageFragment에서 SettingFragment로 이동하기 위한 부분
+    // 액티비티에서 선언되지 못한 프래그먼트가 하단바를 사용하기 위해서 작성된 부분.
+    // 프래그먼트에서 프래그먼트로 이동하기 위한 과정
     // addToBackStack을 이용해 백스택을 저장함(전으로 돌아갈 수 있도록)
-    fun onFragmentChange(){
-        supportFragmentManager.beginTransaction().replace(R.id.linearLayout,SettingFragment()).addToBackStack(null).commit()
-    }
-
-    fun PostFragmentChange(index: Int){
-        if(index==0){
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post1Fragment()).addToBackStack(null).commit()
-        }
-        else if(index ==1){
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,Post2Fragment()).addToBackStack(null).commit()
-        }
-        else if(index ==2){
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,ChangeFragment()).addToBackStack(null).commit()
-        }
-        else if(index ==3){
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout,MyPageFragment()).addToBackStack(null).commit()
-        }
-        else{
-            supportFragmentManager.beginTransaction().detach(MyPageFragment()).attach(MyPageFragment()).addToBackStack(null).commit()
-//            transaction = fragmentManager.beginTransaction()
-//            transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
+    fun FragmentChange(index: Int) {
+        if (index == 0) {
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post1Fragment())
+                .addToBackStack(null).commit()
+        } else if (index == 1) {
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post2Fragment())
+                .addToBackStack(null).commit()
+        } else if (index == 2) {
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, ChangeFragment())
+                .addToBackStack(null).commit()
+        } else if (index == 3) {
+            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, SettingFragment())
+                .addToBackStack(null).commit()
+//        else{
+//            supportFragmentManager.beginTransaction().detach(MyPageFragment()).attach(MyPageFragment()).addToBackStack(null).commit()
+////            transaction = fragmentManager.beginTransaction()
+////            transaction.detach(MyPageFragment()).attach(MyPageFragment()).commit()
+//        }
         }
     }
 
-    // SettingFragment에서 띄우는 이용약관 메세지
-    fun showDialog(){
-        val builder = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.dialog, null)
-        val dialogexplain = dialogView.findViewById<TextView>(R.id.dialog_explain)
-        val dialogtext = dialogView.findViewById<TextView>(R.id.dialog_text)
+        // SettingFragment에서 띄우는 이용약관 메세지
+        fun showDialog() {
+            val builder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.dialog, null)
+//        val dialogexplain = dialogView.findViewById<TextView>(R.id.dialog_explain)
+//        val dialogtext = dialogView.findViewById<TextView>(R.id.dialog_text)
 
-        // 확인 버튼을 이용해서 이용약관에서 빠져나오기기
-       builder.setView(dialogView).setPositiveButton("확인"){ dialogInterface: DialogInterface, i: Int ->
+            // 확인 버튼을 이용해서 이용약관에서 빠져나오기
+            builder.setView(dialogView)
+                .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
-        }.show()
-    }
+                }.show()
+        }
 
 }
 
