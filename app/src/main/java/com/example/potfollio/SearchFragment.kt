@@ -2,16 +2,12 @@ package com.example.potfollio
 
 import android.content.Context
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
-import com.example.potfollio.databinding.FragmentMainBinding
 import java.util.Random
 
 class SearchFragment : Fragment(), View.OnClickListener {
@@ -25,20 +21,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         activity = getActivity() as MainActivity
-
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-//        activity = null!!
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
 
         val view : View = inflater!!.inflate(R.layout.fragment_search, container, false)
         return view
@@ -53,9 +41,11 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
         search_bar = view.findViewById(R.id.search_bar)
 
+        // 랜덤변수 생성
         val random = Random()
         val num = random.nextInt(5) // 0 ~ 4
 
+        // 랜덤으로 문구 생성
         if(num == 0){
             say_e.text = "Success is the ability to go from one failure\nto another with no loss of enthusiasm."
             say_k.text = "성공이란 열정을 잃지 않고 실패를 거듭할 수 있는 능력이다.\n "
@@ -105,7 +95,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 // 검색창에서 글자가 변경이 일어날 때마다 호출
                 return true
             }
@@ -114,42 +103,4 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
     }
-
-    class SearchDBManager(
-        context: Context,
-        name: String?,
-        factory: SQLiteDatabase.CursorFactory?,
-        version: Int
-    ) : SQLiteOpenHelper(context, name, factory, version) {
-        override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE searchList ( gSearch CHAR(50) NOT NULL);")
-        }
-
-        override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
-            db!!.execSQL("DROP TABLE IF EXISTS searchList")
-            onCreate(db)
-        }
-    }
-
-//
-//    private fun setOnClickListener() {
-//        val btnSequence = binding.conslay.children
-//        btnSequence.forEach { btn ->
-//            btn.setOnClickListener(this)
-//        }
-//    }
-
-//    override fun onClick(v: View) {
-//        when (v.id) {
-//            R.id.imageView -> {
-//                Toast.makeText(this, "Frame1이 클릭되었습니다.", Toast.LENGTH_SHORT).show()
-//            }
-//            R.id.btn_second -> {
-//                LogUtil.d(TAG, "Second Button")
-//            }
-//            R.id.btn_third -> {
-//                LogUtil.d(TAG, "Third Button")
-//            }
-//        }
-//    }
 }

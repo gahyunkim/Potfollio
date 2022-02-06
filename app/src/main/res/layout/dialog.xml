@@ -146,13 +146,6 @@
             android:text="이 약관에서 사용하는 용어의 정의는 다음과 같습니다.\n \n① 회원: '갑'과 서비스 이용에 관한 계약을 체결한 자\n② 아이디(ID): 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 '갑'이 승인하는 문자와 숫자의 조합\n③ 비밀번호: 회원이 통신상의 자신의 비밀을 보호하기 위해 선정한 문자와 숫자의 조합\n\n\n"
             android:textColor="#000000" />
 
-
-        <!--        <Button-->
-        <!--            android:id="@+id/dialog_btn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="확인"/>-->
-
     </LinearLayout>
 
 

@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-
 class PasswordActivity : AppCompatActivity() {
     lateinit var id_confirm: EditText
     lateinit var pre_pass: EditText
@@ -70,7 +69,6 @@ class PasswordActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-
         }
     }
 }

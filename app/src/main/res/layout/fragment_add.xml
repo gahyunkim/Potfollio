@@ -89,62 +89,6 @@ tools:context=".AddFragment">
                 android:inputType="textNoSuggestions"
                 android:textSize="16dp" />
 
-            <!--
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="102dp"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgView1"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_main" />
-                </LinearLayout>
-            </HorizontalScrollView>
--->
-
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"

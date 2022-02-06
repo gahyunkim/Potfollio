@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_change.*
 @Suppress("DEPRECATION")
 
 class PostActivity : AppCompatActivity() {
-    // lateinit var post_back: Button
     lateinit var infor_sqlDB: SQLiteDatabase
     lateinit var image_sqlDB: SQLiteDatabase
     lateinit var text_sqlDB: SQLiteDatabase
@@ -53,7 +52,6 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        //post_back = findViewById(R.id.post_back)
         recyclerview = findViewById(R.id.recyclerview)
         topic = findViewById(R.id.topic)
         contents = findViewById(R.id.contents)
@@ -107,7 +105,6 @@ class PostActivity : AppCompatActivity() {
         }
 
         // postId랑 같은 데베 i_number 찾아서 게시물에 뿌리기
-
         // 이미지 보이기
         while (cursor_image.moveToNext()) {
             var iImage = cursor_image.getString(0)
@@ -129,8 +126,6 @@ class PostActivity : AppCompatActivity() {
                     // 레이아웃 매니저
                     val llm = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false) //좌우 스크롤
                     recyclerview.layoutManager = llm
-
-                    //recyclerview.setHasFixedSize(true)
 
                     items.add(RecyclerViewItem(bitmap))
 
@@ -191,11 +186,5 @@ class PostActivity : AppCompatActivity() {
             }
             upTime = 0
         }
-
-//        post_back.setOnClickListener {
-//            // 액티비티가 바로 종료되도록 함
-//            finish()
-//        }
     }
-
 }

@@ -195,13 +195,13 @@ class MyPageFragment : Fragment() {
 
         btn_card_change.setOnClickListener{
             // 명함 수정 버튼 클릭 시 명함 수정 프래그먼트로 화면 전환 - 메인 액티비티와 연결
-            activity.FragmentChange(2)
+            activity.FragmentChange(0)
             Toast.makeText(getActivity(), "명함을 수정해보세요!", Toast.LENGTH_SHORT).show()
         }
 
         settingButton.setOnClickListener{
             // 설정 버튼 클릭 시 설정 프래그먼트로 이동 - 메인 액티비티와 연결
-            activity.FragmentChange(3)
+            activity.FragmentChange(1)
         }
 
         btn_card_big.setOnClickListener {

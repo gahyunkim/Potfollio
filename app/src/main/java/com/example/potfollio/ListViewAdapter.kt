@@ -1,6 +1,5 @@
 package com.example.potfollio
 
-import kotlinx.android.synthetic.main.custom_list_item.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,6 @@ class ListViewAdapter(private val items: MutableList<ListViewItem>): BaseAdapter
         if (convertView == null) convertView = LayoutInflater.from(parent?.context).inflate(R.layout.custom_list_item, parent, false)
 
             val item: ListViewItem = items[position]
-            val image_title = convertView!!.findViewById<View>(R.id.itemimgview) as ImageView
             convertView!!.itemimgview.setImageBitmap(item.icon)
             return convertView
     }

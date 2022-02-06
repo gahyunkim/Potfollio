@@ -13,11 +13,4 @@
         android:textSize="15sp"
         android:text=""/>
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/search_del"-->
-<!--        android:layout_width="25dp"-->
-<!--        android:layout_height="25dp"-->
-<!--        android:backgroundTint="#00FFFFFF"-->
-<!--        app:srcCompat="@drawable/ic_baseline_clear_24" />-->
-
 </LinearLayout>

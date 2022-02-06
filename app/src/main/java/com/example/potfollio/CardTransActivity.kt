@@ -1,20 +1,11 @@
 package com.example.potfollio
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-
 
 class CardTransActivity : AppCompatActivity() {
     lateinit var card_dbManager : ChangeFragment.DBManager
@@ -52,7 +43,7 @@ class CardTransActivity : AppCompatActivity() {
         )
 
         if(card_cursor.count==0){
-            // 동일한 이름을을 가지는 테이이 없는 경우 새롭게 테이블을 생성함 + 기본 데이터를 넣어줌
+            // 동일한 이름을 가지는 테이블이 없는 경우 새롭게 테이블을 생성함 + 기본 데이터를 넣어줌
             cname.text = c_name?.toUpperCase()
             cnickname.text =  "Game Director"
             cinfo.text =  "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다."

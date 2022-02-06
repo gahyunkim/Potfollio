@@ -1,11 +1,9 @@
 package com.example.potfollio
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
 import kotlinx.android.synthetic.main.custom_recycler_item.view.*
 
 class RecyclerViewAdapter(private val items: ArrayList<RecyclerViewItem>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -15,8 +13,7 @@ class RecyclerViewAdapter(private val items: ArrayList<RecyclerViewItem>) : Recy
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item = items[position]
-        val listener = View.OnClickListener { it ->
-            // Toast.makeText(it.context, "Clicked -> ID : ${item.user_id}, Name : ${item.user_name}", Toast.LENGTH_SHORT).show()
+        val listener = View.OnClickListener {
         }
         holder.apply {
             bind(listener, item)

@@ -208,26 +208,4 @@
 
     </FrameLayout>
 
-
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--        xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
-    <!--        android:layout_margin="20dp"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="200dp"-->
-    <!--        card_view:cardCornerRadius="20dp"-->
-    <!--        card_view:cardUseCompatPadding="true">-->
-    <!--        <com.makeramen.roundedimageview.RoundedImageView-->
-    <!--            android:id="@+id/imageview_main_image1"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:scaleType="centerCrop"-->
-    <!--            app:riv_corner_radius="20dp"-->
-    <!--            android:src="@drawable/profile"-->
-    <!--            app:riv_border_color="#333333"-->
-    <!--            app:riv_mutate_background="true"-->
-    <!--            app:riv_oval="false" />-->
-    <!--    </androidx.cardview.widget.CardView>-->
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

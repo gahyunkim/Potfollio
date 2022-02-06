@@ -4,13 +4,11 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,20 +68,20 @@ class AddFragment : Fragment(), View.OnClickListener {
         edtContents = view.findViewById(R.id.edtContents)
         btnUp = view.findViewById(R.id.btnUp)
 
+        // 이미지 올리기
         btnSelect.setOnClickListener { openGallery() }
 
-        // 올리기 실행 시
-        // 제목,내용 미입력 시 기본 문구 들어감
+        // 올리기
+        // (이미지: 필수 입력 / 제목,내용: 미입력 시 기본 문구 들어감)
         btnUp.setOnClickListener {
             text_sqlDB = text_dbManager.writableDatabase
 
             // 이미지X
             if ( listview.isEmpty()
             ) {
-                // 이미지는 필수 입력 사항
                 Toast.makeText(getActivity(), "이미지는 필수 입력 사항입니다!", Toast.LENGTH_SHORT).show()
             }
-            // 제목O 내용X
+            // 제목O 내용X 이미지O
             else if(edtTitle.text.toString().isNotBlank() && edtContents.text.toString().isBlank() && listview.isNotEmpty()) {
                 text_sqlDB.execSQL(
                     "INSERT INTO textTBL VALUES ( '"
@@ -97,7 +95,7 @@ class AddFragment : Fragment(), View.OnClickListener {
                 listview.adapter = adapter // 이미지 초기화
                 edtTitle.text = null // 제목 초기화
             }
-            // 제목X 내용O
+            // 제목X 내용O 이미지O
             else if(edtTitle.text.toString().isBlank() && edtContents.text.toString().isNotBlank() && listview.isNotEmpty()) {
                 text_sqlDB.execSQL(
                     "INSERT INTO textTBL VALUES ( '"
@@ -111,7 +109,7 @@ class AddFragment : Fragment(), View.OnClickListener {
                 listview.adapter = adapter // 이미지 초기화
                 edtContents.text = null // 내용 초기화
             }
-            // 제목X 내용X
+            // 제목X 내용X 이미지O
             else if(edtTitle.text.toString().isBlank() && edtContents.text.toString().isBlank() && listview.isNotEmpty()) {
                 text_sqlDB.execSQL(
                     "INSERT INTO textTBL VALUES ( '"
@@ -122,9 +120,9 @@ class AddFragment : Fragment(), View.OnClickListener {
                 Toast.makeText(getActivity(), "이미지 업로드 완료 ", Toast.LENGTH_SHORT).show()
                 items.clear()
                 adapter.notifyDataSetChanged()
-                listview.adapter = adapter
+                listview.adapter = adapter // 이미지 초기화
             }
-            // 제목O 내용O
+            // 제목O 내용O 이미지O
             else{
                 // 데베 저장
                 text_sqlDB.execSQL(
@@ -157,9 +155,6 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
 
-        // 리스트에 주소 저장해 놓고 '올리기' 누르면 데베에 올리기
-        //var urilist = ArrayList<String>()
-
         if(resultCode == Activity.RESULT_OK ) {
             if(requestCode == OPEN_GALLERY) {
 
@@ -169,16 +164,12 @@ class AddFragment : Fragment(), View.OnClickListener {
 
                     var currentImageUrl : Uri? = clipData.getItemAt(j).uri
 
-                    //리스트에 추가
-                    //urilist.add(currentImageUrl.toString())
-
-                    // 데베 저장
+                    // 이미지 데베 저장
                     image_sqlDB.execSQL(
                         "INSERT INTO ImageTBL VALUES ( '"
                                 + currentImageUrl.toString() + "' , '"
                                 + index + "');"
                     )
-                    //image_sqlDB.close()
 
                     // 리스트뷰에 이미지 띄우기(비트맵 활용)
                     try {
@@ -203,6 +194,7 @@ class AddFragment : Fragment(), View.OnClickListener {
         activity = getActivity() as MainActivity
     }
 
+    // 게시글 이미지 저장 db
     class ImageDBManager(
         context: Context,
         name: String?,
@@ -217,6 +209,7 @@ class AddFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    // 게시글 제목, 내용 저장 db
     class TextDBManager(
         context: Context,
         name: String?,

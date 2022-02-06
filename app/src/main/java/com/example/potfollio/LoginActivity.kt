@@ -23,7 +23,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var btnLog: Button
     lateinit var btnJoin: Button
     lateinit var edtLogId: EditText
-    lateinit var autoLog: CheckBox
     lateinit var edtLogPass: EditText
     lateinit var sqlDB: SQLiteDatabase
     lateinit var dbManager: SignUpActivity.DBManager
@@ -32,15 +31,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         var builder = NotificationCompat.Builder(this)
-//            .setSmallIcon(R.drawable.)
             .setContentTitle("IT 관련자들을 위한 알림")
             .setContentText("IT와 관련해 국내 및 해외 소식을 빠르게 알고 싶은 경우 'Geek News'를 사용해보세요! 누구든지 AI.IT 업계와 기술의 흐름을 놓치지 않을 수 있습니다. ")
-
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //gif부분
+        //gif
         val imageView : ImageView = findViewById(R.id.logo_login)
         Glide.with(this).load(R.raw.redlogo).override(300, 300).into(imageView)
 
@@ -109,7 +106,6 @@ class LoginActivity : AppCompatActivity() {
 
                         // 알림 표시: 알림의 고유 ID(ex: 1002), 알림 결과
                         notificationManager.notify(1002, builder.build())
-
                     }
                 }
             }
@@ -154,9 +150,7 @@ class LoginActivity : AppCompatActivity() {
                     REQUEST_READ_EXTERNAL_STORAGE
                 )}
                 dlg.show()
-//
-//                var intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent)
+
             } else {
                 // 처음 권한 요청
                 ActivityCompat.requestPermissions(

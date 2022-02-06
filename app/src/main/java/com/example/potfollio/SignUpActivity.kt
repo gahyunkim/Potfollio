@@ -26,7 +26,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        //gif부분
+        //gif
         val imageView : ImageView = findViewById(R.id.logo_signup);
         Glide.with(this).load(R.raw.redlogo).override(300,300).into(imageView)
 
@@ -155,7 +155,6 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
-
         }
     }
 }
