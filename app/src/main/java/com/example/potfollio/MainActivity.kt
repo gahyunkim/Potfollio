@@ -8,10 +8,7 @@ import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
@@ -24,6 +21,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private lateinit var binding : ActivityMainBinding  // 뷰 바인딩
     lateinit var sqlDB: SQLiteDatabase
     lateinit var sdbManager: SearchFragment.SearchDBManager
+
 
     private val fragmentManager = supportFragmentManager
 //    val fragmentTransaction = fragmentManager.beginTransaction()
@@ -46,6 +44,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         // 리니어레이아웃 부분을 변경할 것임
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, MainFragment()).commit()
+
 //
 //        fun setting(){
 //            val fragment = SettingFragment()
@@ -121,11 +120,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     // addToBackStack을 이용해 백스택을 저장함(전으로 돌아갈 수 있도록)
     fun FragmentChange(index: Int) {
         if (index == 0) {
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post1Fragment())
-                .addToBackStack(null).commit()
+//            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post1Fragment())
+//                .addToBackStack(null).commit()
         } else if (index == 1) {
-            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post2Fragment())
-                .addToBackStack(null).commit()
+//            supportFragmentManager.beginTransaction().replace(R.id.linearLayout, Post2Fragment())
+//                .addToBackStack(null).commit()
         } else if (index == 2) {
             supportFragmentManager.beginTransaction().replace(R.id.linearLayout, ChangeFragment())
                 .addToBackStack(null).commit()

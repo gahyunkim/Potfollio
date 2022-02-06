@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         //gif부분
-        val imageView : ImageView = findViewById(R.id.logo_login);
+        val imageView : ImageView = findViewById(R.id.logo_login)
         Glide.with(this).load(R.raw.redlogo).override(300, 300).into(imageView)
 
         btnLog = findViewById(R.id.btnLog)
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
                     val bigtext = "IT와 관련해 국내 및 해외 소식을 빠르게 알고 싶은 경우 'Geek News'를 사용해보세요! 누구든지 AI.IT 업계와 기술의 흐름을 놓치지 않을 수 있습니다. "
 
                     var builder = NotificationCompat.Builder(this, "MY_channel")
-                        .setSmallIcon(R.drawable.ic_launcher_background)
+                        .setSmallIcon(R.drawable.logo_red)
                         .setContentTitle("IT 관련자들을 위한 알림")
                         .setContentText("IT와 관련해 국내 및 해외 소식을 빠르게 알고 싶은 경우 'Geek News'를 사용해보세요! 누구든지 AI.IT 업계와 기술의 흐름을 놓치지 않을 수 있습니다. ")
                         .setAutoCancel(true)

@@ -10,8 +10,8 @@
 
     <FrameLayout
         android:id="@+id/card_frame"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="600dp"
+            android:layout_height="300dp"
             android:layout_margin="10dp"
             android:background="@drawable/round_mypage"
             android:orientation="vertical">
@@ -29,39 +29,39 @@
                 android:id="@+id/cname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="27dp"
                 android:background="@drawable/underline_search"
                 android:fontFamily="@font/notosans_black"
-                android:textColor="@color/black"
                 android:text="XXHYUN"
-                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cnickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:fontFamily="@font/notosans_medium"
-                android:textSize="20dp"
-                android:text="Game Director" />
+                android:text="Game Director"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/cinfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:text="안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다."
-                android:textSize="18dp" />
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/round_mypage"
                 android:orientation="horizontal">
 
@@ -69,12 +69,12 @@
                     android:id="@+id/csns"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="pp734.k"
-                    android:textSize="18dp"
-                    android:textAlignment="textEnd"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"/>
+                    android:text="pp734.k"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -97,22 +97,22 @@
 
                 <TextView
                     android:id="@+id/cphone"
-                    android:layout_marginEnd="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
                     android:text="010.6345.6284"
-                    android:textSize="18dp"
-                    android:textColor="@color/black"
                     android:textAlignment="textEnd"
-                    android:layout_weight="1"/>
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="20dp"
                     android:layout_height="25dp"
-                    android:layout_marginTop="3dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
                     android:layout_marginEnd="30dp"
                     android:scaleType="fitStart"
                     android:tint="#7D7D7D"
@@ -128,14 +128,14 @@
 
                 <TextView
                     android:id="@+id/cmail"
-                    android:layout_marginEnd="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
                     android:text="lkeyun3301@gmail.com"
                     android:textAlignment="textEnd"
-                    android:textSize="18dp"
                     android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    android:textSize="16dp" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -169,14 +169,14 @@
                     android:layout_width="300dp"
                     android:layout_height="10dp"
                     android:layout_marginStart="7dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/underline_card" />
 
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="300dp"
                     android:layout_height="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/underline_card" />
@@ -189,6 +189,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -196,13 +198,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pot,Folio"
-            android:textSize="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
-            android:textAlignment="textEnd"
             android:fontFamily="@font/app_name"
-            android:textColor="#48ED5E0E"/>
+            android:text="Pot,Folio"
+            android:textAlignment="textEnd"
+            android:textColor="#48ED5E0E"
+            android:textSize="50dp" />
 
     </FrameLayout>
 
