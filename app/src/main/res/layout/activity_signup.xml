@@ -28,43 +28,43 @@
         android:text="Pot, Folio" />
 
     <EditText
-            android:id="@+id/edtName"
-            android:inputType="textNoSuggestions"
-            android:paddingLeft="20dp"
-            android:layout_width="245dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/roundbutton_white"
-            android:textSize="12dp"
-            android:fontFamily="@font/notosans_medium"
-            android:hint="이름을 입력해주세요." />
+        android:id="@+id/edtName"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundbutton_white"
+        android:fontFamily="@font/notosans_medium"
+        android:hint="2자리 이상의 이름을 입력해주세요."
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="20dp"
+        android:textSize="12dp" />
 
-        <EditText
-            android:id="@+id/edtId"
-            android:inputType="textNoSuggestions"
-            android:paddingLeft="20dp"
-            android:layout_width="245dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/roundbutton_white"
-            android:textSize="12dp"
-            android:fontFamily="@font/notosans_medium"
-            android:hint="아이디를 입력해주세요." />
+    <EditText
+        android:id="@+id/edtId"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundbutton_white"
+        android:fontFamily="@font/notosans_medium"
+        android:hint="6자리 이상의 아이디를 입력해주세요."
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="20dp"
+        android:textSize="12dp" />
 
-        <EditText
-            android:id="@+id/edtPass"
-            android:inputType="textNoSuggestions"
-            android:paddingLeft="20dp"
-            android:layout_width="245dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/roundbutton_white"
-            android:textSize="12dp"
-            android:fontFamily="@font/notosans_medium"
-            android:hint="비밀번호를 입력해주세요." />
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundbutton_white"
+        android:fontFamily="@font/notosans_medium"
+        android:hint="6자리 이상의 비밀번호를 입력해주세요."
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="20dp"
+        android:textSize="12dp" />
 
         <EditText
             android:id="@+id/edtRePass"
