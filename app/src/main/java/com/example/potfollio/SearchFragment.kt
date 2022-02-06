@@ -9,17 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.SearchView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.potfollio.databinding.FragmentMainBinding
+import java.util.Random
 
 class SearchFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentMainBinding
-    lateinit var sqlDB: SQLiteDatabase
-    lateinit var sdbManager: SearchDBManager
     lateinit var activity : MainActivity
     lateinit var search_bar: SearchView
 
@@ -46,26 +41,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
 
         val view : View = inflater!!.inflate(R.layout.fragment_search, container, false)
-//        val search_bar : SearchView = inflater!!.inflate(R.layout.fragment_search,container,false) as SearchView
-//
-//        search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                //sdbManager = SearchDBManager(this, "searchList", null, 2)
-//                sqlDB = sdbManager.writableDatabase
-//                sqlDB.execSQL(
-//                    "INSERT INTO searchList VALUES ( '"
-//                            + query.toString() + "');"
-//                )
-//                //Toast.makeText(applicationContext, "[검색버튼클릭] 검색어 = "+query.toString(), Toast.LENGTH_LONG).show();
-//
-//                sqlDB.close()
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                return true
-//            }
-//        })
         return view
     }
 
@@ -73,7 +48,34 @@ class SearchFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         val frame1 : FrameLayout= view.findViewById(R.id.frame1)
         val frame2 : FrameLayout= view.findViewById(R.id.frame2)
+        val say_e : TextView = view.findViewById(R.id.say_e)
+        val say_k : TextView = view.findViewById(R.id.say_k)
+
         search_bar = view.findViewById(R.id.search_bar)
+
+        val random = Random()
+        val num = random.nextInt(5) // 0 ~ 4
+
+        if(num == 0){
+            say_e.text = "Success is the ability to go from one failure\nto another with no loss of enthusiasm."
+            say_k.text = "성공이란 열정을 잃지 않고 실패를 거듭할 수 있는 능력이다.\n "
+        }
+        else if(num == 1) {
+            say_e.text = "\nWhy be a man when you can be a success?"
+            say_k.text = "성공한 사람이 될 수 있는데 왜 평범한 이에 머무르려 하는가?\n "
+        }
+        else if(num == 2) {
+            say_e.text = "To follow, without halt, one aim:\nThere's the secret of success."
+            say_k.text = "멈추지 말고 한 가지 목표에 매진하라. 그것이 성공의 비결이다.\n "
+        }
+        else if(num == 3) {
+            say_e.text = "To accomplish great things,\nwe must dream as well as act."
+            say_k.text = "위대한 성취를 하려면 행동하는 것뿐만 아니라,\n꿈꾸는 것도 반드시 필요하다."
+        }
+        else if(num == 4) {
+            say_e.text = "Try not to become a man of success\nbut rather try to become a man of value."
+            say_k.text = "성공한 사람이 아니라 가치있는 사람이 되기 위해 힘쓰라.\n "
+        }
 
         val imageView : ImageView = view.findViewById(R.id.imageView)
         imageView.setClipToOutline(true)

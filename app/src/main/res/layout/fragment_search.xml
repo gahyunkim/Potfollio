@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/roundbutton_white"
             android:iconifiedByDefault="false"
@@ -42,10 +42,48 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/say_e"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/app_name"
+        android:text="Success is the ability to go from one failure\nto another with no loss of enthusiasm."
+        android:textAlignment="center"
+        android:textColor="#80000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcom"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/say_k"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/notosans_kr_regular"
+        android:lineSpacingExtra="6dp"
+        android:text="성공이란 열정을 잃지 않고 실패를 거듭할 수 있는 능력이다.\n"
+        android:textAlignment="center"
+        android:textColor="#73000000"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/potfolio"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/notosans_bold"
         android:text="추천 검색어"
         android:textColor="#000000"
@@ -61,33 +99,33 @@
             android:id="@+id/imageView"
             android:layout_width="190dp"
             android:layout_height="270dp"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="150dp"
             android:background="@drawable/imageround"
+            android:scaleType="centerCrop"
             android:src="@drawable/img1"
-            app:riv_corner_radius="20dp"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop" />
+            app:riv_corner_radius="20dp" />
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageView2"
             android:layout_width="190dp"
             android:layout_height="270dp"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="150dp"
-            app:riv_corner_radius="20dp"
             android:background="@drawable/imageround"
+            android:scaleType="centerCrop"
             android:src="@drawable/pimg2"
             app:layout_constraintEnd_toEndOf="@+id/frame2"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop" />
+            app:riv_corner_radius="20dp" />
 
         <FrameLayout
             android:id="@+id/frame1"

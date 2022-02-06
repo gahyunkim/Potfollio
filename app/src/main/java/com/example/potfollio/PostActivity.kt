@@ -45,6 +45,10 @@ class PostActivity : AppCompatActivity() {
 
     val items = ArrayList<RecyclerViewItem>()
 
+    companion object {
+        var upTime:Int = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
@@ -153,33 +157,39 @@ class PostActivity : AppCompatActivity() {
                 "캐릭터의 퀄리티 보다는 자유로움과 독창적인 세계관을 더 중요시하는 이번 공모전의 취지를 살리기 위해 대학생 공모전으로 기획을 하였고 대학생뿐 아니라 일반인도 만30세까지 참여가 가능합니다.\n"
 
 
-        var builder = NotificationCompat.Builder(this, "MY_channel")
-            .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentTitle("디자인 관련자들을 위한 알림")
-            .setContentText("디자인 관련자들이 관심가질 공모전 정보 - 한화손해보험 캐릭터 디자인 공모전")
-            .setAutoCancel(true)
-            .setWhen(System.currentTimeMillis())
-            .setPriority(Notification.PRIORITY_HIGH)
-            .setStyle(
-                NotificationCompat.BigTextStyle()
-                .bigText(bigtext))
+        // 팝업 1번만 뜨도록
+        if(upTime == 1)
+        {
+            var builder = NotificationCompat.Builder(this, "MY_channel")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("디자인 관련자들을 위한 알림")
+                .setContentText("디자인 관련자들이 관심가질 공모전 정보 - 한화손해보험 캐릭터 디자인 공모전")
+                .setAutoCancel(true)
+                .setWhen(System.currentTimeMillis())
+                .setPriority(Notification.PRIORITY_HIGH)
+                .setStyle(
+                    NotificationCompat.BigTextStyle()
+                        .bigText(bigtext)
+                )
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // 오레오 버전 이후에는 알림을 받을 때 채널이 필요
-            val channel_id = "MY_channel" // 알림을 받을 채널 id 설정
-            val channel_name = "채널이름" // 채널 이름 설정
-            val descriptionText = "설명글" // 채널 설명글 설정
-            val importance = NotificationManager.IMPORTANCE_HIGH // 알림 우선순위 설정
-            val channel = NotificationChannel(channel_id, channel_name, importance).apply {
-                description = descriptionText
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // 오레오 버전 이후에는 알림을 받을 때 채널이 필요
+                val channel_id = "MY_channel" // 알림을 받을 채널 id 설정
+                val channel_name = "채널이름" // 채널 이름 설정
+                val descriptionText = "설명글" // 채널 설명글 설정
+                val importance = NotificationManager.IMPORTANCE_HIGH // 알림 우선순위 설정
+                val channel = NotificationChannel(channel_id, channel_name, importance).apply {
+                    description = descriptionText
+                }
+
+                // 만든 채널 정보를 시스템에 등록
+                val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
+
+                // 알림 표시: 알림의 고유 ID(ex: 1002), 알림 결과
+                notificationManager.notify(1002, builder.build())
             }
-
-            // 만든 채널 정보를 시스템에 등록
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-
-            // 알림 표시: 알림의 고유 ID(ex: 1002), 알림 결과
-            notificationManager.notify(1002, builder.build())
+            upTime = 0
         }
 
 //        post_back.setOnClickListener {
