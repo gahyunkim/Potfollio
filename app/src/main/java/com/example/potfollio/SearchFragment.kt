@@ -42,8 +42,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
+        // Inflate the layout for this fragment
 
         val view : View = inflater!!.inflate(R.layout.fragment_search, container, false)
 //        val search_bar : SearchView = inflater!!.inflate(R.layout.fragment_search,container,false) as SearchView
@@ -67,8 +67,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //            }
 //        })
         return view
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -152,6 +150,4 @@ class SearchFragment : Fragment(), View.OnClickListener {
 //            }
 //        }
 //    }
-
-
 }

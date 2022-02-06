@@ -36,6 +36,7 @@
             android:iconifiedByDefault="false"
             android:inputType="text"
             android:queryBackground="@null"
+            android:focusable="false"
             android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -44,7 +45,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="' design ' 이 검색되었습니다."
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black">
+
+        </TextView>
 
 
         <ScrollView
@@ -86,8 +97,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/announce"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/hot1"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -100,7 +111,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="Writer"
+                                    android:text="Balloon"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -122,8 +133,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/coding1"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/hot3"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -136,7 +147,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="Code With Me"
+                                    android:text="Blue"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -159,8 +170,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/illus"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/hot2"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -173,7 +184,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="Today's PotFolio"
+                                    android:text="Chanel"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -205,8 +216,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/illus"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/hot2"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -219,7 +230,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="My Room"
+                                    android:text="My Perfume"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -242,8 +253,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/house"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/prof1"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -256,7 +267,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="Architect"
+                                    android:text="Graphic Graphic"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -279,8 +290,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.8"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/coding1"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/hot1"
                                     app:riv_corner_radius_top_left="10dp"
                                     app:riv_corner_radius_top_right="10dp"
                                     app:riv_mutate_background="true"
@@ -293,7 +304,7 @@
                                     android:layout_margin="10dp"
                                     android:layout_weight="0.2"
                                     android:fontFamily="@font/app_name"
-                                    android:text="Coding-ing"
+                                    android:text="Party Day"
                                     android:textColor="@color/black"
                                     android:textSize="18dp" />
                             </LinearLayout>

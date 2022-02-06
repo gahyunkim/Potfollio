@@ -36,6 +36,7 @@
             android:inputType="text"
             android:queryBackground="@null"
             android:queryHint="어떤 포트폴리오를 찾고 계신가요?"
+            android:focusable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
