@@ -65,7 +65,7 @@ class PasswordActivity : AppCompatActivity() {
                     )
 
                     // 비밀번호 변경이 완료되면 StartActivity로 화면 이동
-                    val intent = Intent(this, StartActivity::class.java)
+                    val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                 }
             }

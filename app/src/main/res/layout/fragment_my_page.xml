@@ -121,7 +121,7 @@
                     android:id="@+id/card_sns"
                     android:layout_width="357dp"
                     android:layout_height="wrap_content"
-                    android:text="pp734.k"
+                    android:text="d_dimi_"
                     android:textAlignment="textEnd" />
 
                 <ImageView
@@ -146,7 +146,7 @@
                     android:id="@+id/card_phone"
                     android:layout_width="358dp"
                     android:layout_height="wrap_content"
-                    android:text="010.6345.6284"
+                    android:text="010.1234.5678"
                     android:textAlignment="textEnd" />
 
 
@@ -171,7 +171,7 @@
                     android:id="@+id/card_mail"
                     android:layout_width="358dp"
                     android:layout_height="wrap_content"
-                    android:text="lkeyun3301@gmial.com"
+                    android:text="gameDirector@naver.com"
                     android:textAlignment="textEnd" />
 
                 <ImageView

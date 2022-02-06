@@ -47,9 +47,9 @@ class CardTransActivity : AppCompatActivity() {
             cname.text = c_name?.toUpperCase()
             cnickname.text =  "Game Director"
             cinfo.text =  "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다."
-            csns.text =  "pp734.k"
-            cphone.text =  "010.6345.6284"
-            cmail.text =  "ikeyun3301@gmail.com"
+            csns.text =  "d_dimi_"
+            cphone.text =  "010.1234.5678"
+            cmail.text =  "gameDirector@naver.com"
         }
         else if(card_cursor.count==1){
             // 동일한 이름을 가지는 테이블이 있는 경우 데이터베이스로 부터 각각의 데이터를 얻어서 명함 페이지 구성

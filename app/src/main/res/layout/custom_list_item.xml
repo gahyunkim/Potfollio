@@ -5,6 +5,7 @@
     <ImageView android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/itemimgview"
+        android:adjustViewBounds="true"
         android:layout_weight="1" />
 
 </LinearLayout>

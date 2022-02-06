@@ -156,7 +156,7 @@ class PostActivity : AppCompatActivity() {
         if(upTime == 1)
         {
             var builder = NotificationCompat.Builder(this, "MY_channel")
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.logo_red)
                 .setContentTitle("디자인 관련자들을 위한 알림")
                 .setContentText("디자인 관련자들이 관심가질 공모전 정보 - 한화손해보험 캐릭터 디자인 공모전")
                 .setAutoCancel(true)

@@ -111,9 +111,9 @@ class ChangeFragment : Fragment() {
                                 + change_name.text.toString() + "' , '"
                                 + "Game Director" + "' , '"
                                 + "안녕하세요.\n저의 Pot, Folio에 방문해주셔서 감사합니다." + "' , '"
-                                + "pp734.k" + "' , '"
-                                + "010.6345.6284" + "' , '"
-                                + "Ikeyun3301@gmail.com" + "');")
+                                + "d_dimi_" + "' , '"
+                                + "010.1234.5678" + "' , '"
+                                + "gameDirector@naver.com" + "');")
                 }
                 else if (change_nickname.text.toString().length > 20) {
                     // 수정 시에 입력한 직업이 20자를 넘지 못하도록 함
